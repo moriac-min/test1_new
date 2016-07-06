@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:input class="ipt" disabled="" displaymessage="" id="input82" invalidMessageFunc="" mandatory="" readOnly="" style="width:120px;">
+</xf:input>
+<w2:textbox class="btnSearch" id="textbox139" label="" style="margin-left:5px;" tagname="a">
+</w2:textbox>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="contreeG" id="group326" style="height:100px;">
+	<w2:treeview checkAllChildNodes="true" class="contree" dataType="listed" id="treeview1" lineShow="false" showCheckbox="" style="">
+		<w2:itemset nodeset="response1/tree/node">
+			<w2:label ref="label">
+			</w2:label>
+			<w2:value ref="value">
+			</w2:value>
+			<w2:image ref="/src/main/webapp/websquare/common/images/folder.png">
+			</w2:image>
+			<w2:selectedImage ref="/src/main/webapp/websquare/common/images/folder_files.png">
+			</w2:selectedImage>
+			<w2:expandedImage ref="/src/main/webapp/websquare/common/images/folder_open.png">
+			</w2:expandedImage>
+</w2:itemset>
+</w2:treeview>
+</xf:group>
+</body>
+</html>

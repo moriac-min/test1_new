@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="contLayout01" id="group51" style="">
+	<xf:group class="leftArea" id="group52" style="">
+		<xf:group class="totalbox" id="group74" style="">
+			<xf:group class="total" id="group75" style="">
+				<xf:group class="strong" id="group76" style="">
+					<w2:textbox class="strong_right" id="textbox16" label="1000" style="" tagname="strong">
+					</w2:textbox>
+</xf:group>
+</xf:group>
+			<w2:textbox class="sear" id="textbox17" label="건이 조회되었습니다." style="">
+			</w2:textbox>
+</xf:group>
+		<w2:gridView autoFit="allColumn" class="cm_grid" dataList="dataList1" fixedColumnWithHidden="true" id="gridView7" scrollByColumn="false" style="position: relative ;height:380px;" useShiftKey="false" visibleRowNum="">
+			<w2:header id="header1" style="">
+				<w2:row id="row1" style="">
+					<w2:column blockSelect="false" id="column3" inputType="text" style="height:30px;" value="기관명" width="70">
+</w2:column>
+					<w2:column blockSelect="false" id="column1" inputType="text" style="height:30px;" value="사용여부" width="70">
+</w2:column>
+</w2:row>
+</w2:header>
+			<w2:gBody id="gBody1" style="">
+				<w2:row id="row2" style="">
+					<w2:column blockSelect="false" id="col1" inputType="text" style="height:25px;" width="70">
+					</w2:column>
+					<w2:column blockSelect="false" id="col2" inputType="text" style="height:25px;" width="70">
+					</w2:column>
+</w2:row>
+</w2:gBody>
+</w2:gridView>
+</xf:group>
+	<xf:group class="rightArea" id="group54" style="">
+		<xf:group class="contLayout04_1" id="group55" style="">
+			<xf:group class="leftArea" id="group56" style="">
+				<xf:group class="totalbox" id="group78" style="">
+					<xf:group class="total" id="group79" style="">
+						<xf:group class="strong" id="group80" style="">
+							<w2:textbox class="strong_right" id="textbox18" label="1000" style="" tagname="strong">
+							</w2:textbox>
+</xf:group>
+</xf:group>
+					<w2:textbox class="sear" id="textbox19" label="건이 조회되었습니다." style="">
+					</w2:textbox>
+</xf:group>
+				<w2:gridView autoFit="allColumn" class="cm_grid" dataList="dataList2" fixedColumnWithHidden="true" id="gridView8" scrollByColumn="false" style="position: relative ;height:380px;" useShiftKey="false" visibleRowNum="15">
+					<w2:header id="header2" style="">
+						<w2:row id="row3" style="">
+							<w2:column blockSelect="false" id="column11" inputType="text" style="height:20px" value="그룹ID" width="70">
+</w2:column>
+							<w2:column blockSelect="false" id="column9" inputType="text" style="height:20px" value="그룹명" width="70">
+</w2:column>
+							<w2:column blockSelect="false" id="column7" inputType="text" style="height:20px" value="사용여부" width="70">
+</w2:column>
+							<w2:column blockSelect="false" id="column5" inputType="text" style="height:20px" value="비고" width="70">
+</w2:column>
+</w2:row>
+</w2:header>
+					<w2:gBody id="gBody2" style="">
+						<w2:row id="row4" style="">
+							<w2:column blockSelect="false" id="col1" inputType="text" style="height:20px" width="70">
+							</w2:column>
+							<w2:column blockSelect="false" id="col2" inputType="text" style="height:20px" width="70">
+							</w2:column>
+							<w2:column blockSelect="false" id="col3" inputType="text" style="height:20px" width="70">
+							</w2:column>
+							<w2:column blockSelect="false" id="col4" inputType="text" style="height:20px" width="70">
+							</w2:column>
+</w2:row>
+</w2:gBody>
+</w2:gridView>
+</xf:group>
+			<xf:group class="centerArea" id="group57" style="height:300px;">
+				<xf:group class="" id="group58" style="position:absolute;top:150px;">
+					<xf:group class="grid_pr" id="group59" style="" tagname="a">
+						<w2:attributes>
+							<w2:herf>#</w2:herf>
+</w2:attributes>
+						<script ev:event="onclick" type="javascript">
+<![CDATA[
+									fn_right();
+								 ]]></script>
+</xf:group>
+					<xf:group class="grid_ne" id="group60" style="" tagname="a">
+						<w2:attributes>
+							<w2:herf>#</w2:herf>
+</w2:attributes>
+						<script ev:event="onclick" type="javascript">
+<![CDATA[
+									fn_left();
+								 ]]></script>
+</xf:group>
+</xf:group>
+</xf:group>
+			<xf:group class="rightArea" id="group61" style="">
+				<xf:group class="totalbox" id="group81" style="">
+					<xf:group class="total" id="group82" style="">
+						<xf:group class="strong" id="group83" style="">
+							<w2:textbox class="strong_right" id="textbox20" label="1000" style="" tagname="strong">
+							</w2:textbox>
+</xf:group>
+</xf:group>
+					<w2:textbox class="sear" id="textbox21" label="건이 조회되었습니다." style="">
+					</w2:textbox>
+</xf:group>
+				<w2:gridView autoFit="allColumn" class="cm_grid" dataList="dataList1" fixedColumnWithHidden="true" id="gridView9" scrollByColumn="false" style="position: relative ;height:380px;" useShiftKey="false" visibleRowNum="15">
+					<w2:header id="header3" style="">
+						<w2:row id="row5" style="">
+							<w2:column blockSelect="false" id="column12" inputType="text" style="height:30px;" value="상태" width="70">
+</w2:column>
+							<w2:column blockSelect="false" id="column13" inputType="text" style="height:30px;" value="사용자ID" width="70">
+</w2:column>
+							<w2:column blockSelect="false" id="column14" inputType="text" style="height:30px;" value="사용자명" width="70">
+</w2:column>
+							<w2:column blockSelect="false" id="column15" inputType="text" style="height:30px;" value="직책" width="70">
+</w2:column>
+							<w2:column blockSelect="false" id="column16" inputType="text" style="height:30px;" value="기관" width="70">
+</w2:column>
+</w2:row>
+</w2:header>
+					<w2:gBody id="gBody3" style="">
+						<w2:row id="row6" style="">
+							<w2:column blockSelect="false" id="column17" inputType="text" style="height:25px;" width="70">
+							</w2:column>
+							<w2:column blockSelect="false" id="column18" inputType="text" style="height:25px;" width="70">
+							</w2:column>
+							<w2:column blockSelect="false" id="column19" inputType="text" style="height:25px;" width="70">
+							</w2:column>
+							<w2:column blockSelect="false" id="column20" inputType="text" style="height:25px;" width="70">
+							</w2:column>
+							<w2:column blockSelect="false" id="column21" inputType="text" style="height:25px;" width="70">
+							</w2:column>
+</w2:row>
+</w2:gBody>
+</w2:gridView>
+</xf:group>
+</xf:group>
+</xf:group>
+</xf:group>
+</body>
+</html>

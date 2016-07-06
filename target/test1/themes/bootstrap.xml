@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="기본 테마" maintainer="에이비씨솔루션 연구소" version="1.0"
+    xmlns="http://www.abcsolution.co.kr/xml/abc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.abcsolution.co.kr/xml/abc ../theme-1.0.xsd ">
+
+    <description><![CDATA[
+        <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>을 기본으로 사용한 테마.
+        프론트 메인, 프론트 서브, 관리자단, 공백 템플릿으로 구성된다.
+    ]]></description>
+
+    <module id="adminLayout" name="관리자용 레이아웃" src="layout/adminLayout.jsp" type="layout">
+        <description>헤더, 컨텐트, 푸터로 구성.</description>
+        <config>/admin/</config>
+    </module>
+
+    <module id="mainLayout" name="프론트 메인용 레이아웃" src="layout/mainLayout.jsp" type="layout" thumbnail="thumbnails/main.png">
+        <description>헤더, 컨텐트, 오른쪽 사이드바, 푸터로 구성.</description>
+        <config>/portal/main.do</config>
+    </module>
+
+    <module id="subLayout" name="프론트 서브페이지용 레이아웃" src="layout/subLayout.jsp" type="layout">
+        <description>헤더, 왼쪽 사이드바, 컨텐트, 푸터로 구성.</description>
+        <config>/portal/</config>
+    </module>
+
+    <module id="simpleLayout" name="레이아웃 없는 단순 템플릿" src="layout/simpleLayout.jsp" type="layout">
+        <description>팝업처럼 메인 컨텐트 영역만 표시할 경우 사용.</description>
+    </module>
+
+    <group id="header" name="헤더">
+        <module type="block" src="layout/header.jsp"></module>
+    </group>
+    <group id="left" name="왼쪽 사이드바">
+        <module type="block" src="abc.cms.blocks.HtmlBlock"></module>
+    </group>
+    <group id="right" name="오른쪽 사이드바">
+        <module type="block" src="abc.cms.blocks.HtmlBlock"></module>
+    </group>
+    <group id="footer" name="푸터">
+        <module type="block" src="abc.cms.blocks.HtmlBlock"></module>
+    </group>
+    <group id="frontMenu" name="프론트 메뉴">
+        <module type="block" src="abc.cms.blocks.MenuBlock"></module>
+    </group>
+    <group id="adminMenu" name="관리자 메뉴">
+        <module type="block" src="abc.cms.blocks.MenuBlock"></module>
+    </group>
+
+</theme>

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataList id="dl_selectUser" baseNode="" style="" repeatNode="">
+        			<w2:columnInfo>
+        				<w2:column id="user_id" name="사용자_아이디" dataType="text"></w2:column>
+        				<w2:column id="user_nm" name="사용자_명" dataType="text"></w2:column>
+        				<w2:column id="pswd" name="비밀번호" dataType="text"></w2:column>
+        				<w2:column id="user_dvs_cd" name="사용자_구분_코드" dataType="text"></w2:column>
+        				<w2:column id="eltrdcdn_id" name="전자결재_아이디" dataType="text"></w2:column>
+        				<w2:column id="eltrdcdn_dept_cd" name="전자결재_부서_코드" dataType="text"></w2:column>
+        				<w2:column id="instt_cd" name="기관_코드" dataType="text"></w2:column>
+        				<w2:column id="onnr_dept_cd" name="온나라_부서_코드" dataType="text"></w2:column>
+        				<w2:column id="ptcs_nm" name="직급_명" dataType="text"></w2:column>
+        				<w2:column id="pstofc_nm" name="직책_명" dataType="text"></w2:column>
+        				<w2:column id="dept_inner_lv" name="부서_내부_레벨" dataType="text"></w2:column>
+        				<w2:column id="pstofc_inner_lv" name="직책_내부_레벨" dataType="text"></w2:column>
+        				<w2:column id="rsrno" name="주민등록번호" dataType="text"></w2:column>
+        				<w2:column id="brthdy" name="생년월일" dataType="text"></w2:column>
+        				<w2:column id="tel_no" name="전화_번호" dataType="text"></w2:column>
+        				<w2:column id="mbtpn_no" name="휴대전화_번호" dataType="text"></w2:column>
+        				<w2:column id="email" name="이메일" dataType="text"></w2:column>
+        				<w2:column id="mssg_recv_yn" name="메시지_수신_여부" dataType="text"></w2:column>
+        				<w2:column id="gpki_reg_info" name="행정전자서명_등록_정보" dataType="text"></w2:column>
+        				<w2:column id="all_athr_yn" name="전체_권한_여부" dataType="text"></w2:column>
+        				<w2:column id="athr_yn" name="권한_여부" dataType="text"></w2:column>
+        				<w2:column id="pswd_last_chng_dtm" name="비밀번호_최종_변경_일시" dataType="text"></w2:column>
+        				<w2:column id="use_end_dt" name="사용_종료_일자" dataType="text"></w2:column>
+        				<w2:column id="rm_3000" name="비고_3000" dataType="text"></w2:column>
+        				<w2:column id="cretr_id" name="생성자_아이디" dataType="text"></w2:column>
+        				<w2:column id="cret_dtm" name="생성_일시" dataType="text"></w2:column>
+        				<w2:column id="last_updtr_id" name="최종_수정자_아이디" dataType="text"></w2:column>
+        				<w2:column id="last_updt_dtm" name="최종_수정_일시" dataType="text"></w2:column>
+        				<w2:column id="last_login_dtm" name="최종_로그인_날자" dataType="text"></w2:column>
+        				<w2:column id="last_login_ip" name="최종로그인아이피" dataType="text"></w2:column>
+        				<w2:column id="last_logout_dtm" name="최종_로그아웃_날짜" dataType="text"></w2:column>
+        				<w2:column id="login_failr_tmno" name="name32" dataType="text"></w2:column>
+        				<w2:column id="login_failr_lock_yn" name="name33" dataType="text"></w2:column>
+        				<w2:column id="last_login_failr_dtm" name="name34" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList id="dl_userDivisionCode" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="sys_cd" name="시스템코드" dataType="text"></w2:column>
+        				<w2:column id="cmmn_cd" name="공통코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd" name="세부코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd_nm" name="세부코드명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_eng_nm" name="세부영문명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_all_nm" name="세부전체명" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_1" name="사용자정의컬럼1" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_2" name="사용자정의컬럼2" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_3" name="사용자정의컬럼3" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_4" name="사용자정의컬럼4" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_5" name="사용자정의컬럼5" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_6" name="사용자정의컬럼6" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_7" name="사용자정의컬럼7" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_8" name="사용자정의컬럼8" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_9" name="사용자정의컬럼9" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_10" name="사용자정의컬럼10" dataType="text"></w2:column>
+        				<w2:column id="use_yn" name="사용여부" dataType="text"></w2:column>
+        				<w2:column id="sort_ord" name="정렬순서" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<xf:submission id="searchSubmission" ref=""
+        		target='data:json,[{"id":"dl_selectUser","key":"infoList"}]' action="/adminfacillity/systemmngt/selectUser.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" mode="asynchronous" processMsg="조회중입니다..." instance="" replace=""
+        		errorHandler="" customHandler="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			txb_Count.setValue( dl_selectUser.getRowCount());
+        		]]></script>
+        	</xf:submission>
+        	<xf:submission id="modifiedSubmission" ref="data:json,{id:'dl_selectUser',key:'infoList',action:'modified'}"
+        		target='data:json,[{"id":"dl_selectUser","key":"infoList"}]' action="/adminfacillity/systemmngt/saveUser.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" mode="asynchronous" processMsg="저장중입니다..." instance="" replace=""
+        		errorHandler="" customHandler="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_search();
+        		]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[ 
+        /***************************************************************************************
+			* 시스템명 		: 식품의약품안전처 통합식품안전망구축
+			* 업무명 		: User
+			* 파일명 		: User.xml
+			* 작성자 		: 유승엽
+			* 작성일 		: 2014.08.20
+			*
+			* 설  명		: 사용자 관리 
+			*---------------------------------------------------------------------------------------
+			* 변경일	변경자		변경내역 
+			*---------------------------------------------------------------------------------------
+			*  2014.08.20 유승엽	최초 프로그램 작성         
+			* 
+			*---------------------------------------------------------------------------------------
+			****************************************************************************************/
+			
+			/********************************************************************************************************************/
+			/* 01. 공통라이브러리 정의																					*/
+			/********************************************************************************************************************/
+			
+			
+			/********************************************************************************************************************/
+			/* 02. Form 변수정의																								*/
+			/********************************************************************************************************************/
+        	var selectBoxValue;
+        	
+        	/********************************************************************************************************************/
+			/* 03. Form 화면 초기화																							*/
+			/********************************************************************************************************************/
+			function fn_onload(){
+				gfn_callCommonCode(
+				"COM",
+				["0003"],
+				["dl_userDivisionCode"]
+			);
+			}
+			
+			/********************************************************************************************************************/
+			/* 04. 서비스 TRANSACTION 함수(조회,저장,삭제,Callback)																		*/
+			/********************************************************************************************************************/
+			//조회
+			function fn_search(){
+				$w.executeSubmission( "searchSubmission" );
+				//selectBoxValue = selectbox2.getValue()
+			}
+			
+			//저장
+			function fn_save(){
+				var modifiedData = dl_selectUser.getModifiedJSON();
+				alert("modifiedData =============== " + JSON.stringify(modifiedData));
+				
+				$w.executeSubmission("modifiedSubmission");
+			}
+			
+			/**************************************************************************
+			 * 05.공통버튼 영역
+			***************************************************************************/
+        	
+        	/**************************************************************************
+			 * 06.그리드 행추가, 삭제, 엑셀출력 버튼영역
+			***************************************************************************/
+        	//행추가
+        	function fn_addRow(){
+        		var rowIndex = grd_GridView.getFocusedRowIndex();
+                dl_selectUser.insertRow( rowIndex + 1 );
+                grd_GridView.setFocusedCell( rowIndex + 1 , 1 , false )
+            }
+        	
+        	//행삭제
+        	function fn_delRow(){
+        		try{
+	    			var dataListStr = grd_GridView.getDataList(); // return string type
+	    			var dataList = WebSquare.util.getComponentById( dataListStr );
+	    			
+	    			var chkIndex = dl_selectProgram.getMatchedIndex( "chk" ,1 ,true ,0 ,dl_selectProgram.getRowCount() );
+	    			if(chkIndex.length > 0){
+		 				for(var i=0; i<chkIndex.length; i++){
+		 					dataList.deleteRow( chkIndex[i] );
+		 				}
+	 				}else{
+	 					alert("삭제할 데이터를 체크하십시오.");
+	 				}
+	 			}catch(e){
+	 			}finally{
+	 				dataList = null; //메모리 초기화
+	 			}
+        	}
+        	
+        	//바로행삭제
+        	function fn_delNowRow(){
+        		try{
+	    			var dataListStr = gridView1.getDataList(); // return string type
+	    			var dataList = WebSquare.util.getComponentById( dataListStr );
+	    			
+	    			var chkIndex = dl_selectUser.getMatchedIndex( "chk" ,1 ,true ,0 ,dl_selectUser.getRowCount() );
+	    			
+	    			if(chkIndex.length > 0){
+						dataList.removeRows( chkIndex );
+	 				}else{
+	 					alert("삭제할 데이터를 체크하십시오.");
+	 				}
+	 			}catch(e){
+	 			}finally{
+	 				dataList = null; //메모리 초기화
+	 			}
+        	}
+        	
+        	// 엑셀다운로드 (API문서 참고)
+			function fn_exportExcel(grdViewObj, options, infoArr) {
+			    grdViewObj.advancedExcelDownload(options, infoArr);
+			};
+			
+        	/**************************************************************************
+			 * 07. 사용자 정의 함수 구현 영역
+			***************************************************************************/
+        	
+        ]]></script>
+    </head>
+    <body>
+    	<xf:group id="group3" style="" class="contents">
+    		<xf:group id="group4" style="" class="titleBar">
+    			<w2:textbox id="txb_Title" style="" class="title02" label='&lt;span style="color:#04a8b7"&gt;사용자&lt;/span&gt; 관리'></w2:textbox>
+    			<w2:textbox id="textbox2" style="" class="my" label=""></w2:textbox>
+    			<xf:group id="group5" style="" class="pgBox">
+    				<xf:group id="grp_PageId" style="" class="title_pgid">
+    					<xf:group id="grp_PageIdSub" style="" class="title_pgid_right">
+    						<w2:textbox id="Txb_LabelId" style="" class="" label="Page ID : " tagname="span"></w2:textbox>
+    						<w2:textbox id="Txb_Id" style="" class="dt" label="GLEUDL396732227JF" tagname="span"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="dtb" id="group36" style="">
+    			<xf:group class="dtb_row" id="group37" style="">
+    				<xf:group class="dtb_column" id="group38" style="">
+    					<w2:textbox class="dtb_tt" id="txb_Instt" label="기관"></w2:textbox>
+    					<xf:group class="iptBox" id="group43">
+    						<xf:input class="ipt fl" disabled="true" displaymessage="" id="ipb_InsttCd" invalidMessageFunc="" mandatory=""
+    							readOnly="" style="width:100px;">
+    						</xf:input>
+    						<w2:textbox class="btnSearch" id="txb_Search" label="" style="margin-left:5px;" tagname="a"></w2:textbox>
+    						<xf:input class="ipt fl" disabled="" id="ipb_InsttNm" readOnly="" style="margin-left:5px;width:100px;"></xf:input>
+    					</xf:group>
+    					<xf:group class="iptBox" id="group39" style=""></xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group40" style="">
+    					<xf:group class="iptBox" id="group41" style="">
+    					</xf:group>
+    					<xf:group class="df_btn" id="group42" style="" tagname="">
+    						<w2:anchor class="anc_trans" id="anc_Search">
+    							<xf:label><![CDATA[조 회]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_search();
+    							]]></script>
+    						</w2:anchor>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group17" style="" class="contLayout02">
+    			<xf:group id="group18" style="" class="leftArea">
+    				<xf:group id="group20" style="" class="defaultbox">
+    					<xf:group id="group21" style="" class="totalbox">
+    						<xf:group id="group22" style="" class="total">
+    							<xf:group id="group23" style="" class="strong">
+    								<w2:textbox id="txb_Count" style="" class="strong_right" label="0" tagname="strong"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<w2:textbox id="txb_Searched" style="" class="sear" label="건이 조회되었습니다."></w2:textbox>
+    						<xf:group id="group24" class="fr">
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<w2:gridView dataList="dl_selectUser" id="grd_GridView" autoFit="allColumn"
+    					style="position: relative ;height:405px;left:-2px;top:5px;" visibleRowNum="15" scrollByColumn="false" useShiftKey="false"
+    					class="cm_grid" fixedColumnWithHidden="true" rowStatusHeaderValue="상태" rowStatusVisible="true">
+    					<w2:header id="header3" style="">
+    						<w2:row id="row5" style="">
+    							<w2:column blockSelect="false" id="column190" style="height:20px" inputType="text" width="70"
+    								value="사용자ID">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column188" style="height:20px" inputType="text" width="70"
+    								value="사용자명">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column178" style="height:20px" inputType="text" width="70"
+    								value="기관_코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column172" style="height:20px" inputType="text" width="70"
+    								value="직책">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody3" style="">
+    						<w2:row id="row6" style="">
+    							<w2:column blockSelect="false" id="user_id" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="user_nm" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="instt_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="pstofc_nm" style="height:20px" inputType="text" width="70"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<script ev:event="oncellclick(row,col)" type="javascript"><![CDATA[ 
+
+    					]]></script>
+    				</w2:gridView>
+    			</xf:group>
+    			<xf:group id="group19" style="" class="rightArea">
+    				<xf:group id="group25" style="" class="defaultbox">
+    					<xf:group id="group26" style="" class="fr">
+    						<w2:anchor id="anc_Save" style="" class="anc_trans mr5">
+    							<xf:label><![CDATA[저 장]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_save();
+    							]]></script>
+    						</w2:anchor>
+    						<w2:anchor id="anc_AddRow" style="" class="anc_trans mr5">
+    							<xf:label><![CDATA[행추가]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_addRow();
+    							]]></script>
+    						</w2:anchor>
+    						<w2:anchor id="anc_DelRow" style="" class="anc_trans">
+    							<xf:label><![CDATA[행삭제]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							alert("준비중");
+    							]]></script>
+    						</w2:anchor>
+    						<w2:anchor class="anc_trans" id="anchor12" style="margin-left:5px;">
+    							<xf:label>암호초기화</xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							alert("준비중");
+    							]]></script>
+    						</w2:anchor>
+    					</xf:group>
+    				</xf:group>
+    				<table id="table2" summary="" style="left:0px;top:5px;" class="w2tb tb">
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:25.00%;" tagname="col"></xf:group>
+    						<xf:group style="width:25.00%;" tagname="col"></xf:group>
+    						<xf:group style="width:25.00%;" tagname="col"></xf:group>
+    						<xf:group style="width:25.00%;" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group style="" class="w2tb_th th must" tagname="th">사용자&amp;nbsp;ID</xf:group>
+    						<xf:group style="" class="w2tb_td td" tagname="td">
+    							<xf:input id="input2" style="" class="ipt" ref="data:dl_selectUser.user_id"></xf:input>
+    						</xf:group>
+    						<xf:group style="" class="w2tb_th th must" tagname="th">전자결제&amp;nbsp;ID</xf:group>
+    						<xf:group style="" class="w2tb_td td" tagname="td">
+    							<xf:input id="input4" style="" class="ipt" ref="data:dl_selectUser.eltrdcdn_id"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:30px;" tagname="tr">
+    						<xf:group class="w2tb_th th must" tagname="th">사용자명</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input3" style="" class="ipt" ref="data:dl_selectUser.user_nm"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th th must" tagname="th">주민등록번호</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input5" style="" class="ipt" ref="data:dl_selectUser.rsrno"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:30px;" tagname="tr">
+    						<xf:group class="w2tb_th th must" tagname="th">기관정보</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:input id="input6" invalidMessageFunc="" readOnly="" style="width:120px;" mandatory="" class="ipt"
+    								disabled="true" displaymessage="" ref="data:dl_selectUser.instt_cd">
+    							</xf:input>
+    							<w2:textbox id="textbox10" style="margin-left:5px;" class="btnSearch" label="" tagname="a"></w2:textbox>
+    							<xf:input id="input7" readOnly="" style="margin-left:5px;width:120px;" class="ipt" disabled=""></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:30px;" tagname="tr">
+    						<xf:group class="w2tb_th th must" tagname="th">전자결재부서</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:input id="input8" invalidMessageFunc="" readOnly="" style="width:120px;" mandatory="" class="ipt"
+    								disabled="true" displaymessage="" ref="data:dl_selectUser.eltrdcdn_dept_cd">
+    							</xf:input>
+    							<w2:textbox id="textbox11" style="margin-left:5px;" class="btnSearch" label="" tagname="a"></w2:textbox>
+    							<xf:input id="input9" readOnly="" style="margin-left:5px;width:120px;" class="ipt" disabled=""></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:30px;" tagname="tr">
+    						<xf:group class="w2tb_th th" tagname="th">직급</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input10" style="" class="ipt" ref="data:dl_selectUser.ptcs_nm"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th th" tagname="th">직책</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input12" style="" class="ipt" ref="data:dl_selectUser.pstofc_nm"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:30px;" tagname="tr">
+    						<xf:group class="w2tb_th th" tagname="th">부서내레벨</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input11" style="" class="ipt" ref="data:dl_selectUser.dept_inner_lv"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th th" tagname="th">직책내레벨</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input13" style="" class="ipt" ref="data:dl_selectUser.pstofc_inner_lv"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:30px;" tagname="tr">
+    						<xf:group class="w2tb_th th" tagname="th">사용자구분</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:select1 disabledClass="w2selectbox_disabled" id="selectbox2" appearance="minimal" style=""
+    								direction="auto" chooseOption="" allOption="" class="selectr" displayMode="label" disabled="false" submenuSize="auto" ref="data:dl_selectUser.user_dvs_cd">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th th" tagname="th">전화번호</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input14" style="" class="ipt" ref="data:dl_selectUser.tel_no"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:30px;" tagname="tr">
+    						<xf:group class="w2tb_th th" tagname="th">이메일</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input16" style="" class="ipt" ref="data:dl_selectUser.email"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th th" tagname="th">핸드폰번호</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input15" style="" class="ipt" ref="data:dl_selectUser.mbtpn_no"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:30px;" tagname="tr">
+    						<xf:group class="w2tb_th th" tagname="th">알리미수신여부</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:select id="checkbox1" cols="" appearance="full" style="" class="checkbox" selectedindex="-1" rows="1"
+    								ref="data:dl_selectUser.mssg_recv_yn">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label></xf:label>
+    										<xf:value><![CDATA[Y]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    								<script ev:event="onchange" type="javascript"><![CDATA[
+    								
+    								]]></script>
+    							</xf:select>
+    						</xf:group>
+    						<xf:group class="w2tb_th th" tagname="th">사용종료일자</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<w2:inputCalendar calendarImageOver="" id="inputCalendar3" calendarValueType="yearMonthDate"
+    								style="width:100px;" weekStartsOn="0" class="Cal" calendarImage="" ref="data:dl_selectUser.use_end_dt">
+    							</w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:30px;" tagname="tr">
+    						<xf:group class="w2tb_th th" tagname="th">최초생성일</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input17" style="" class="ipt" ref="data:dl_selectUser.cret_dtm" disabled="true"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th th" tagname="th">최종암호변경일</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<xf:input id="input18" style="" class="ipt" ref="data:dl_selectUser.pswd_last_chng_dtm" disabled="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="height:86.00px;" tagname="tr">
+    						<xf:group class="w2tb_th th" tagname="th">비고</xf:group>
+    						<xf:group class="w2tb_td td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:group id="group27" style="" class="textareatBox">
+    								<xf:textarea id="textarea1" style="" ref="data:dl_selectUser.rm_3000"></xf:textarea>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</table>
+    			</xf:group>
+    		</xf:group>
+    		<w2:wframe id="wfm_Common" style="position: relative;width: 0px;height: 0px;" src="/ui/common/frame/commonCodeFrame.xml"></w2:wframe>
+    	</xf:group>
+    </body>
+</html>

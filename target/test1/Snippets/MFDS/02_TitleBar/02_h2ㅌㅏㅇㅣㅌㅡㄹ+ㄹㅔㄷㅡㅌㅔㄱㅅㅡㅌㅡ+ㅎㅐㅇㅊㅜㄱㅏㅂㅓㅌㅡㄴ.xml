@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="titleBar_mb" id="group321" style="">
+	<w2:textbox class="title04" id="textbox130" label="컨텐츠타이틀" style="">
+	</w2:textbox>
+	<w2:textbox class="txtRed fl" id="textbox131" label="* 비고사항" style="">
+	</w2:textbox>
+	<xf:group class="btnBox" id="group322" style="">
+		<w2:anchor class="btn plusRow" id="anchor36" style="">
+			<xf:label>행추가</xf:label>
+</w2:anchor>
+		<w2:anchor class="btn minusRow ml3" id="anchor37" style="">
+			<xf:label>행삭제</xf:label>
+</w2:anchor>
+</xf:group>
+</xf:group>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="iptBox" id="group119">
+	<xf:input class="ipt" displaymessage="true" id="input69" invalidMessageFunc="" mandatory="true" style="width:100px;">
+</xf:input>
+	<w2:textbox class="btnSearch" id="textbox134" label="" style="margin-left:5px;" tagname="a">
+	</w2:textbox>
+</xf:group>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataMap baseNode="map" id="gdm_CommonCode" style="">
+        			<w2:keyInfo>
+        				<w2:key id="sys_cd" name="name1" dataType="text"></w2:key>
+        				<w2:key id="cmmn_cd" name="name2" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataMap baseNode="map" id="gdm_SystemMssg" style="">
+        			<w2:keyInfo>
+        				<w2:key id="sys_cd" name="name1" dataType="text"></w2:key>
+        				<w2:key id="mssg_cd" name="name2" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList id="gdl_CommonCodeData" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="sys_cd" name="시스템_코드" dataType="text"></w2:column>
+        				<w2:column id="cmmn_cd" name="공통_코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd" name="세부_코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd_nm" name="세부_코드_명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_eng_nm" name="세부_영문_명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_all_nm" name="세부_전체_명" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_1" name="사용자_정의_컬럼_1" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_2" name="사용자_정의_컬럼_2" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_3" name="사용자_정의_컬럼_3" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_4" name="사용자_정의_컬럼_4" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_5" name="사용자_정의_컬럼_5" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_6" name="사용자_정의_컬럼_6" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_7" name="사용자_정의_컬럼_7" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_8" name="사용자_정의_컬럼_8" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_9" name="사용자_정의_컬럼_9" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_10" name="사용자_정의_컬럼_10" dataType="text"></w2:column>
+        				<w2:column id="use_yn" name="사용_여부" dataType="text"></w2:column>
+        				<w2:column id="sort_ord" name="정렬_순서" dataType="number"></w2:column>
+        				<w2:column id="cretr_id" name="생성자" dataType="text"></w2:column>
+        				<w2:column id="cret_dtm" name="생성_일시" dataType="text"></w2:column>
+        				<w2:column id="last_updtr_id" name="수정자" dataType="text"></w2:column>
+        				<w2:column id="last_updt_dtm" name="수정_일시" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList id="gdl_SystemMessage" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="sys_cd" name="시스템코드" dataType="text"></w2:column>
+        				<w2:column id="mssg_cd" name="메시지코드" dataType="text"></w2:column>
+        				<w2:column id="mssg_cn" name="메시지내용" dataType="text"></w2:column>
+        				<w2:column id="cretr_id" name="생성자아이디" dataType="text"></w2:column>
+        				<w2:column id="cret_dtm" name="생성일시" dataType="text"></w2:column>
+        				<w2:column id="last_updtr_id" name="최종수정자아이디" dataType="text"></w2:column>
+        				<w2:column id="last_updt_dtm" name="최종수정일시" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<xf:submission id="gsub_CommonCodeData" ref='data:json,{"id":"gdm_CommonCode","key":"commonCodeVO"}'
+        		target='data:json,[{"id":"gdl_CommonCodeData","key":"commonCodeDataList"}]'
+        		action="/adminfacillity/systemmngt/selectCommonCodeFunction.do" method="post" mediatype="application/json" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="synchronous" processMsg=" ">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			
+        		]]></script>
+				<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			
+        		]]></script>
+        	</xf:submission>
+        	<xf:submission id="gsub_SystemMssg" ref='data:json,{"id":"gdm_SystemMssg","key":"systemMessageVO"}'
+        		target='data:json,{"id":"gdl_SystemMessage","key":"infoList"}' action="/adminfacillity/systemmngt/selectSystemMessage.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="synchronous" processMsg="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			
+        		]]></script>
+				<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			
+        		]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[
+        	function gfn_callCommonCodeSubmission()
+        	{
+				$w.executeSubmission( "gsub_CommonCodeData" );
+			}
+        	
+        	function gfn_callSystemMssgSubmission()
+        	{
+				$w.executeSubmission( "gsub_SystemMssg" );
+			}
+        ]]></script>
+    </head>
+    <body>
+
+    	<xf:group id="floatingGroup" style="position: fixed ;left:0px;top:2000px;width:100%;height:100%;z-index:999;background:transparent;"
+    		class="">
+    		<xf:group id="floatGrayGroup"
+    			style="position:fixed ;top:2000px;width: 100%;height: 100%;background : #ccc;opacity : 0.3;filter : alpha(opacity=30);  -moz-opacity:0.3;"
+    			class="">
+    		</xf:group>
+    		<script ev:event="onkeyup" type="javascript"><![CDATA[
+                // esc key event
+                gfn_floatPopupClose(e.keyCode);
+            ]]></script>
+
+    		<w2:floatingLayer id="floatPopup" useResizeDrag="false" title="메세지"
+    			style="position: absolute ;left:0px;top:0px;width:500px;height:255px;z-index:999;" dragAlwaysView="false" class=""
+    			bodyComplex="true">
+    			<script ev:event="onClose" type="javascript"><![CDATA[
+	                gfn_floatPopupClose(27);
+	            ]]></script>
+
+    			<w2:textbox id="floatPopupTitle" style="position : relative;left:6px;top:-27px;width:400px;height:15px;" class="" label=""
+    				tagname="">
+    			</w2:textbox>
+    			<xf:group id="grpErrLayerTop" style="margin:0 8px 8px 6px;" class="">
+    				<xf:group id="grpErrLayerBody" style="background:#fff;" class="">
+    					<xf:group id="grpErrLayerTitle" style="" class="">
+    						<w2:textbox id="txtErrLayerTitle" style="" class="" label="오류내용 제목" tagname=""></w2:textbox>
+    					</xf:group>
+    					<xf:group id="grpErrLayerCont" style="" class="" tagname="ul">
+    						<xf:group id="grpErrLayerMsg" style="position:relative;">
+    							<xf:textarea id="txtErrLayerMsg" style="width:99%;min-height:85px;" class=""></xf:textarea>
+    						</xf:group>
+    					</xf:group>
+
+    					<xf:group id="grpErrLayerFooter" style="width:100%;position:relative;height:26px;" class="">
+    						<xf:group id="grpErrLayerButton" style="width:100%; padding-bottom:5px;">
+    							<xf:group id="grpErrLayerSubButton" style="margin:0 auto;width:324px;height:26px;position:relative;"
+    								class="">
+    								<xf:trigger id="trBtnConfirm"
+    									style="height:26px;width:50px;left:0px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+    									<xf:label>확인</xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("confirm");
+			                            ]]></script>
+    								</xf:trigger>
+    								<xf:trigger id="trBtnCancel"
+    									style="height:26px;width:50px;left:52px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+    									<xf:label>취소</xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("cancel");
+			                            ]]></script>
+    								</xf:trigger>
+    								<xf:trigger id="trBtnYes"
+    									style="height:26px;width:50px;left:104px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+    									<xf:label>예</xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("yes");
+			                            ]]></script>
+    								</xf:trigger>
+    								<xf:trigger id="trBtnNo"
+    									style="height:26px;width:62px;left:156px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+    									<xf:label>아니오</xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("no");
+			                            ]]></script>
+    								</xf:trigger>
+    								<xf:trigger id="trBtnDelete"
+    									style="height:26px;width:50px;left:220px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+    									<xf:label>삭제</xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("delete");
+			                            ]]></script>
+    								</xf:trigger>
+    								<xf:trigger id="trBtnClose"
+    									style="height:26px;width:50px;left:272px;top:0px;position:absolute;visibility:hidden;" class="" type="button" disabled="">
+    									<xf:label>닫기</xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_floatPopupClose(27);
+			                            ]]></script>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group id="grpErrLayerClose" style="position:absolute;right:0;bottom:0;width:45px;" class=""></xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</w2:floatingLayer>
+    	</xf:group>
+    </body>
+</html>

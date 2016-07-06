@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataMap baseNode="map" id="dm_DataMap1" style="">
+        			<w2:keyInfo>
+        				<w2:key id="sabun" name="sabun" dataType="text"></w2:key>
+        				<w2:key id="name" name="name" dataType="text"></w2:key>
+        				<w2:key id="dept" name="dept" dataType="text"></w2:key>
+        				<w2:key id="ipsa_date" name="ipsa_date" dataType="text"></w2:key>
+        				<w2:key id="sex" name="sex" dataType="text"></w2:key>
+        				<w2:key id="marry" name="marry" dataType="text"></w2:key>
+        				<w2:key id="salary" name="salary" dataType="text"></w2:key>
+        				<w2:key id="smemo" name="smemo" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList id="dl_DataList1" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="sabun" name="sabun" dataType="text"></w2:column>
+        				<w2:column id="name" name="name" dataType="text"></w2:column>
+        				<w2:column id="dept" name="dept" dataType="text"></w2:column>
+        				<w2:column id="ipsa_date" name="ipsa_date" dataType="text"></w2:column>
+        				<w2:column id="sex" name="sex" dataType="text"></w2:column>
+        				<w2:column id="marry" name="marry" dataType="text"></w2:column>
+        				<w2:column id="salary" name="salary" dataType="text"></w2:column>
+        				<w2:column id="smemo" name="smemo" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<xf:submission id="sub_UpdateSubmission" ref="data:json,{id:'dm_DataMap1',key:'educationSampleVO'}"
+        		target="data:json,[{id:'dl_DataList1',key:'educationSampleList'}]" action="/education/sample/updateEduSawonList.do" method="post"
+        		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+        		processMsg="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_callback(this.id, e);
+        		 ]]></script>
+        		<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			fn_errorCallback(this.id, e);
+        		 ]]></script>
+        	</xf:submission>
+        	<xf:submission id="sub_InsertSubmission" ref="data:json,{id:'dm_DataMap1',key:'educationSampleVO'}" 
+        		target='data:json,[{"id":"dl_DataList1","key":"infoList"}]' action="/education/sample/insertEduSawonList.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_callback(this.id, e);
+        		 ]]></script>
+        		 <script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        		 	fn_errorCallback(this.id, e);
+        		 ]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[
+        	/***************************************************************************************
+			* 시스템명 		: 식품의약품안전처 통합식품안전망구축
+			* 업무명 		: EducationSample
+			* 파일명 		: educationSample002P1.xml
+			* 작성자 		: 김민규
+			* 작성일 		: 2014.08.19
+			*
+			* 설  명		:  교육용 CRUD 팝업화면
+			*---------------------------------------------------------------------------------------
+			* 변경일	변경자		변경내역 
+			*---------------------------------------------------------------------------------------
+			*  2014.08.19 김민규		최초 프로그램 작성         
+			* 
+			*---------------------------------------------------------------------------------------
+			****************************************************************************************/
+			
+			/********************************************************************************************************************/
+			/* 01. 공통라이브러리 정의																					*/
+			/********************************************************************************************************************/
+			
+			
+			/********************************************************************************************************************/
+			/* 02. Form 변수정의																								*/
+			/********************************************************************************************************************/
+        	// 저장 및 저장 후 계속 결정 변수
+        	var fv_saveNext;
+			// 팝업의 부모 객체
+			var fv_oParent;
+			// 팝업 아이디
+			var fv_strPopupId;
+			// 부모에서 넘겨준 데이터 받기
+			var fv_strPopup;
+			// 받은 데이터 객체화
+			var fv_oParam;
+			// 데이터 처리 타입
+			var fv_type;
+			var fv_oRowData;
+			/********************************************************************************************************************/
+			/* 03. Form 화면 초기화																							*/
+			/********************************************************************************************************************/
+			requires("uiplugin.popup"); // 팝업 사용 시 반드시 정의
+        	// 저장 및 저장 후 계속 결정 변수
+        	fv_saveNext = 0;
+			// 팝업의 부모 객체
+			fv_oParent = opener || parent;
+			// 팝업 아이디
+			fv_strPopupId = WebSquare.net.getParameter("popupID");
+
+			// 부모에서 넘겨준 데이터 받기
+			fv_strPopup = WebSquare.util.getPopupParam();
+			// 받은 데이터 객체화
+			fv_oParam = JSON.parse(fv_strPopup);
+			// 데이터 처리 타입
+			fv_type = fv_oParam.type;
+			
+			fv_oRowData = fv_oParam.rowData;
+			
+			// 부모로 부터 받은 데이터 dataMap에 set
+			dm_DataMap1.setJSON(fv_oRowData, false);
+			
+			//수정창이면 저장 후 계속 버튼을 없애고, 아니라면 나타나게 한다.
+			if(fv_type == 'i')
+			{
+				anc_SaveNext.hide();
+			} else {
+				anc_SaveNext.show( "inline" );
+			}
+			
+			/********************************************************************************************************************/
+			/* 04. 서비스 TRANSACTION 함수(조회,저장,삭제,Callback)																		*/
+			/********************************************************************************************************************/
+			//조회조건 체크
+			function fn_searchCheck()
+			{
+				return;
+			}
+			
+			//조회
+			function fn_search()
+			{
+				return;
+			}
+			
+			//저장
+			function fn_save()
+			{
+				fv_saveNext = 0;
+				alert("fv_type :: " + fv_type);
+				if(fv_type == "i")	//입력
+				{
+					alert("입력");
+					var modifiedDataLength = dm_DataMap1.getModifiedIndex().length;
+					alert("modifiedDataLength :: " + modifiedDataLength);
+					if(modifiedDataLength > 0)
+					{
+						if(confirm("저장하시겠습니까?"))
+						{
+							$w.executeSubmission( "sub_InsertSubmission" );
+						}
+					} else
+					{
+						alert("입력된 데이터가 없습니다.");
+					}
+				} else if (fv_type == "u")	//수정
+				{
+					alert("수정");
+					var modifiedDataLength = dm_DataMap1.getModifiedIndex().length;
+					alert("modifiedDataLength :: " + modifiedDataLength);
+					if(modifiedDataLength > 0)
+					{
+						if(confirm("저장하시겠습니까?"))
+						{
+							$w.executeSubmission( "sub_UpdateSubmission" );
+						}
+					} else
+					{
+						alert("수정된 데이터가 없습니다.");
+					}
+				}
+			}
+			
+			//저장후계속
+			function fn_saving()
+			{
+				fv_saveNext = 1;
+				var modifiedDataLength = dm_DataMap1.getModifiedIndex().length;
+				if(modifiedDataLength > 0)
+				{
+					if(confirm("저장 후 계속 입력하시겠습니까?"))
+					{
+						$w.executeSubmission( "sub_InsertSubmission" );
+					}
+				} else
+				{
+					alert("수정된 데이터가 없습니다.");
+				}
+			}
+			
+			function fn_callback(sId, e){
+				if(sId == "sub_InsertSubmission")
+				{
+					if(fv_saveNext == 0)	//저장
+					{
+						// 부모 함수 호출
+        				fv_oParent.fn_setMainGrid(JSON.stringify(e.responseJSON),fv_strPopupId);
+					} else if(fv_saveNext == 1)	//저장 후 계속
+					{
+						// 부모 함수 호출
+        				fv_oParent.fn_setMainGrid(JSON.stringify(e.responseJSON));
+        				
+						gfn_initGroup(grp_Popup);
+					}
+        			
+				} else if(sId == "sub_UpdateSubmission")
+				{
+					// 부모 함수 호출
+        			fv_oParent.fn_setMainGrid(JSON.stringify(e.responseJSON),fv_strPopupId);
+				}
+			}
+			
+			function fn_errorCallBack(sId, e){
+				if(sId == "sub_InsertSubmission")
+				{
+					alert("sub_InsertSubmission ErrorCallback");
+					return;
+				} else if(sId == "sub_UpdateSubmission")
+				{
+					alert("sub_UpdateSubmission ErrorCallback");
+					return;
+				}
+			}
+			/**************************************************************************
+			 * 05.공통버튼 영역
+			***************************************************************************/
+			//팝업닫기
+			function fn_close()
+			{
+				fv_oParent.$w.closePopup(fv_strPopupId);
+			}
+			/**************************************************************************
+			 * 06.그리드 행추가, 삭제, 엑셀출력 버튼영역
+			***************************************************************************/
+        	//행추가
+        	function fn_addRow()
+        	{
+        	
+        	}
+        	
+        	//행삭제
+        	function fn_delRow()
+        	{
+        	
+        	}
+        	
+        	// 엑셀다운로드 (API문서 참고)
+			function fn_exportExcel(grdViewObj, options, infoArr)
+			{
+			    grdViewObj.advancedExcelDownload(options, infoArr);
+			}
+			/**************************************************************************
+			 * 07. 사용자 정의 함수 구현 영역
+			***************************************************************************/
+			
+         ]]></script>
+    </head>
+    <body>
+    	<xf:group id="grp_Popup" style="" class="contents">
+    		<xf:group id="group24" style="" class="titleBar_mb">
+    			<w2:textbox id="textbox22" style="" class="title04" label="교육 팝업1"></w2:textbox>
+    		</xf:group>
+    		<xf:group id="group28" style="" class="defaultbox">
+    			<xf:group id="group29" style="" class="fr">
+    				<w2:anchor id="anc_Save" style="" class="anc_trans mr5">
+    					<xf:label><![CDATA[저 장]]></xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    						
+    						fn_save();
+    					
+    					 ]]></script>
+    				</w2:anchor>
+    				<w2:anchor id="anc_SaveNext" style="margin-left:0px;" class="anc_trans">
+    					<xf:label><![CDATA[저장 후 계속]]></xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    					
+    						fn_saving();
+    					
+    					 ]]></script>
+    				</w2:anchor>
+    				<w2:anchor id="anc_Cancle" style="margin-left:5px" class="anc_trans">
+    					<xf:label><![CDATA[취 소]]></xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    					
+    						fn_close();
+    					
+    					 ]]></script>
+    				</w2:anchor>
+    			</xf:group>
+    		</xf:group>
+    		<table summary="" id="table1" style="left:0px;top:5px;" class="w2tb tb">
+    			<xf:group tagname="colgroup">
+    				<xf:group style="width:25.00%" tagname="col"></xf:group>
+    				<xf:group style="width:25.00%" tagname="col"></xf:group>
+    				<xf:group style="width:25.00%" tagname="col"></xf:group>
+    				<xf:group style="width:25.00%" tagname="col"></xf:group>
+    			</xf:group>
+    			<xf:group style="height:30px;" tagname="tr"><xf:group class="w2tb_th th" tagname="th" style="text-align:center;">사번</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:input class="ipt" id="input7" style="" ref="data:dm_DataMap1.sabun"></xf:input>
+    				</xf:group>
+    				<xf:group class="w2tb_th th" tagname="th" style="text-align:center;">성명</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:input class="ipt" id="input8" style="" ref="data:dm_DataMap1.name"></xf:input>
+    				</xf:group></xf:group><xf:group style="height:30px;" tagname="tr">
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">부서코드</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:input id="input3" ref="data:dm_DataMap1.dept" style="" class="ipt"></xf:input>
+    				</xf:group>
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">입사일자</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<w2:inputCalendar id="inputCalendar1" calendarImageOver="" ref="data:dm_DataMap1.ipsa_date"
+    						calendarValueType="yearMonthDate" style="width:100px;" weekStartsOn="0" class="Cal" calendarImage="">
+    					</w2:inputCalendar>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="height:30px;" tagname="tr">
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">성별</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:group id="group31" style="" class="iptBox"></xf:group>
+    					<xf:select1 id="radio2" ref="data:dm_DataMap1.sex" selectedIndex="-1" cols="2" appearance="full" style="" class="radio"
+    						rows="">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label>남</xf:label>
+    								<xf:value><![CDATA[0]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[여]]></xf:label>
+    								<xf:value><![CDATA[1]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">결혼유무</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:select1 id="radio1" ref="data:dm_DataMap1.marry" selectedIndex="-1" cols="2" appearance="full"
+    						style="margin-left:0px;" class="radio" rows="">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label>미혼</xf:label>
+    								<xf:value><![CDATA[0]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[기혼]]></xf:label>
+    								<xf:value><![CDATA[1]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="height:30px;" tagname="tr">
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">월급</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:input id="input4" ref="data:dm_DataMap1.salary" style="" class="ipt"></xf:input>
+    				</xf:group>
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th"></xf:group>
+    				<xf:group class="w2tb_td td" tagname="td"></xf:group>
+    			</xf:group>
+    			<xf:group style="height:30px;" tagname="tr">
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">비고</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<w2:attributes>
+    						<w2:colspan>3</w2:colspan>
+    						<w2:rowspan>1</w2:rowspan>
+    					</w2:attributes>
+    					<xf:input id="input6" ref="data:dm_DataMap1.smemo" style="" class="ipt"></xf:input>
+    				</xf:group>
+    			</xf:group>
+    		</table>
+    	</xf:group>
+    </body>
+</html>

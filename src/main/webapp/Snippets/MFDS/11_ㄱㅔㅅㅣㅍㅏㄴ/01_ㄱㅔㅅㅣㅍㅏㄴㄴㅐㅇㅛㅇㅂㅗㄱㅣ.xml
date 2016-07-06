@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><table summary="" id="table1" style="" class="w2tb bd_tb">
+	<xf:group tagname="colgroup">
+		<xf:group style="width:25.00%" tagname="col">
+		</xf:group>
+		<xf:group style="width:25.00%" tagname="col">
+		</xf:group>
+		<xf:group style="width:25.00%" tagname="col">
+		</xf:group>
+		<xf:group style="width:25.00%" tagname="col">
+		</xf:group>
+</xf:group>
+	<xf:group tagname="tr">
+		<xf:group style="" class="w2tb_th th" tagname="th">제목</xf:group>
+		<xf:group style="" class="w2tb_td td" tagname="td">
+			<w2:attributes>
+				<w2:colspan>3</w2:colspan>
+				<w2:rowspan>1</w2:rowspan>
+</w2:attributes>
+			<w2:textbox class="title" dataType="" id="textbox17" label="피모지드 제제(경구제) 허가사항 변경지시 관련 의견 제출 요청" style="" tagname="">
+			</w2:textbox>
+</xf:group>
+</xf:group>
+	<xf:group tagname="tr">
+		<xf:group style="" class="w2tb_th th" tagname="th">등록일</xf:group>
+		<xf:group style="" class="w2tb_td td" tagname="td">
+			<w2:textbox class="" dataType="date" id="textbox18" label="20140730" style="" tagname="">
+			</w2:textbox>
+</xf:group>
+		<xf:group style="" class="w2tb_th th" tagname="th">
+		</xf:group>
+		<xf:group style="" class="w2tb_td td" tagname="td">
+			<w2:textbox class="" dataType="number" id="textbox19" label="5937" style="" tagname="">
+			</w2:textbox>
+</xf:group>
+</xf:group>
+	<xf:group tagname="tr">
+		<xf:group style="" class="w2tb_td td" tagname="td">
+			<w2:attributes>
+				<w2:colspan>4</w2:colspan>
+				<w2:rowspan>1</w2:rowspan>
+</w2:attributes>
+			<w2:textbox class="tb_content" id="textbox28" label="1. 우리 처에서는 미국 식품의약품청(FDA)의 정신분열증 치료제 “피모지드”에 대한 안전성정보의 검토 결과에 따라 허가변경이 필요하다고 판단되어 붙임과 같이 허가사항 변경(안)을 마련하였습니다.&lt;br/&gt;* 정보사항 : QT간격연장 등 심혈관계 부작용 위험을 최소화하기 위해 ‘CYP2D6 느린대사자(PM; poor metabolizer)’에 대한 투여 주의 등 허가변경 권고&lt;br/&gt;&lt;br/&gt;2. 동 변경(안)에 대하여 검토의견이 있는 경우 해당 사유 및 근거자료를 2014.8.13(수)까지 우리 처(의약품안전정보T/F팀)에 제출하여 주시기 바랍니다.&lt;br/&gt;&lt;br/&gt;3. 아울러, 관련 협회에서는 귀 소속 회원(사) 및 비회원(사)에 동 사항을 통지하여 검토의견 등을 제출할 수 있도록 조치하여 주시기 바랍니다.&lt;br/&gt;&lt;br/&gt;붙임 1. 허가사항 변경지시(안)&lt;br/&gt;2. 품목 및 업체현황" style="">
+</w2:textbox>
+</xf:group>
+</xf:group>
+	<xf:group tagname="tr">
+		<xf:group style="" class="w2tb_th th" tagname="th">첨부파일</xf:group>
+		<xf:group style="" class="w2tb_td td" tagname="td">
+			<w2:attributes>
+				<w2:colspan>3</w2:colspan>
+				<w2:rowspan>1</w2:rowspan>
+</w2:attributes>
+			<xf:group class="gr" id="group20" style="">
+				<w2:textbox class="file" id="textbox23" label="품목 및 업체 현황_피모지드.xls" style="" tagname="a">
+				</w2:textbox>
+				<xf:trigger class="btn_flie" id="trigger3" style="" type="button">
+					<xf:label>
+<![CDATA[file download]]></xf:label>
+</xf:trigger>
+				<w2:textbox class="fl" id="textbox24" label="[size : 28672 Byte]" style="" tagname="">
+				</w2:textbox>
+				<w2:textbox class="" dataType="number" id="textbox25" label="5937" style="" tagname="">
+				</w2:textbox>
+</xf:group>
+			<xf:group class="gr" id="group21" style="">
+				<w2:textbox class="file" id="textbox26" label="허가사항 변경지시(안)_사용상의 주의사항_피모지드.xls" style="" tagname="a">
+				</w2:textbox>
+				<xf:trigger class="btn_flie" id="trigger4" style="" type="button">
+					<xf:label>
+<![CDATA[file download]]></xf:label>
+</xf:trigger>
+				<w2:textbox class="fl" id="textbox27" label="[size : 194585 Byte]" style="" tagname="">
+				</w2:textbox>
+</xf:group>
+</xf:group>
+</xf:group>
+</table>
+</body>
+</html>

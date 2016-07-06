@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group id="group34" style="">
+	<xf:group id="group25" style="" class="tb_line">
+	</xf:group>
+	<table summary="" id="table1" style="" class="w2tb wt">
+		<xf:group tagname="colgroup">
+			<xf:group style="width:10%" tagname="col">
+			</xf:group>
+			<xf:group style="width:90.00%" tagname="col">
+			</xf:group>
+</xf:group>
+		<xf:group tagname="tr">
+			<xf:group style="" class="w2tb_th th" tagname="th">개시기간</xf:group>
+			<xf:group style="" class="w2tb_td td" tagname="td">
+				<w2:inputCalendar alt="" calendarValueType="yearMonthDate" class="Cal" focusOnDateSelect="false" footerDiv="false" id="inputCalendar5" renderType="component" style="width:100px;" weekStartsOn="0">
+</w2:inputCalendar>
+				<w2:textbox class="tilde" id="textbox24" label="~" style="margin-left:5px;">
+				</w2:textbox>
+				<w2:inputCalendar alt="" calendarValueType="yearMonthDate" class="Cal" focusOnDateSelect="false" footerDiv="false" id="inputCalendar6" renderType="component" style="width:100px;" weekStartsOn="0">
+</w2:inputCalendar>
+</xf:group>
+</xf:group>
+		<xf:group tagname="tr">
+			<xf:group style="" class="w2tb_th th" tagname="th">제목</xf:group>
+			<xf:group style="" class="w2tb_td td" tagname="td">
+				<xf:input class="ipt" id="input3" style="">
+				</xf:input>
+</xf:group>
+</xf:group>
+</table>
+	<xf:group id="group24" style="" class="tb_line">
+	</xf:group>
+</xf:group>
+<xf:group id="group33" style="">
+	<w2:textbox id="textbox20" style="" class="wt_title mt10 mb3" label="공지사항 내용">
+	</w2:textbox>
+	<xf:group id="group37" style="">
+		<w2:editor id="editor1" style="height:300px;">
+		</w2:editor>
+</xf:group>
+	<xf:group id="group27" style="" class="tb_line mt10 mb10">
+	</xf:group>
+</xf:group>
+<xf:group id="group36" style="height:180px;">
+	<xf:group id="group35" style="">
+		<xf:group id="group29" style="" class="defaultbox mb5">
+			<w2:textbox id="textbox22" style="" class="wt_title fl mt5" label="첨부파일">
+			</w2:textbox>
+			<xf:group id="group30" style="" class="btnBox">
+				<xf:group id="group31" style="" class="addFile">
+					<w2:multiupload id="multiupload1" maxcount="" maxsize="" style="position: absolute ;left:0;top:0;width:99%;height:22px;" action="" uploadButton="" filter="" wmode="false" mode="transparent" selectCallback="fileSelectCallbackFunc">
+</w2:multiupload>
+					<w2:anchor id="anchor1" style="" class="btn04">
+						<xf:label>파일첨부</xf:label>
+</w2:anchor>
+</xf:group>
+				<w2:anchor id="anchor2" style="" class="btn02 fl">
+					<xf:label>삭제</xf:label>
+</w2:anchor>
+				<w2:anchor id="anchor3" style="" class="btn02 fl">
+					<xf:label>취소</xf:label>
+</w2:anchor>
+</xf:group>
+</xf:group>
+		<w2:gridView dataList="dataList1" id="gridView1" autoFit="allColumn" style="height: 150px;" evenRowBackgroundColor="#fff" visibleRowNum="5" scrollByColumn="false" useShiftKey="false" class="bd_grid" fixedColumnWithHidden="true">
+			<w2:header id="header1" style="">
+				<w2:row id="row1" style="">
+					<w2:column blockSelect="false" id="column7" style="height:29px" inputType="checkbox" width="30" value="">
+					</w2:column>
+					<w2:column blockSelect="false" id="column5" style="height:29px" inputType="text" width="70" value="순번">
+					</w2:column>
+					<w2:column blockSelect="false" id="column3" style="height:29px" inputType="text" width="300" value="파일이름">
+					</w2:column>
+					<w2:column blockSelect="false" id="column1" style="height:29px" width="100" inputType="text" value="진행상태">
+					</w2:column>
+</w2:row>
+</w2:header>
+			<w2:gBody id="gBody1" style="">
+				<w2:row id="row2" style="">
+					<w2:column blockSelect="false" id="col1" style="height:27px" inputType="text" width="30">
+					</w2:column>
+					<w2:column blockSelect="false" id="col2" style="height:27px" inputType="text" width="70">
+					</w2:column>
+					<w2:column blockSelect="false" id="col3" style="height:27px" inputType="text" width="300">
+					</w2:column>
+					<w2:column blockSelect="false" id="col4" style="height:27px" width="100" inputType="text">
+					</w2:column>
+</w2:row>
+</w2:gBody>
+</w2:gridView>
+</xf:group>
+</xf:group>
+</body>
+</html>

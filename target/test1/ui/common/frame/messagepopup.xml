@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection></w2:dataCollection>
+    	</xf:model>
+    	<script type="javascript"><![CDATA[ 
+        
+			requires("uiplugin.popup");
+			
+			// 부모 객체
+			var fv_oParent = opener || parent;
+			
+			var fv_strPopupId = WebSquare.net.getParameter("popupID");
+			
+			// 부모에서 넘겨준 데이터 받기
+			var fv_strPopup = WebSquare.util.getPopupParam();
+			
+			// JSON 객체화
+			var fv_oParam = JSON.parse(fv_strPopup);
+			
+			// 콜백함수 지정
+			var fv_strCloseCallbackFncName = fv_oParam.closeCallbackFncName;
+			
+			alert("message1 콜백함수: " + fv_strCloseCallbackFncName);
+			
+			// 메시지 팝업 타이틀 셋팅
+			tb_title.setLabel( fv_oParam.message );
+			
+			function gfn_closeConfirm(returnValue) {
+				if (returnValue === true) {
+					fv_oParent[fv_strCloseCallbackFncName](); // 콜백함수 실행
+					fv_oParent.$w.closePopup(fv_strPopupId);
+				} else {
+					fv_oParent.$w.closePopup(fv_strPopupId);
+				}
+            };
+        
+        ]]></script>
+    </head>
+    <body>
+    	<xf:group class="contents" id="group3" style="">
+    		<xf:group class="dtb" id="group27" style="">
+    			<xf:group class="dtb_row" id="group28" style="">
+    				<xf:group class="dtb_column" id="group29" style="">
+    					<w2:textbox class="dtb_tt" id="tb_title" label=""></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="defaultbox" id="group33" style="margin-left:10px;">
+    			<w2:anchor class="anc_trans mr5" id="anchor20" style="margin-left:10px;">
+    				<xf:label><![CDATA[YES]]></xf:label>
+    				<script ev:event="onclick" type="javascript"><![CDATA[
+    				
+    					gfn_closeConfirm(true);
+    				
+    				 ]]></script>
+    			</w2:anchor>
+    			<w2:anchor class="anc_trans" id="anchor22" style="">
+    				<xf:label><![CDATA[NO]]></xf:label>
+    				<script ev:event="onclick" type="javascript"><![CDATA[
+    				
+	    				fv_oParent.$w.closePopup(fv_strPopupId);
+	    				
+    				 ]]></script>
+    			</w2:anchor>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

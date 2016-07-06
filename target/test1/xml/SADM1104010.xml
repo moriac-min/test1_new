@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList id="dataList1" baseNode="list" style="" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="col1" name="식품유형" dataType="text"></w2:column>
+						<w2:column id="col2" name="서울" dataType="text"></w2:column>
+						<w2:column id="col3" name="강원도" dataType="text"></w2:column>
+						<w2:column id="col4" name="대전" dataType="text"></w2:column>
+						<w2:column id="col5" name="충청남도" dataType="text"></w2:column>
+						<w2:column id="col6" name="충청북도" dataType="text"></w2:column>
+						<w2:column id="col7" name="인천" dataType="text"></w2:column>
+						<w2:column id="col8" name="경기도" dataType="text"></w2:column>
+						<w2:column id="col9" name="광주" dataType="text"></w2:column>
+						<w2:column id="col10" name="전라남도" dataType="text"></w2:column>
+						<w2:column id="col11" name="전라북도" dataType="text"></w2:column>
+						<w2:column id="col12" name="부산" dataType="text"></w2:column>
+						<w2:column id="col13" name="경상남도" dataType="text"></w2:column>
+						<w2:column id="col14" name="울산" dataType="text"></w2:column>
+						<w2:column id="col15" name="제주도" dataType="text"></w2:column>
+						<w2:column id="col16" name="대구" dataType="text"></w2:column>
+						<w2:column id="col17" name="경상북도" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<col1><![CDATA[식품제조.가공업]]></col1>
+							<col2><![CDATA[45]]></col2>
+							<col3><![CDATA[12]]></col3>
+							<col4><![CDATA[22]]></col4>
+							<col5><![CDATA[6]]></col5>
+							<col6><![CDATA[4]]></col6>
+							<col7><![CDATA[12]]></col7>
+							<col8><![CDATA[86]]></col8>
+							<col9><![CDATA[32]]></col9>
+							<col10><![CDATA[34]]></col10>
+							<col11><![CDATA[12]]></col11>
+							<col12><![CDATA[5]]></col12>
+							<col13><![CDATA[42]]></col13>
+							<col14><![CDATA[87]]></col14>
+							<col15><![CDATA[53]]></col15>
+							<col16><![CDATA[23]]></col16>
+							<col17><![CDATA[12]]></col17>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[즉석판매제조.가공업]]></col1>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[식품청가물제조업]]></col1>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[식품운반업]]></col1>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[식품보존업]]></col1>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[용기.포장류제조업]]></col1>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[식품접객업]]></col1>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+		</xf:model>
+	</head>
+	<body>
+		<xf:group class="contents" id="group1" style="">
+			<xf:group class="titleBar" id="group2" style="">
+				<w2:textbox class="title02" id="textbox1" label='&lt;span style="color:#04a8b7"&gt;식품&lt;/span&gt; 인허가 현황' style=""></w2:textbox>
+				<w2:textbox class="my" id="textbox2" label="" style=""></w2:textbox>
+				<xf:group class="pgBox" id="group3" style="">
+					<xf:group class="title_pgid" id="group4" style="">
+						<xf:group class="title_pgid_right" id="group5" style="">
+							<w2:textbox class="" id="textbox3" label="Page ID : " style="" tagname="span"></w2:textbox>
+							<w2:textbox class="dt" id="textbox4" label="GLEUDL396732227JF" style="" tagname="span"></w2:textbox>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="contLayout02" id="group110" style="">
+				<xf:group class="leftArea" id="group111" style="">
+					<xf:group class="titleBar_mb" id="group142" style="">
+						<w2:textbox class="title03" id="textbox136" label="식품인허가 유형별 현황" style=""></w2:textbox>
+					</xf:group>
+					
+				<xf:group id="group145" style="" class="chartbd"><w2:fusionchart seriesNode="" id="fusionchart1" ref="" chartType="MSColumnLine3D" valueNode="" style="position:relative;height:300px;" seriesType="simple" drawType="javascript" labelNode="" accessibility="false">
+					</w2:fusionchart></xf:group></xf:group>
+				<xf:group class="rightArea" id="group112" style="">
+					<xf:group class="titleBar_mb" id="group144" style="">
+						<w2:textbox class="title03" id="textbox137" label="지방청 인허가 현황" style=""></w2:textbox>
+					</xf:group>
+				<xf:group id="group146" style="" adaptiveThreshold="" class="chartbd"><w2:fusionchart seriesNode="" id="fusionchart2" ref="" chartType="MSColumnLine3D" valueNode="" style="position:relative;height:300px;" seriesType="simple" drawType="javascript" labelNode="" accessibility="false">
+					</w2:fusionchart></xf:group></xf:group>
+			</xf:group>
+			<xf:group class="titleBar_mb mt10" id="group115" style="">
+				<w2:textbox class="title04" id="textbox125" label="지역별 인허가 현황(건)" style=""></w2:textbox>
+			</xf:group>
+			<w2:gridView autoFit="allColumn" class="cm_grid" dataList="dataList1" fixedColumnWithHidden="true" id="gridView3"
+				scrollByColumn="false" style="position: relative ;height:179px;margin-top:5px;" useShiftKey="false" visibleRowNum="15">
+				<w2:header id="header2" style="">
+					<w2:row id="row3" style="">
+						<w2:column blockSelect="false" id="column42" style="height:20px" inputType="text" width="129" value="식품유형"></w2:column>
+						<w2:column blockSelect="false" id="column40" style="height:20px" inputType="text" width="70" value="서울"></w2:column>
+						<w2:column blockSelect="false" id="column38" style="height:20px" inputType="text" width="70" value="강원도"></w2:column>
+						<w2:column blockSelect="false" id="column36" style="height:20px" inputType="text" width="70" value="대전"></w2:column>
+						<w2:column blockSelect="false" id="column34" style="height:20px" inputType="text" width="70" value="충청남도"></w2:column>
+						<w2:column blockSelect="false" id="column32" style="height:20px" inputType="text" width="70" value="충청북도"></w2:column>
+						<w2:column blockSelect="false" id="column30" style="height:20px" inputType="text" width="70" value="인천"></w2:column>
+						<w2:column blockSelect="false" id="column28" style="height:20px" inputType="text" width="70" value="경기도"></w2:column>
+						<w2:column blockSelect="false" id="column26" style="height:20px" inputType="text" width="70" value="광주"></w2:column>
+						<w2:column blockSelect="false" id="column24" style="height:20px" inputType="text" width="70" value="전라남도"></w2:column>
+						<w2:column blockSelect="false" id="column22" style="height:20px" inputType="text" width="70" value="전라북도"></w2:column>
+						<w2:column blockSelect="false" id="column20" style="height:20px" inputType="text" width="70" value="부산"></w2:column>
+						<w2:column blockSelect="false" id="column18" style="height:20px" inputType="text" width="70" value="경상남도"></w2:column>
+						<w2:column blockSelect="false" id="column16" style="height:20px" inputType="text" width="70" value="울산"></w2:column>
+						<w2:column blockSelect="false" id="column14" style="height:20px" inputType="text" width="70" value="제주도"></w2:column>
+						<w2:column blockSelect="false" id="column12" style="height:20px" inputType="text" width="70" value="대구"></w2:column>
+						<w2:column blockSelect="false" id="column10" style="height:20px" width="70" inputType="text" value="경상북도"></w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody2" style="">
+					<w2:row id="row4" style="">
+						<w2:column blockSelect="false" id="col1" style="height:20px" inputType="text" width="129"></w2:column>
+						<w2:column blockSelect="false" id="col2" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col3" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col4" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col5" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col6" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col7" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col8" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col9" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col10" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col11" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col12" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col13" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col14" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col15" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col16" style="height:20px" inputType="text" width="70"></w2:column>
+						<w2:column blockSelect="false" id="col17" style="height:20px" width="70" inputType="text"></w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:gridView>
+		</xf:group>
+	</body>
+</html>

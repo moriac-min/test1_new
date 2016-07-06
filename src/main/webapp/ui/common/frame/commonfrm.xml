@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/css/style.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate />
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns=""></data>
+        	</xf:instance>
+        	<w2:dataCollection>
+	        </w2:dataCollection>
+        </xf:model>
+        <script type="javascript"><![CDATA[
+
+            var _gtop;
+            var _gleft;
+            var _gwidth;
+            var _gheight;
+            var _gtitle = "";        // Layer Popup 타이틀
+            var _bodyMessage = "";   // Layer Popup 본문 메시지
+            var _gParam = null;
+            var _callback = "";
+            var arrButtonList;
+            var focusObj;
+            var isError = 0;
+            
+            function gfn_openMsgPopup(sFeatures, doc , object) {
+            	isError = 1;
+                if (typeof sFeatures == "undefined" || sFeatures == null || sFeatures == "") {
+                    gfn_errorMessageDisplay('sFeatures 속성값이 비었습니다');
+                    return;
+                }
+                gfn_printLog("sFeatures: " + sFeatures);
+
+                if (typeof doc != "undefined" && doc != null) {
+                    _gParam = doc;
+                } else {
+                    _gParam = null;
+                    gfn_printLog("commonFrame._gParam is null !!! ");
+                }
+                if (typeof object != "undefined" && object != null) {
+                    focusObj = object;
+                }
+                
+                var arrFeatures = sFeatures.split(";");
+                for (var i=0; i<arrFeatures.length; i++) {
+                    var tmpArray = arrFeatures[i].split(":");
+                    if (tmpArray.length == 2) {
+                        var objNm  = tmpArray[0].trim().toLowerCase();
+                        var objVal = tmpArray[1].trim();
+
+                        if (objNm == "top") {
+                            _gtop = (objVal.length > 0 ? parseInt(objVal, 10) : 0);
+                        } else if (objNm == "left")  {
+                            _gleft = (objVal.length > 0 ? parseInt(objVal, 10) : 0);
+                        } else if (objNm == "width")  {
+                            _gwidth = (objVal.length > 0 ? parseInt(objVal, 10) : 0);
+                        } else if (objNm == "height")  {
+                            _gheight = (objVal.length > 0 ? parseInt(objVal, 10) : 0);
+                        } else if (objNm == "button")  {  // enabled 될 버튼 리스트
+                            arrButtonList = objVal.split(",");
+                        } else if (objNm == "callback")  {
+                            _callback = objVal;
+                        }
+                    }
+                }
+                
+				if (arrButtonList != null && arrButtonList.length > 0) {
+                    gfn_showButtonList();
+                }
+                
+                gfn_viewFloatingPopup();
+            }
+
+            /*
+             * 버튼 보이기 (버튼은 무조건 2개 이하)
+             */
+            function gfn_showButtonList() {
+                var left = 104;
+
+                for (var i=0; i<arrButtonList.length; i++) {
+                    if (arrButtonList[i] == "confirm") {
+                        trBtnConfirm.setPosition(left, 0);
+                        trBtnConfirm.show();
+                    } else if (arrButtonList[i] == "cancel") {
+                        trBtnCancel.setPosition(left+52, 0);
+                        trBtnCancel.show();
+                    } else if (arrButtonList[i] == "yes") {
+                        trBtnYes.setPosition(left, 0);
+                        trBtnYes.show();
+                    } else if (arrButtonList[i] == "no") {
+                        trBtnNo.setPosition(left+52, 0);
+                        trBtnNo.show();
+                    } else if (arrButtonList[i] == "delete") {
+                        trBtnDelete.setPosition(left, 0);
+                        trBtnDelete.show();
+                    } else if (arrButtonList[i] == "close") {
+                        left = (arrButtonList.length == 1) ? (left + 26) : (left + 52);
+                        trBtnClose.setPosition(left, 0);
+                        trBtnClose.show();
+                    }
+                    if ((i+1) >= 2)  break;  // 버튼은 2개이하
+                }
+            }
+
+            function gfn_viewFloatingPopup() {
+                var left = (_gleft >= 0) ? _gleft : -1;
+                var top  = (_gtop >= 0) ? _gtop : -1;
+                var _gwidth  = 420;
+                var _gheight = 200;
+
+                if (left < 0) {
+                    left = Math.floor((document.documentElement.clientWidth/2)-(_gwidth/2));
+                    if (parseInt(left) < 0)  left = 0;
+                }
+                if (top < 0) {
+                    top = Math.floor((document.documentElement.clientHeight/2)-(_gheight/2));
+                    if (parseInt(top) < 0)  top = 0;
+                }
+
+                floatingGroup.setStyle("top", "0");
+                floatGrayGroup.setStyle("top", "0");
+
+                floatPopup.setPosition(left, top);
+                floatPopup.setSize(_gwidth, _gheight);
+
+                floatPopup.show();
+                floatingGroup.show();
+
+                gfn_setErrorMessage();
+
+                // esc key 이벤트를 걸기위함
+                floatPopup.focus();
+            }
+
+            function gfn_setErrorMessage() {
+                var baseMsg = "";
+                var detailMsg = "";
+                var doc;
+
+                if (_gParam != null) {
+ 
+                    doc = WebSquare.xml.parse(_gParam);
+                    baseMsg   = WebSquare.xml.getValue(doc, "messageDoc/messageTitle");
+                    detailMsg = WebSquare.xml.getValue(doc, "messageDoc/message");
+                    detailMsg += "errorCode: " + WebSquare.xml.getValue(doc, "messageDoc/messageCode");
+ 				
+                } else {
+                    baseMsg = _gtitle;
+                    detailMsg = _bodyMessage;
+                }
+                txtErrLayerTitle.setLabel(baseMsg);
+                txtErrLayerMsg.setValue(detailMsg.replaceAll("\\n", "\n"));
+            }
+
+            function gfn_floatPopupClose(e) {
+                if (e == 27) {
+                    gfn_btnAction("close");
+                }
+            }
+
+            /*
+             * layer hide 처리후 callback 함수 호출
+             */
+            function gfn_btnAction(action) {
+                floatPopup.hide();
+                floatingGroup.hide();
+
+                if (_callback != null && _callback != "") {
+                    eval(_callback + "(action);");
+                } else if (typeof focusObj != "undefined" && focusObj != null) {
+                    focusObj.focus();
+                    focusObj = null;
+                }
+            }
+			
+			//에러여부
+			function gfn_isErrorCheck(){
+				if(isError)
+					return true;
+				else
+					return false;
+			}
+							        
+        ]]></script>
+
+    </head>
+
+    <body>
+    	<xf:group id="floatingGroup" class=""
+    		style="position: fixed ;left:0px;top:2000px;width:100%;height:100%;z-index:999;background:transparent;">
+    		<xf:group id="floatGrayGroup" class=""
+    			style="position:fixed ;top:2000px;width: 100%;height: 100%;background : #ccc;opacity : 0.3;filter : alpha(opacity=30);  -moz-opacity:0.3;">
+    		</xf:group>
+    		<script type="javascript" ev:event="onkeyup"><![CDATA[
+                // esc key event
+                gfn_floatPopupClose(e.keyCode);
+            ]]></script>
+
+    	    <w2:floatingLayer id="floatPopup" useResizeDrag="false" title="메세지" dragAlwaysView="false"
+    	    	style="position: absolute ;left:0px;top:0px;width:500px;height:255px;z-index:999;" class="" bodyComplex="true">
+	    		<script ev:event="onClose" type="javascript"><![CDATA[
+	                gfn_floatPopupClose(27);
+	            ]]></script>
+
+	    		<w2:textbox id="floatPopupTitle" style="position : relative;left:6px;top:-27px;width:400px;height:15px;" class="" label="" tagname="">
+	   			</w2:textbox>
+	   			<xf:group id="grpErrLayerTop" style="margin:0 8px 8px 6px;" class="">
+	    			<xf:group id="grpErrLayerBody" style="background:#fff;" class="">
+	                    <xf:group id="grpErrLayerTitle" style="" class="">
+	                        <w2:textbox id="txtErrLayerTitle" style="" class="" label="오류내용 제목" tagname="">
+	                        </w2:textbox>
+	                    </xf:group>
+	                    <xf:group id="grpErrLayerCont" style="" class="" tagname="ul">
+	                    	<xf:group id="grpErrLayerMsg" style="position:relative;">
+	                    		<xf:textarea id="txtErrLayerMsg" style="width:99%;min-height:85px;" class="">
+	                    		</xf:textarea>
+	                    	</xf:group>
+	                	</xf:group>
+
+		                <xf:group id="grpErrLayerFooter" style="width:100%;position:relative;height:26px;" class="">
+		                	<xf:group id="grpErrLayerButton" style="width:100%; padding-bottom:5px;">
+		                		<xf:group id="grpErrLayerSubButton" style="margin:0 auto;width:324px;height:26px;position:relative;" class="">
+		                			<xf:trigger id="trBtnConfirm" style="height:26px;width:50px;left:0px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+		                				<xf:label>확인</xf:label>
+		                				<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("confirm");
+			                            ]]></script>
+		                			</xf:trigger>
+		                			<xf:trigger id="trBtnCancel" style="height:26px;width:50px;left:52px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+		                				<xf:label>취소</xf:label>
+		                				<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("cancel");
+			                            ]]></script>
+		                			</xf:trigger>
+		                			<xf:trigger id="trBtnYes" style="height:26px;width:50px;left:104px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+		                				<xf:label>예</xf:label>
+		                				<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("yes");
+			                            ]]></script>
+		                			</xf:trigger>
+		                			<xf:trigger id="trBtnNo" style="height:26px;width:62px;left:156px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+		                				<xf:label>아니오</xf:label>
+		                				<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("no");
+			                            ]]></script>
+		                			</xf:trigger>
+		                			<xf:trigger id="trBtnDelete" style="height:26px;width:50px;left:220px;position:absolute;top:0px;visibility:hidden;" class="" type="image" disabled="">
+		                				<xf:label>삭제</xf:label>
+		                				<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_btnAction("delete");
+			                            ]]></script>
+		                			</xf:trigger>
+		                			<xf:trigger id="trBtnClose" style="height:26px;width:50px;left:272px;top:0px;position:absolute;visibility:hidden;" class="" type="button" disabled="">
+		                				<xf:label>닫기</xf:label>
+		                				<script ev:event="onclick" type="javascript"><![CDATA[
+		                                	gfn_floatPopupClose(27);
+			                            ]]></script>
+		                			</xf:trigger>
+		                		</xf:group>
+		                	</xf:group>
+		                	<xf:group id="grpErrLayerClose" style="position:absolute;right:0;bottom:0;width:45px;" class="">
+		                	</xf:group>
+		                </xf:group>
+	                </xf:group>
+	            </xf:group>
+            </w2:floatingLayer>
+	   	</xf:group>
+    	
+    </body>
+</html>

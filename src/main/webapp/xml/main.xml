@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList id="dl_menuInfo">
+					<w2:columnInfo>
+						<w2:column id="MENU_CD" name="name1" dataType="text"></w2:column>
+						<w2:column id="HRNK_MENU_CD" name="name2" dataType="text"></w2:column>
+						<w2:column id="LVL" name="name3" dataType="text"></w2:column>
+						<w2:column id="MENU_NM" name="name4" dataType="text"></w2:column>
+						<w2:column id="PRGR_CD" name="name5" dataType="text"></w2:column>
+						<w2:column id="URL" name="name6" dataType="text"></w2:column>
+						<w2:column id="STATE" name="name7" dataType="text"></w2:column>
+						<w2:column id="SORT_ORD" name="name8" dataType="text"></w2:column>
+						<w2:column id="SCRN_ATHR_YN" name="name9" dataType="text"></w2:column>
+						<w2:column id="INQRY_ATHR_YN" name="name10" dataType="text"></w2:column>
+						<w2:column id="INSRT_ATHR_YN" name="name11" dataType="text"></w2:column>
+						<w2:column id="SAVE_ATHR_YN" name="name12" dataType="text"></w2:column>
+						<w2:column id="DEL_ATHR_YN" name="name13" dataType="text"></w2:column>
+						<w2:column id="OUTPT_ATHR_YN" name="name14" dataType="text"></w2:column>
+						<w2:column id="EXCL_ATHR_YN" name="name15" dataType="text"></w2:column>
+						<w2:column id="ATHR_LV" name="name16" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+		</xf:model>
+		<script type="javascript"><![CDATA[
+/************************************************************
+ 공통함수에 추가되야 하나 우선 페이지에 작업함.
+************************************************************/
+function showMessage(msg) {
+	alert(msg);
+}
+
+
+
+var mVar = {
+	'tabMain' : 'tabControl1'
+};
+var mFnc = {};
+
+/**
+ * 설명		: 메인 tabControl 에 탭을 추가한다.
+ *			  메인 tabControl 의 각 탭컨텐츠는 SPA모드로 동작한다. reload = true 일때 iFrame을 통채로 지우고 다시 그린다.
+ * 파라미터	: menuCD	<String  : Y> : MENU CD
+ */
+mFnc.addTab = function(menuCD) {
+	var menuInfoJSON = $w.data.dl_menuInfo.getMatchedJSON('MENU_CD', menuCD, true);
+	
+	if (menuInfoJSON.length != 1) {
+		showMessage('정상적인 메뉴가 아니다.');
+		return;
+	}
+	
+	if (menuInfoJSON[0].URL.trim() == '') {
+		return;
+	}
+	
+	if (menuCD.indexOf('TTT') <= -1) {
+		showMessage('준비중 입니다.');
+		return;
+	}
+	var tabOptions = {
+		label      : menuInfoJSON[0].MENU_NM,
+		openAction : "select", // exist 는 기존 탭을 갱신, new 는 항상 새로, select는 동일 id 가 존재하면 선택
+		closable   : "true",
+		title : menuInfoJSON[0].MENU_NM
+	};
+	var contentsOptions = {
+		frameMode   : "iframe",
+		alwaysDraw  : false,
+		forceReload : (typeof reload != 'undefined') ? reload : false,
+		src         : menuInfoJSON[0].URL
+	};
+	
+	var beforeTabCnt = $w.comp[mVar.tabMain].getTabCount();
+	
+	if (beforeTabCnt == 8) {
+		showMessage("더 이상 Tab을 추가할 수 없습니다.");
+		
+		return;
+	}
+	
+	this.toggleMenu(false);
+	
+	$w.comp[mVar.tabMain].addTab(menuInfoJSON[0].PRGR_CD, tabOptions, contentsOptions);
+	
+	var afterTabCnt = $w.comp[mVar.tabMain].getTabCount();
+	
+	if (beforeTabCnt != afterTabCnt) {
+		$w.comp[mVar.tabMain].setSelectedTabIndex($w.comp[mVar.tabMain].getTabIndex(menuInfoJSON[0].PRGR_CD));
+	}
+};
+
+/**
+ * 설명		: 메인 좌측 메뉴 영역을 보이거나 숨긴다.
+ * 파라미터	: visible	<boolean : Y> : 숨김여부
+ */
+mFnc.toggleMenu = function(visible) {
+	var visible = visible || true;
+	
+	// wf_lnb, content, tabControl 은 같이 동작한다.
+	if (visible) {
+		if (wf_lnb.hasClass('dpn')) {
+			
+		} else {
+			$w.comp['wf_lnb'].addClass('dpn');
+			$w.comp['content'].addClass('left0');
+			$w.comp[mVar.tabMain].addClass('pos');
+		}
+	} else {
+		if (wf_lnb.hasClass('dpn')) {
+			$w.comp['wf_lnb'].removeClass('dpn');
+			$w.comp['content'].removeClass('left0');
+			$w.comp[mVar.tabMain].removeClass('pos');
+		} else {
+		
+		}
+	}
+};
+
+/**
+ * 설명		: 좌측 메뉴를 셋팅한다.
+ 			  모든 메뉴를 한번에 Generator 컴퍼넌트를 사용 만들시 속도 이슈가 발생하게 된다. 1레벨을 그린후 각 레벨 클릭시 하위 레벨을 그리는 방식으로 작성.
+ * 파라미터	: menuLv	<String  : Y> : 메뉴 레벨
+ * 			  genIndex	<String  : N> : 선택한 1레벨 Generator Index
+ */
+mFnc.setMenu = function(menuLv, genIndex) {
+	var menuJSON;
+	var idx;
+	var iCnt;
+	var gen1Obj = $w.comp['gen_lnb1depth'];
+	var gen2Obj;
+	var gen3Obj;
+	var g1Index;
+	var g2Index;
+	var txt1Obj;
+	var txt2Obj;
+	var depth1MatchedIndex;
+	var sRow;
+	var eRow;
+	
+	switch(menuLv) {
+		case '0' :
+			menuJSON = $w.data.dl_menuInfo.getMatchedJSON('LVL', '0', true);
+			for (idx = 0, iCnt = menuJSON.length; idx < iCnt; idx++) {
+				g1Index = gen1Obj.insertChild();
+				
+				txt1Obj = gen1Obj.getChild(g1Index, 'grp_step1_'); 
+				txt1Obj.setValue(menuJSON[idx].MENU_NM);
+				txt1Obj.setUserData('_MENU_CD', menuJSON[idx].MENU_CD);
+			}
+			break;
+		case '1' :
+			g1Index = genIndex;
+			txt1Obj = gen1Obj.getChild(g1Index, 'grp_step1_');
+			
+			if (txt1Obj.getUserData('_isOpened') != 'Y') {
+				txt1Obj.setUserData('_isOpened', 'Y');
+				
+				depth1MatchedIndex = $w.data.dl_menuInfo.getMatchedIndex('LVL', '0', true);
+				
+				sRow = depth1MatchedIndex[genIndex] + 1;
+				eRow = (genIndex != depth1MatchedIndex.length - 1) ? depth1MatchedIndex[genIndex + 1] - 1 : $w.data.dl_menuInfo.getRowCount();
+				
+				menuJSON = $w.data.dl_menuInfo.getRangeJSON(sRow, eRow);
+				
+				gen2Obj = gen1Obj.getChild(g1Index, 'gen_lnb2depth');
+				
+				// 하위 메뉴가 많다면 속도 이슈가 발생한다. 3뎁스를 다시 Generator를 사용해서 그려야한다.
+				for (idx = 0, iCnt = menuJSON.length; idx < iCnt; idx++) {
+					g2Index = gen2Obj.insertChild();
+					
+					txt2Obj = gen2Obj.getChild(g2Index, 'grp_step2_'); 
+					txt2Obj.setValue(menuJSON[idx].MENU_NM);
+					txt2Obj.setUserData('_MENU_CD', menuJSON[idx].MENU_CD);
+					
+					switch(menuJSON[idx].LVL) {
+						case '1' : txt2Obj.addClass('step2'); break;
+						case '2' : txt2Obj.addClass('step3'); break;
+					}
+				} 
+			}
+			this.openLowerMenu(g1Index);
+			break;
+		default :
+			break;
+	}
+};
+
+
+/**
+ * 설명		: 선택한 1레벨 하위 메뉴를 보이거나 숨긴다.
+ * 파라미터	: genIndex	<String  : Y> : 선택한 1레벨 Generator Index
+ */
+mFnc.openLowerMenu = function(genIndex) {
+	var gen1Obj = $w.comp['gen_lnb1depth'];
+	var gen2ObjID;
+	var li1Obj;
+	var menuJSON = $w.data.dl_menuInfo.getMatchedJSON('LVL', '0', true);
+	
+	for (idx = 0, iCnt = menuJSON.length; idx < iCnt; idx++) {
+		li1Obj = gen1Obj.getChild(idx, 'lnb_li1depth');
+		gen2ObjID = gen1Obj.getChild(idx, 'gen_lnb2depth').getID();
+		
+		if (idx == genIndex) {
+			if (!li1Obj.hasClass("lnb_focus")) {
+				li1Obj.addClass("lnb_focus");
+				$('#' + gen2ObjID).addClass('show');
+			}
+		} else {
+			if (li1Obj.hasClass("lnb_focus")) {
+				li1Obj.removeClass("lnb_focus");
+				$('#' + gen2ObjID).removeClass('show');
+			}
+		}
+	}
+};
+
+/**
+ * 설명		: 화면 OnLoad 함수
+ */
+mFnc.doInit = function() {
+	var menuInfoStr = '["M_TTT_01_01_000","M_XXX_00_00_000","0","교육 및 UX작업화면","","","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_TTT_01_01_010","M_TTT_01_01_000","1","교육","S_TTT_01_01_010","","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_TTT_01_01_011","M_TTT_01_01_010","2","단건CRUD","S_TTT_01_01_011","/xml/USER1.xml","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_TTT_01_01_012","M_TTT_01_01_010","2","멀티CRUD","S_TTT_01_01_012","/xml/USER2.xml","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_TTT_01_01_020","M_TTT_01_01_000","1","UX작업화면","S_TTT_01_01_020","","0","2","","","","","","","",""';
+	menuInfoStr += ',"M_TTT_01_01_021","M_TTT_01_01_020","2","SADM0204010","S_TTT_01_01_021","/xml/SADM0204010.xml","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_TTT_01_01_022","M_TTT_01_01_020","2","SADM0505040","S_TTT_01_01_022","/xml/SADM0505040.xml","0","2","","","","","","","",""';
+	menuInfoStr += ',"M_TTT_01_01_023","M_TTT_01_01_020","2","SADM0906090","S_TTT_01_01_023","/xml/SADM0906090.xml","0","3","","","","","","","",""';
+	menuInfoStr += ',"M_TTT_01_01_024","M_TTT_01_01_020","2","SADM0906091","S_TTT_01_01_024","/xml/SADM0906091.xml","0","4","","","","","","","",""';
+	menuInfoStr += ',"M_TTT_01_01_025","M_TTT_01_01_020","2","SADM1104010","S_TTT_01_01_025","/xml/SADM1104010.xml","0","5","","","","","","","",""';
+	
+	
+	menuInfoStr += ',"M_SHA_01_01_000","M_XXX_00_00_000","0","정보업무관리","","","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_01_01_010","M_SHA_01_01_000","1","정보관리","S_SHA_01_01_010","/sharedinfo/adminfacillity/systemmngt/S_SHA_01_01_010.xml","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_01_01_020","M_SHA_01_01_000","1","기관정보관리","S_SHA_01_01_020","/sharedinfo/adminfacillity/systemmngt/S_SHA_01_01_020.xml","0","2","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_01_01_030","M_SHA_01_01_000","1","프로그램정보관리","S_SHA_01_01_030","/sharedinfo/adminfacillity/systemmngt/S_SHA_01_01_030.xml","0","3","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_01_01_040","M_SHA_01_01_000","1","메뉴정보관리","S_SHA_01_01_040","/sharedinfo/adminfacillity/systemmngt/S_SHA_01_01_040.xml","0","4","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_01_01_050","M_SHA_01_01_000","1","권한그룹정보관리","S_SHA_01_01_050","/sharedinfo/adminfacillity/systemmngt/S_SHA_01_01_050.xml","0","5","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_01_01_060","M_SHA_01_01_000","1","기관별그룹정보관리","S_SHA_01_01_060","/sharedinfo/adminfacillity/systemmngt/S_SHA_01_01_060.xml","0","6","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_01_01_070","M_SHA_01_01_000","1","그룹별메뉴정보관리","S_SHA_01_01_070","/sharedinfo/adminfacillity/systemmngt/S_SHA_01_01_070.xml","0","7","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_01_01_080","M_SHA_01_01_000","1","사용자별메뉴정보관리","S_SHA_01_01_080","/sharedinfo/adminfacillity/systemmngt/S_SHA_01_01_080.xml","0","8","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_01_01_090","M_SHA_01_01_000","1","시스템메시지정보관리","S_SHA_01_01_090","/sharedinfo/adminfacillity/systemmngt/S_SHA_01_01_090.xml","0","9","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_000","M_XXX_00_00_000","0","행정업무관리","","","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_010","M_ADM_01_01_000","1","행정관리","S_ADM_01_01_010","/foodadmin/adminfacillity/systemmngt/S_ADM_01_01_010.xml","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_020","M_ADM_01_01_000","1","기관행정관리","S_ADM_01_01_020","/foodadmin/adminfacillity/systemmngt/S_ADM_01_01_020.xml","0","2","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_030","M_ADM_01_01_000","1","프로그램행정관리","S_ADM_01_01_030","/foodadmin/adminfacillity/systemmngt/S_ADM_01_01_030.xml","0","3","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_040","M_ADM_01_01_000","1","메뉴행정관리","S_ADM_01_01_040","/foodadmin/adminfacillity/systemmngt/S_ADM_01_01_040.xml","0","4","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_050","M_ADM_01_01_000","1","권한그룹행정관리","S_ADM_01_01_050","/foodadmin/adminfacillity/systemmngt/S_ADM_01_01_050.xml","0","5","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_060","M_ADM_01_01_000","1","기관별그룹행정관리","S_ADM_01_01_060","/foodadmin/adminfacillity/systemmngt/S_ADM_01_01_060.xml","0","6","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_070","M_ADM_01_01_000","1","그룹별메뉴행정관리","S_ADM_01_01_070","/foodadmin/adminfacillity/systemmngt/S_ADM_01_01_070.xml","0","7","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_080","M_ADM_01_01_000","1","사용자별메뉴행정관리","S_ADM_01_01_080","/foodadmin/adminfacillity/systemmngt/S_ADM_01_01_080.xml","0","8","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_01_01_090","M_ADM_01_01_000","1","시스템메시지행정관리","S_ADM_01_01_090","/foodadmin/adminfacillity/systemmngt/S_ADM_01_01_090.xml","0","9","","","","","","","",""';
+	menuInfoStr += ',"M_COM_01_01_000","M_XXX_00_00_000","0","시스템관리","","","0","1","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_01_01_010","M_COM_01_01_000","1","사용자관리","S_COM_01_01_010","/common/adminfacillity/systemmngt/S_COM_01_01_010.xml","0","1","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_01_01_020","M_COM_01_01_000","1","기관코드관리","S_COM_01_01_020","/common/adminfacillity/systemmngt/S_COM_01_01_020.xml","0","2","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_01_01_030","M_COM_01_01_000","1","프로그램관리","S_COM_01_01_030","/common/adminfacillity/systemmngt/S_COM_01_01_030.xml","0","3","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_01_01_040","M_COM_01_01_000","1","메뉴관리","S_COM_01_01_040","/common/adminfacillity/systemmngt/S_COM_01_01_040.xml","0","4","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_01_01_050","M_COM_01_01_000","1","권한그룹관리","S_COM_01_01_050","/common/adminfacillity/systemmngt/S_COM_01_01_050.xml","0","5","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_01_01_060","M_COM_01_01_000","1","기관별그룹관리","S_COM_01_01_060","/common/adminfacillity/systemmngt/S_COM_01_01_060.xml","0","6","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_01_01_070","M_COM_01_01_000","1","그룹별메뉴관리","S_COM_01_01_070","/common/adminfacillity/systemmngt/S_COM_01_01_070.xml","0","7","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_01_01_080","M_COM_01_01_000","1","사용자별메뉴관리","S_COM_01_01_080","/common/adminfacillity/systemmngt/S_COM_01_01_080.xml","0","8","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_01_01_090","M_COM_01_01_000","1","시스템메시지관리","S_COM_01_01_090","/common/adminfacillity/systemmngt/S_COM_01_01_090.xml","0","9","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_SHA_02_02_000","M_XXX_00_00_000","0","공통정보관리","","","0","2","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_02_02_010","M_SHA_02_02_000","1","공통코드정보관리","S_SHA_02_02_010","/sharedinfo/adminfacillity/systemmngt/S_SHA_02_02_010.xml","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_02_02_020","M_SHA_02_02_000","1","공통팝업정보관리","S_SHA_02_02_020","/sharedinfo/adminfacillity/systemmngt/S_SHA_02_02_020.xml","0","2","","","","","","","",""';
+	menuInfoStr += ',"M_SHA_02_02_030","M_SHA_02_02_000","1","공통콤보정보관리","S_SHA_02_02_030","/sharedinfo/adminfacillity/systemmngt/S_SHA_02_02_030.xml","0","3","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_02_02_000","M_XXX_00_00_000","0","공통행정관리","","","0","2","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_02_02_010","M_ADM_02_02_000","1","공통코드행정관리","S_ADM_02_02_010","/foodadmin/adminfacillity/systemmngt/S_ADM_02_02_010.xml","0","1","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_02_02_020","M_ADM_02_02_000","1","공통팝업행정관리","S_ADM_02_02_020","/foodadmin/adminfacillity/systemmngt/S_ADM_02_02_020.xml","0","2","","","","","","","",""';
+	menuInfoStr += ',"M_ADM_02_02_030","M_ADM_02_02_000","1","공통콤보행정관리","S_ADM_02_02_030","/foodadmin/adminfacillity/systemmngt/S_ADM_02_02_030.xml","0","3","","","","","","","",""';
+	menuInfoStr += ',"M_COM_02_02_000","M_XXX_00_00_000","0","공통관리","","","0","2","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_02_02_010","M_COM_02_02_000","1","공통코드관리","S_COM_02_02_010","/common/adminfacillity/systemmngt/S_COM_02_02_010.xml","0","1","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_02_02_020","M_COM_02_02_000","1","공통팝업관리","S_COM_02_02_020","/common/adminfacillity/systemmngt/S_COM_02_02_020.xml","0","2","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_02_02_030","M_COM_02_02_000","1","공통콤보관리","S_COM_02_02_030","/common/adminfacillity/systemmngt/S_COM_02_02_030.xml","0","3","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_02_02_040","M_COM_02_02_000","1","시스템접속로그조회","S_COM_02_02_040","/common/adminfacillity/systemmngt/S_COM_02_02_040.xml","0","4","1","1","1","1","1","1","1","1"';
+	menuInfoStr += ',"M_COM_02_02_050","M_COM_02_02_000","1","시스템사용로그조회","S_COM_02_02_050","/common/adminfacillity/systemmngt/S_COM_02_02_050.xml","0","5","1","1","1","1","1","1","1","1"]';
+	
+	$w.data.dl_menuInfo.setData(JSON.parse(menuInfoStr));
+	
+	mFnc.setMenu('0');
+};
+
+mFnc.doInit();
+		]]></script>
+	</head>
+	<body>
+		<xf:group id="wrap" class="">
+			<w2:wframe id="wf_header" src="/common/inc/header.xml"></w2:wframe>
+			<xf:group id="container" style="overflow:visible;" class="clearfix">
+				<w2:wframe id="wf_lnb" src="/common/inc/lnb.xml"></w2:wframe>
+				<xf:group id="content" style="overflow:visible;" class="clearfix">
+					<w2:tabControl id="tabControl1" spaIframeMinSize="0" style="overflow:visible;" closable="true" confirmTrueAction="exist" spaIframeMaxSize="0" class="tabc" useConfirmMessage="false"
+						useTabKeyOnly="true" confirmFalseAction="new" alwaysDraw="false" tabScroll="true">
+					</w2:tabControl>
+				</xf:group>
+			</xf:group>
+			<w2:wframe id="wf_footer" src="/common/inc/footer.xml"></w2:wframe>
+		</xf:group>
+	</body>
+</html>

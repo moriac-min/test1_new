@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="borderbox" id="group6" style="">
+	<xf:group id="group7" style="" class="remark">
+		<w2:textbox id="textbox5" style="" class="red" label="비고사항">
+		</w2:textbox>
+</xf:group>
+	<xf:group class="remark" id="group8" style="">
+		<w2:textbox class="bak" id="textbox7" label="비고사항" style="">
+		</w2:textbox>
+</xf:group>
+	<xf:group class="remark" id="group9" style="">
+		<w2:textbox class="grn" id="textbox8" label="비고사항" style="">
+		</w2:textbox>
+</xf:group>
+	<xf:group class="remark" id="group10" style="">
+		<w2:textbox class="bak" id="textbox9" label="이물의 발견을 &lt;span style=&quot;color:#ff5447&quot;&gt;거짓으로 신고한 자는 1년 이하의 징역 또는 300만원 이하의 벌금&lt;/span&gt;에 처해질 수 있습니다." style="">
+		</w2:textbox>
+</xf:group>
+</xf:group>
+</body>
+</html>

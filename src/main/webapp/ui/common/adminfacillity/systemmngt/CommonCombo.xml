@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection>
+            </w2:dataCollection>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body>
+    	<xf:group class="contents" id="group1" style="">
+    		<xf:group class="titleBar" id="group2" style="">
+    			<w2:textbox class="title02" id="textbox1" label='&lt;span style="color:#04a8b7"&gt;공통콤보&lt;/span&gt; 관리' style=""></w2:textbox>
+    			<w2:textbox class="my" id="textbox2" label="" style=""></w2:textbox>
+    			<xf:group class="pgBox" id="group3" style="">
+    				<xf:group class="title_pgid" id="group4" style="">
+    					<xf:group class="title_pgid_right" id="group5" style="">
+    						<w2:textbox class="" id="textbox3" label="Page ID : " style="" tagname="span"></w2:textbox>
+    						<w2:textbox class="dt" id="textbox4" label="GLEUDL396732227JF" style="" tagname="span"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="dtb" id="group6" style="">
+    			<xf:group class="dtb_row" id="group7" style="">
+    				<xf:group class="dtb_column" id="group8" style="">
+    					<w2:textbox class="dtb_tt" id="textbox5" label="Label"></w2:textbox>
+    					<xf:group class="iptBox" id="group9" style="">
+    						<xf:input class="ipt" id="input1" style=""></xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group10" style="">
+    					<w2:textbox class="dtb_tt" id="textbox6" label="표준명칭"></w2:textbox>
+    					<xf:group class="iptBox" id="group11" style="">
+    						<xf:input class="ipt" id="input2" style=""></xf:input>
+    					</xf:group>
+    					<xf:group class="df_btn" id="group12" style="" tagname="">
+    						<w2:anchor class="anc_trans" id="anchor1">
+    							<xf:label><![CDATA[조 회]]></xf:label>
+    						</w2:anchor>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="dtb" id="group117" style="">
+	<xf:group class="dtb_row" id="group118" style="">
+		<xf:group class="dtb_column" id="group119" style="">
+			<w2:textbox class="dtb_tt" id="textbox50" label="Label">
+			</w2:textbox>
+</xf:group>
+</xf:group>
+	<xf:group class="dtb_row" id="group152" style="">
+		<xf:group class="dtb_column" id="group153" style="">
+			<w2:textbox class="dtb_tt" id="textbox63" label="Label">
+			</w2:textbox>
+</xf:group>
+</xf:group>
+	<xf:group id="group142" style="" class="btn_box">
+		<w2:anchor id="anchor1" style="" class="anc_trans mr5">
+				<xf:label>조회하기</xf:label>
+</w2:anchor><w2:anchor id="anchor2" style="" class="anc_trans mr5">
+				<xf:label>조회조건 초기화</xf:label>
+</w2:anchor><w2:anchor id="anchor3" style="" class="anc_trans">
+				<xf:label>조회조건 저장</xf:label>
+</w2:anchor>
+</xf:group>
+</xf:group>
+</body>
+</html>

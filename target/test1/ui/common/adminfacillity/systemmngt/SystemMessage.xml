@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataMap baseNode="map" id="dm_searchKeyword" style="">
+        			<w2:keyInfo>
+        				<w2:key id="sys_cd" name="시스템구분" dataType="text"></w2:key>
+        				<w2:key id="mssg_cn" name="메시지내용" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList id="dl_systemCode" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="sys_cd" name="시스템코드" dataType="text"></w2:column>
+        				<w2:column id="cmmn_cd" name="공통코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd" name="세부코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd_nm" name="세부코드명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_eng_nm" name="세부영문명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_all_nm" name="세부전체명" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_1" name="사용자정의컬럼1" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_2" name="사용자정의컬럼2" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_3" name="사용자정의컬럼3" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_4" name="사용자정의컬럼4" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_5" name="사용자정의컬럼5" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_6" name="사용자정의컬럼6" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_7" name="사용자정의컬럼7" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_8" name="사용자정의컬럼8" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_9" name="사용자정의컬럼9" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_10" name="사용자정의컬럼10" dataType="text"></w2:column>
+        				<w2:column id="use_yn" name="사용여부" dataType="text"></w2:column>
+        				<w2:column id="sort_ord" name="정렬순서" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList id="dl_selectSystemMessage" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="chk" name="체크박스" dataType="text"></w2:column>
+        				<w2:column id="sys_cd" name="시스템코드" dataType="text"></w2:column>
+        				<w2:column id="mssg_cd" name="메시지코드" dataType="text"></w2:column>
+        				<w2:column id="mssg_cn" name="메시지내용" dataType="text"></w2:column>
+        				<w2:column id="cretr_id" name="생성자아이디" dataType="text"></w2:column>
+        				<w2:column id="cret_dtm" name="생성일시" dataType="text"></w2:column>
+        				<w2:column id="last_updtr_id" name="최종수정자아이디" dataType="text"></w2:column>
+        				<w2:column id="last_updt_dtm" name="최종수정일시" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<xf:submission id="searchSubmission" ref='data:json,{"id":"dm_searchKeyword","key":"systemMessageVO"}' target='data:json,{"id":"dl_selectSystemMessage","key":"infoList"}'
+        		action="/adminfacillity/systemmngt/selectSystemMessage.do" method="post" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="">
+        	</xf:submission>
+        	
+        	<xf:submission id="modifiedSubmission" ref="data:json,{id:'dl_selectSystemMessage',key:'infoList',action:'modified'}"
+        		target='data:json,[{"id":"dl_selectSystemMessage","key":"infoList"}]' action="/adminfacillity/systemmngt/saveSystemMessage.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" mode="asynchronous" processMsg="저장중입니다..." instance="" replace=""
+        		errorHandler="" customHandler="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_search();
+        		]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[ 
+        /***************************************************************************************
+			* 시스템명 		: 식품의약품안전처 통합식품안전망구축
+			* 업무명 		: SystemMessage
+			* 파일명 		: SystemMessage.xml
+			* 작성자 		: 유승엽
+			* 작성일 		: 2014.08.20
+			*
+			* 설  명		: 프로그램 관리 
+			*---------------------------------------------------------------------------------------
+			* 변경일	변경자		변경내역 
+			*---------------------------------------------------------------------------------------
+			*  2014.08.20 유승엽	최초 프로그램 작성         
+			* 
+			*---------------------------------------------------------------------------------------
+			****************************************************************************************/
+			
+			/********************************************************************************************************************/
+			/* 01. 공통라이브러리 정의																					*/
+			/********************************************************************************************************************/
+			
+			
+			/********************************************************************************************************************/
+			/* 02. Form 변수정의																								*/
+			/********************************************************************************************************************/
+        	var selectBoxValue = '';
+        	
+        	/********************************************************************************************************************/
+			/* 03. Form 화면 초기화																							*/
+			/********************************************************************************************************************/
+			gfn_callCommonCode(
+				"COM",
+				["0001"],
+				["dl_systemCode"]
+			);
+			/********************************************************************************************************************/
+			/* 04. 서비스 TRANSACTION 함수(조회,저장,삭제,Callback)																		*/
+			/********************************************************************************************************************/
+			//조회
+			function fn_search(){
+				if(gfn_isEmpty(slb_Syscd.getValue())){
+					alert("시스템구분을 선택해주시기 바랍니다.");
+					return false;
+				}
+				$w.executeSubmission("searchSubmission");
+				selectBoxValue = slb_Syscd.getValue();
+			}
+			
+			//저장
+			function fn_save(){
+			var modifiedData = dl_selectSystemMessage.getModifiedIndex();
+			var nullcheck = 0;
+                for(var i=0; i<modifiedData.length; i++){
+		 			var mssg_cd = dl_selectSystemMessage.getCellData( modifiedData[i] , 'mssg_cd' );
+		 		if(mssg_cd == '' || mssg_cd == null){
+		 			nullcheck = 1;
+		 		}
+		 	}
+		 	if(nullcheck == 0)
+				$w.executeSubmission("modifiedSubmission");	
+			if(nullcheck == 1)
+				alert("필수입력항목 오류");
+			}
+			
+			/**************************************************************************
+			 * 05.공통버튼 영역
+			***************************************************************************/
+        	
+        	/**************************************************************************
+			 * 06.그리드 행추가, 삭제, 엑셀출력 버튼영역
+			***************************************************************************/
+        	//행추가
+        	function fn_addRow(){
+	        	if(gfn_isEmpty(selectBoxValue)){
+        			alert("추가할 시스템 코드값으로 조회하여주시기 바랍니다.");
+        			return;
+        		}
+        		var rowIndex = grd_GridView.getFocusedRowIndex();
+                dl_selectSystemMessage.insertRow( rowIndex + 1 );
+                dl_selectSystemMessage.setCellData( rowIndex + 1 , 1 , selectBoxValue );
+                grd_GridView.setCellDisabled(rowIndex + 1 , 'mssg_cd' , false);
+        	}
+        	
+        	//행삭제
+        	function fn_delRow(){
+        		try{
+	    			var dataListStr = grd_GridView.getDataList(); // return string type
+	    			var dataList = WebSquare.util.getComponentById( dataListStr );
+	    			
+	    			var chkIndex = dl_selectSystemMessage.getMatchedIndex( "chk" ,1 ,true ,0 ,dl_selectSystemMessage.getRowCount() );
+	    			if(chkIndex.length > 0){
+		 				for(var i=0; i<chkIndex.length; i++){
+		 					dataList.deleteRow( chkIndex[i] );
+		 				}
+	 				}else{
+	 					alert("삭제할 데이터를 체크하십시오.");
+	 				}
+	 			}catch(e){
+	 			}finally{
+	 				dataList = null; //메모리 초기화
+	 			}
+        	}
+        	
+        	// 엑셀다운로드 (API문서 참고)
+			function fn_exportExcel(grdViewObj, options, infoArr) {
+			    grdViewObj.advancedExcelDownload(options, infoArr);
+			};
+			
+        	/**************************************************************************
+			 * 07. 사용자 정의 함수 구현 영역
+			***************************************************************************/
+        				
+        ]]></script>
+    </head>
+    <body>
+    	<xf:group class="contents" id="group1" style="">
+    		<xf:group class="titleBar" id="group14" style="">
+    			<w2:textbox class="title02" id="txb_Title" label='&lt;span style="color:#04a8b7"&gt;시스템메시지&lt;/span&gt; 관리' style=""></w2:textbox>
+    			<w2:textbox class="my" id="textbox6" label="" style=""></w2:textbox>
+    			<xf:group class="pgBox" id="group15" style="">
+    				<xf:group class="title_pgid" id="grp_PageId" style="">
+    					<xf:group class="title_pgid_right" id="grp_PageIdSub" style="">
+    						<w2:textbox class="" id="Txb_LabelId" label="Page ID : " style="" tagname="span"></w2:textbox>
+    						<w2:textbox class="dt" id="Txb_Id" label="GLEUDL396732227JF" style="" tagname="span"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="dtb" id="group2" style="">
+    			<xf:group class="dtb_row" id="group3" style="">
+    				<xf:group class="dtb_column" id="group4" style="">
+    					<w2:textbox class="dtb_tt" id="txb_Syscd" label="시스템구분"></w2:textbox>
+    					<xf:group class="iptBox" id="group18" style="">
+    						<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="select" direction="auto"
+    							disabled="false" disabledClass="w2selectbox_disabled" displayMode="label" id="slb_Syscd" style="width:124px;height:21px;"
+    							submenuSize="auto" ref="data:dm_searchKeyword.sys_cd" chooseOptionLabel="">
+    							<xf:choices>
+    								<xf:itemset nodeset="data:dl_systemCode">
+    									<xf:label ref="fnprt_cd_nm"></xf:label>
+    									<xf:value ref="fnprt_cd"></xf:value>
+    								</xf:itemset>
+    							</xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    					<xf:group class="iptBox" id="group5" style=""></xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group6" style="">
+    					<w2:textbox class="dtb_tt" id="txb_Mssg_content" label="메시지내용"></w2:textbox>
+    					<xf:group class="iptBox" id="group7" style="">
+    						<xf:input class="ipt" id="ipb_Mssg_content" style="" ref="data:dm_searchKeyword.mssg_cn"></xf:input>
+    					</xf:group>
+    					<xf:group class="df_btn" id="group8" style="" tagname="">
+    						<w2:anchor class="anc_trans" id="anc_Search">
+    							<xf:label><![CDATA[조 회]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_search();
+    							]]></script>
+    						</w2:anchor>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="defaultbox" id="group9" style="">
+    			<xf:group class="totalbox" id="group10" style="">
+    				<xf:group class="total" id="group11" style="">
+    					<xf:group class="strong" id="group12" style="">
+    						<w2:textbox class="strong_right" id="txb_Count" label="0" style="" tagname="strong"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<w2:textbox class="sear" id="txb_Searched" label="건이 조회되었습니다." style=""></w2:textbox>
+    				<xf:group class="fr" id="group13">
+    					<w2:anchor class="btn_excel" id="anchor2">
+    						<xf:label><![CDATA[엑셀다운로드]]></xf:label>
+    					</w2:anchor>
+    				</xf:group>
+    				<xf:group class="defaultbox" id="group23" style="">
+    					<xf:group class="fr" id="group24" style="">
+    						<w2:anchor class="anc_trans mr5" id="anc_Save" style="">
+    							<xf:label><![CDATA[저 장]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_save();
+    							]]></script>
+    						</w2:anchor>
+    						<w2:anchor class="anc_trans mr5" id="anc_AddRow" style="">
+    							<xf:label><![CDATA[행추가]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_addRow();
+    							]]></script>
+    						</w2:anchor>
+    						<w2:anchor class="anc_trans" id="anc_DelRow" style="">
+    							<xf:label><![CDATA[행삭제]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_delRow();
+    							]]></script>
+    						</w2:anchor>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<w2:gridView autoFit="allColumn" class="cm_grid" dataList="dl_selectSystemMessage" fixedColumnWithHidden="true"
+    			id="grd_GridView" scrollByColumn="false" style="position: relative ;height:380px;left:0px;top:5px;" useShiftKey="false"
+    			visibleRowNum="15" rowNumHeaderValue="" rowStatusHeaderValue="상태" rowStatusVisible="true" rowStatusWidth="25px">
+    			<w2:header id="header2" style="">
+    				<w2:row id="row3" style="">
+    					<w2:column blockSelect="false" id="column23" style="height:20px" inputType="checkbox" width="70" value="체크박스"></w2:column>
+    					<w2:column blockSelect="false" id="column21" style="height:20px" inputType="text" width="70" value="시스템코드(나중지워)"></w2:column>
+    					<w2:column blockSelect="false" id="column19" style="height:20px" inputType="text" width="70" value="메시지코드"></w2:column>
+    					<w2:column blockSelect="false" id="column17" style="height:20px" inputType="text" width="319" value="메시지내용"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody2" style="">
+    				<w2:row id="row4" style="">
+    					<w2:column blockSelect="false" id="chk" style="height:20px" inputType="checkbox" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="sys_cd" style="height:20px" inputType="text" width="70" disabled="true"></w2:column>
+    					<w2:column blockSelect="false" id="mssg_cd" style="height:20px" inputType="text" width="70" disabled="true"></w2:column>
+    					<w2:column blockSelect="false" id="mssg_cn" style="height:20px;text-align:left;" inputType="text" width="319"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:wframe id="wfm_Common" style="position: relative;width: 0px;height: 0px;" src="/ui/common/frame/commonCodeFrame.xml"></w2:wframe>
+    	</xf:group>
+    </body>
+</html>

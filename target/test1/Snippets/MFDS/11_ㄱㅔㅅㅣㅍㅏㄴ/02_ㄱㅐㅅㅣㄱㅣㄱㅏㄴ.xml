@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group id="group21" style="">
+	<xf:group class="tb_line" id="group22" style="">
+	</xf:group>
+	<table class="w2tb wt" id="table9" style="" summary="">
+		<xf:group tagname="colgroup">
+			<xf:group style="width:10%" tagname="col">
+			</xf:group>
+			<xf:group style="width:90.00%" tagname="col">
+			</xf:group>
+</xf:group>
+		<xf:group tagname="tr">
+			<xf:group class="w2tb_th th" style="" tagname="th">개시기간</xf:group>
+			<xf:group class="w2tb_td td" style="" tagname="td">
+				<w2:inputCalendar alt="" calendarValueType="yearMonthDate" class="Cal" focusOnDateSelect="false" footerDiv="false" id="inputCalendar3" renderType="component" style="width:100px;" weekStartsOn="0">
+</w2:inputCalendar>
+				<w2:textbox class="tilde" id="textbox13" label="~" style="margin-left:5px;">
+				</w2:textbox>
+				<w2:inputCalendar alt="" calendarValueType="yearMonthDate" class="Cal" focusOnDateSelect="false" footerDiv="false" id="inputCalendar4" renderType="component" style="width:100px;" weekStartsOn="0">
+</w2:inputCalendar>
+</xf:group>
+</xf:group>
+		<xf:group tagname="tr">
+			<xf:group class="w2tb_th th" style="" tagname="th">제목</xf:group>
+			<xf:group class="w2tb_td td" style="" tagname="td">
+				<xf:input class="ipt" id="input11" style="">
+				</xf:input>
+</xf:group>
+</xf:group>
+</table>
+	<xf:group class="tb_line" id="group23" style="">
+	</xf:group>
+</xf:group>
+</body>
+</html>

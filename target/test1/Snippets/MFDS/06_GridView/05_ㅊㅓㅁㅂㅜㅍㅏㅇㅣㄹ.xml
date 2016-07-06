@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group id="group78" style="" class="">
+	<xf:group id="group79" style="">
+		<xf:group class="defaultbox mb5" id="group80" style="">
+			<w2:textbox class="wt_title fl mt5" id="textbox38" label="첨부파일" style="">
+			</w2:textbox>
+			<xf:group class="btnBox" id="group81" style="">
+				<xf:group class="addFile" id="group82" style="">
+					<w2:multiupload action="" filter="" id="multiupload2" maxcount="" maxsize="" mode="transparent" selectCallback="fileSelectCallbackFunc" style="position: absolute ;left:0;top:0;width:99%;height:22px;" uploadButton="" wmode="false">
+</w2:multiupload>
+					<w2:anchor class="anc_trans mr5" id="anchor15" style="">
+						<xf:label>파일첨부</xf:label>
+</w2:anchor>
+</xf:group>
+				<w2:anchor class="anc_trans mr5" id="anchor16" style="">
+					<xf:label>삭제</xf:label>
+</w2:anchor>
+				<w2:anchor class="anc_trans" id="anchor17" style="">
+					<xf:label>취소</xf:label>
+</w2:anchor>
+</xf:group>
+</xf:group>
+		<w2:gridView autoFit="allColumn" class="bd_grid mt5" dataList="dataList1" evenRowBackgroundColor="#fff" fixedColumnWithHidden="true" id="gridView4" scrollByColumn="false" style="height: 150px;" useShiftKey="false" visibleRowNum="5">
+			<w2:header id="header1" style="">
+				<w2:row id="row1" style="">
+					<w2:column blockSelect="false" id="column1" inputType="checkbox" style="height:29px" value="" width="30">
+					</w2:column>
+					<w2:column blockSelect="false" id="column2" inputType="text" style="height:29px" value="순번" width="70">
+					</w2:column>
+					<w2:column blockSelect="false" id="column3" inputType="text" style="height:29px" value="파일이름" width="300">
+					</w2:column>
+					<w2:column blockSelect="false" id="column4" inputType="text" style="height:29px" value="진행상태" width="100">
+					</w2:column>
+</w2:row>
+</w2:header>
+			<w2:gBody id="gBody1" style="">
+				<w2:row id="row2" style="">
+					<w2:column blockSelect="false" id="column5" inputType="text" style="height:27px" width="30">
+					</w2:column>
+					<w2:column blockSelect="false" id="column6" inputType="text" style="height:27px" width="70">
+					</w2:column>
+					<w2:column blockSelect="false" id="column7" inputType="text" style="height:27px" width="300">
+					</w2:column>
+					<w2:column blockSelect="false" id="column8" inputType="text" style="height:27px" width="100">
+					</w2:column>
+</w2:row>
+</w2:gBody>
+</w2:gridView>
+</xf:group>
+</xf:group>
+</body>
+</html>

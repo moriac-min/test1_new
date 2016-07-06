@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="titleBar" id="group173" style="">
+	<w2:textbox class="title02" id="textbox67" label="&lt;span style=&quot;color:#04a8b7&quot;&gt;사용자&lt;/span&gt; 관리" style="">
+	</w2:textbox>
+	<w2:textbox class="my" id="textbox70" label="" style="">
+	</w2:textbox>
+	<xf:group class="pgBox" id="group174" style="">
+		<xf:group class="title_pgid" id="group175" style="">
+			<xf:group class="title_pgid_right" id="group176" style="">
+				<w2:textbox class="" id="textbox68" label="Page ID : " style="" tagname="span">
+				</w2:textbox>
+				<w2:textbox class="dt" id="textbox69" label="GLEUDL396732227JF" style="" tagname="span">
+				</w2:textbox>
+</xf:group>
+</xf:group>
+</xf:group>
+</xf:group>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataMap baseNode="map" id="dataMap1" style="">
+        			<w2:keyInfo>
+        				<w2:key id="searchKeyword" name="사번/성명" dataType="text"></w2:key>
+        				<w2:key id="searchCondition" name="선택" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataMap baseNode="map" id="dataMap2" style="">
+        			<w2:keyInfo>
+        				<w2:key id="sabun" name="sabun" dataType="text"></w2:key>
+        				<w2:key id="name" name="name" dataType="text"></w2:key>
+        				<w2:key id="dept" name="dept" dataType="text"></w2:key>
+        				<w2:key id="ipsa_date" name="ipsa_date" dataType="text"></w2:key>
+        				<w2:key id="sex" name="sex" dataType="text"></w2:key>
+        				<w2:key id="marry" name="marry" dataType="text"></w2:key>
+        				<w2:key id="salary" name="salary" dataType="text"></w2:key>
+        				<w2:key id="smemo" name="smemo" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList id="dataList1" style="" valueAttribute="">
+        			<w2:columnInfo>
+        				<w2:column id="sabun" name="sabun" dataType="text"></w2:column>
+        				<w2:column id="name" name="name" dataType="text"></w2:column>
+        				<w2:column id="dept" name="dept" dataType="text"></w2:column>
+        				<w2:column id="ipsa_date" name="ipsa_date" dataType="text"></w2:column>
+        				<w2:column id="sex" name="sex" dataType="text"></w2:column>
+        				<w2:column id="marry" name="marry" dataType="text"></w2:column>
+        				<w2:column id="salary" name="salary" dataType="text"></w2:column>
+        				<w2:column id="smemo" name="smemo" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<xf:submission id="searchSubmission" ref="data:json,{id:'dataMap1',key:'educationSampleVO'}" target='data:json,[{"id":"dataList1","key":"educationSampleList"}]' 
+        		action="/education/sample/selectEduSawonList.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			
+        		 ]]></script>
+        	</xf:submission>
+        	<xf:submission id="deleteSubmission" ref="data:json,{id:'dataMap2',key:'educationSampleVO'}" target='data:json,[{"id":"dataList1","key":"educationSampleList"}]' action="/education/sample/deleteEduSawonList.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        		]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[
+        
+        	var deleteIdx;
+        
+        	// 검색조건 label 변경
+        	function fn_changeLabel(){
+        		if(searchCondition.getValue() == 0){
+        			tb_sabun.setLabel( "사번" );
+        		}else{
+        			tb_sabun.setLabel( "성명" );
+        		}
+        	}
+        	
+        	
+        	// 레이어 팝업 호출
+        	function gfn_openLayerPopup(id, url, options) {
+			    var width = options.width || "400";
+			    var height = options.height || "400";
+			    var left = options.left || -1;
+			    var top = options.top || -1;
+			    
+			    if (left > 0) {
+			        left = left + (self.screenLeft || window.screenX);
+			    } else {
+			        left = Math.floor((document.body.clientWidth - width) / 2);
+			    }
+			    if (top > 0) {
+			        top = top + (self.screenTop || window.screenY);
+			    } else {
+			        top = Math.floor((document.body.clientHeight - height) / 2);
+			    }
+			    
+			    requires("uiplugin.popup");
+			    var options = {
+			        id : id,
+			        type : options.type || "window",
+			        width : width + "px",
+			        height : height + "px",
+			        top : top, // useIframe이 true인 경우 브라우져를 기준 false인 경우 모니터를 기준으로 한다.
+			        left : left,
+			        popupName : options.title || "", // useIframe : true시 popup 객체의 이름으로 popup 프레임의 표시줄에 나타납니다.
+			        modal : options.modal || false, // modal을 이용해서 뒤 쪽 배경을 동작하지 않도록 만들기 위한 인자 입니다. false이면 뒤쪽의 컴퍼넌트가 사용 가능합니다.
+			        useIFrame : options.useIFrame || false,// true : IFrame 을 사용하는 WebSquare popup / false: window.open 을 사용하는 popup
+			        style : "", // popup의 스타일을 지정합니다. 값이 있으면 left top width height는 적용되지 않습니다.
+			        resizable : options.resizable || false,
+			        status : false,
+			        menubar : false,
+			        scrollbars : options.scrollbar || false,
+			        title : options.title || false,
+			        xml : JSON.stringify(options.popupParam) || "", // popup에 넘길 xmlDocument의 string popup창에서 WebSquare.util.getPopupParam() api를 사용하여 가져올수 있습니다.
+			        srcData : "", // popup 객체의 type 이 window 일 때 Parent 에서 넘길 xpath
+			        destData : "" // popup 객체의 type 이 window 일 때 popup 에 설정할 xpath
+			    };
+			
+			    try {
+			        WebSquare.util.openPopup(url, options);
+			    } catch(e) { 
+			        $w.log("[fn_openLayerPopup] Exception :: " + e.message);
+			    } finally {
+			        options = null;
+			    }
+			}
+			
+			// 저장 후 dataList에 재셋팅
+			function fn_setMainGrid(strData){
+//				alert("strData: " + strData);
+				
+				// JSON 객체화
+				var oData = JSON.parse(strData);
+				$w.data.set( "JSON" , oData , [{id:"dataList1", key:"dataList2"}] );
+			}
+			
+			
+			// 저장이미지 클릭 함수
+			function fn_clickUpdateImage(idx){
+				var data = dataList1.getRowJSON( idx ); // 클릭한 row의 데이터 전송
+   				var options = {
+   						title:"교육 팝업1", width:"500", useIFrame: true, modal:true
+   						, popupParam: { closeCallbackFncName: "fn_reSearch", rowData: data }
+   				};
+   					
+   				gfn_openLayerPopup("lPopup1", "/xml/USERP01.xml", options);
+			}
+			
+			
+			// 삭제이미지 클릭 함수
+			function fn_clickDeleteImage(idx){
+				deleteIdx = idx;
+				var message = "삭제하시겠습니까?";
+   				var messageType = "Confirm";
+   				var closeCallbackFncName = "fn_delete";
+   				
+   			    var options = {
+			        title : "저장 팝업1",
+			        popupParam : {"message" : message, "closeCallbackFncName" : closeCallbackFncName},
+			        modal : true,
+			        useIframe: true,
+			        width : 300,
+			        height : 300
+		    	};
+		    	gfn_openPopup(messageType, "/xml/message1.xml", options);
+			}
+			
+			// 행 삭제 콜백함수
+			function fn_delete(){
+			
+				// delete row index의 rowData
+				var oData = dataList1.getRowData(deleteIdx);
+				
+				// 삭제전 dataMap2에 데이터 셋팅
+				dataMap2.setArray(oData);
+				
+				$w.executeSubmission( "deleteSubmission" );
+			}
+			
+			
+			// 팝업 오픈
+			function gfn_openPopup(id, url, options) {
+			    var width = options.width || "400";
+			    var height = options.height || "400";
+			
+			    var left = options.left || -1;
+			    var top = options.top || -1;
+			    
+			    if (left > 0) {
+			        left = left + (self.screenLeft || window.screenX);
+			    } else {
+			        left = Math.floor((document.body.clientWidth - width) / 2);
+			    }
+			    if (top > 0) {
+			        top = top + (self.screenTop || window.screenY);
+			    } else {
+			        top = Math.floor((document.body.clientHeight - height) / 2);
+			    }
+			    
+			    requires("uiplugin.popup");
+			    var options = {
+			        id : id,
+			        type : options.type || "litewindow", // window, litewindow
+			        width : width + "px",
+			        height : height + "px",
+			        top : top, // useIframe이 true인 경우 브라우져를 기준 false인 경우 모니터를 기준으로 한다.
+			        left : left,
+			        popupName : options.title || "", // useIframe : true시 popup 객체의 이름으로 popup 프레임의 표시줄에 나타납니다.
+			        modal : options.modal || false, // modal을 이용해서 뒤 쪽 배경을 동작하지 않도록 만들기 위한 인자 입니다. false이면 뒤쪽의 컴퍼넌트가 사용 가능합니다.
+			        useIFrame : options.useIFrame || false,// true : IFrame 을 사용하는 WebSquare popup / false: window.open 을 사용하는 popup
+			        style : "", // popup의 스타일을 지정합니다. 값이 있으면 left top width height는 적용되지 않습니다.
+			        resizable : options.resizable || false,
+			        status : false,
+			        menubar : false,
+			        scrollbars : options.scrollbar || false,
+			        title : options.title || false,
+			        xml : JSON.stringify(options.popupParam) || "", // popup에 넘길 xmlDocument의 string popup창에서 WebSquare.util.getPopupParam() api를 사용하여 가져올수 있습니다.
+			        srcData : "", // popup 객체의 type 이 window 일 때 Parent 에서 넘길 xpath
+			        destData : "" // popup 객체의 type 이 window 일 때 popup 에 설정할 xpath
+			    };
+			
+			    try {
+			        WebSquare.util.openPopup(url, options);
+			    } catch(e) { 
+			        $w.log("[gfn_openPopup] Exception :: " + e.message);
+			    } finally {
+			        options = null;
+			    }
+			};
+			
+         ]]></script>
+    </head>
+    <body>
+    	<xf:group id="group20" style="" class="contents">
+    		<xf:group id="group21" style="" class="titleBar">
+    			<w2:textbox id="textbox8" style="" class="title02" label='&lt;span style="color:#04a8b7"&gt;교육1&lt;/span&gt;'></w2:textbox>
+    			<w2:textbox id="textbox9" style="" class="my" label=""></w2:textbox>
+    			<xf:group id="group22" style="" class="pgBox">
+    				<xf:group id="group23" style="" class="title_pgid">
+    					<xf:group id="group24" style="" class="title_pgid_right">
+    						<w2:textbox id="textbox10" style="" class="" label="Page ID : " tagname="span"></w2:textbox>
+    						<w2:textbox id="textbox11" style="" class="dt" label="GLEUDL396732227JF" tagname="span"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group25" style="" class="dtb">
+    			<xf:group id="group26" style="" class="dtb_row">
+    				<xf:group id="group27" style="" class="dtb_column">
+    					<w2:textbox id="tb_sabun" class="dtb_tt" label="사번"></w2:textbox>
+    					<xf:group id="group30" style="" class="iptBox">
+    						<xf:input id="searchKeyword" style="" class="ipt" ref="data:dataMap1.searchKeyword"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="group31" style="" class="dtb_column">
+    					<w2:textbox id="tb_choice" class="dtb_tt" label="선택"></w2:textbox>
+    					<xf:group id="group32" style="" class="iptBox">
+    						<xf:select1 disabledClass="w2selectbox_disabled" id="searchCondition" appearance="minimal" style=""
+    							direction="auto" chooseOption="" allOption="" class="select" displayMode="label" disabled="false" submenuSize="auto"
+    							ref="data:dataMap1.searchCondition">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[사번]]></xf:label>
+    									<xf:value><![CDATA[0]]></xf:value>
+    								</xf:item>
+    								<xf:item>
+    									<xf:label><![CDATA[성명]]></xf:label>
+    									<xf:value><![CDATA[1]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    							<script ev:event="onchange" type="javascript"><![CDATA[
+    							
+    								fn_changeLabel();
+    							
+    							 ]]></script>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="group37" style="" class="defaultbox">
+    					<w2:anchor id="anchor19" style="margin-left:15px;" class="anc_trans mr5">
+    						<xf:label><![CDATA[조 회]]></xf:label>
+    						<script ev:event="onclick" type="javascript"><![CDATA[
+    						
+    							$w.executeSubmission( "searchSubmission" );
+    						
+    						 ]]></script>
+    					</w2:anchor>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="group28" style="" class="btn_box"></xf:group>
+    		</xf:group>
+    		<xf:group class="defaultbox" id="group40" style="">
+    			<xf:group class="fr" id="group41" style="">
+    				<w2:anchor class="anc_trans mr5" id="anchor24" style="">
+    					<xf:label><![CDATA[입 력]]></xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    					
+    						var options = {
+	    						title:"교육 팝업1", width:"500", useIFrame: true, modal:true
+	    						, popupParam: {closeCallbackFncName: "fn_insertData"}
+    						};
+    					
+    						gfn_openLayerPopup("lPopup1", "/xml/USERP01.xml", options);
+    					
+    					 ]]></script>
+    				</w2:anchor>
+    			</xf:group>
+    		</xf:group>
+    		<w2:gridView dataList="dataList1" id="gridView1" autoFit="allColumn" style="position: relative ;height:380px;"
+    			visibleRowNum="15" scrollByColumn="false" useShiftKey="false" class="cm_grid" fixedColumnWithHidden="true" rowStatusHeaderValue=""
+    			rowStatusVisible="" readOnly="true" rowNumVisible="true">
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" id="column7" style="height:59px;" colSpan="" inputType="text" width="70" rowSpan="2"
+    						value="사번">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column5" style="height:59px;" colSpan="" inputType="text" width="70" rowSpan="2"
+    						value="성명">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column3" style="height:59px;" colSpan="" inputType="text" width="70" rowSpan="2"
+    						value="부서코드">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column1" style="height:59px;" colSpan="" inputType="text" width="70" rowSpan="2"
+    						value="입사일자">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column1" style="height:59px;" colSpan="" inputType="text" width="70" rowSpan="2"
+    						value="성별">
+    					</w2:column>
+    					<w2:column id="column19" blockSelect="false" style="height:29px;" colSpan="2" width="82" inputType="text"
+    						value="결혼유무" rowSpan="">
+    					</w2:column>
+    					<w2:column id="column23" blockSelect="false" style="height:59px;" colSpan="" width="70" inputType="text" rowSpan="2"
+    						value="radio">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column5" style="height:59px;" colSpan="" inputType="text" width="70" rowSpan="2"
+    						value="월급">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column7" style="height:59px;" colSpan="" inputType="text" width="70" rowSpan="2"
+    						value="비고">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column30" style="height:60px;" inputType="text" width="80" colSpan="2"
+    						rowSpan="2" value="">
+    					</w2:column>
+    				</w2:row>
+    				<w2:row id="row4" style="">
+    					<w2:column id="column29" blockSelect="false" style="height:20px" inputType="text" width="41" value="미"></w2:column>
+    					<w2:column id="column28" blockSelect="false" style="height:20px" inputType="text" width="41" value="기"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" id="sabun" style="height:25px;" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="name" style="height:25px;" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="dept" style="height:25px;" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="ipsa_date" style="height:25px;" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="sex" style="height:25px" chooseOption="" inputType="select" width="70"
+    						allOption="" viewType="icon">
+    						<w2:choices>
+    							<w2:item>
+    								<w2:label><![CDATA[남]]></w2:label>
+    								<w2:value><![CDATA[0]]></w2:value>
+    							</w2:item>
+    							<w2:item>
+    								<w2:label><![CDATA[여]]></w2:label>
+    								<w2:value><![CDATA[1]]></w2:value>
+    							</w2:item>
+    						</w2:choices>
+    					</w2:column>
+    					<w2:column id="column20" blockSelect="false" groupName="marry" groupValue="0" style="height:25px" width="41"
+    						inputType="radio">
+    					</w2:column>
+    					<w2:column blockSelect="false" id="column26" groupName="marry" groupValue="1" style="height:25px" inputType="radio"
+    						width="41">
+    					</w2:column>
+    					<w2:column id="marry" blockSelect="false" style="height:25px" width="70" inputType="text"></w2:column>
+    					<w2:column blockSelect="false" id="salary" style="height:25px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="smemo" style="height:25px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="column32" style="height:25px" inputType="image" width="40" imageSrc="/common/images/ico_modify.png" imageClickFunction="fn_clickUpdateImage"></w2:column>
+    					<w2:column blockSelect="false" id="column35" style="height:25px" inputType="image" width="40" imageSrc="/common/images/ico_delete.png" imageClickFunction="fn_clickDeleteImage"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    			<script ev:event="oncellclick(row,col)" type="javascript"><![CDATA[
+                
+//                	var data = dataList1.getRowJSON( row );
+//    				var options = {
+//    						title:"교육 팝업1", width:"500", useIFrame: true, modal:true
+//    						, popupParam: {closeCallbackFncName: "testFn", rowData: data}
+//    					};
+//    					
+//    				gfn_openLayerPopup("lPopup1", "/xml/USERP01.xml", options);
+    				
+    			 ]]></script>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

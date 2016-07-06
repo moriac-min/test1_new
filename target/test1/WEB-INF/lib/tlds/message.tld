@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" 
+	version="2.0">
+	
+	<description>JSTL 1.1 functions library</description>
+	<display-name>JSTL functions</display-name>
+	<tlib-version>1.2</tlib-version>
+	<short-name>m</short-name>
+	
+	<function>
+		<description>Get Message</description>
+		<name>getMessage</name>
+		<function-class>foodportal.common.util.Message</function-class>
+		<function-signature>String getMessage( java.lang.String )</function-signature>
+		<example>
+			${ m:getMessage() }
+		</example>
+	</function>
+	
+	<function>
+		<description>Get Message with argument</description>
+		<name>getMessageIn</name>
+		<function-class>foodportal.common.util.Message</function-class>
+		<function-signature>String getMessage( java.lang.String, java.lang.String )</function-signature>
+		<example>
+			${ m:getMessageIn() }
+		</example>
+	</function>
+	
+	<function>
+		<description>Get Message with array-argument</description>
+		<name>getMessageArray</name>
+		<function-class>foodportal.common.util.Message</function-class>
+		<function-signature>String getMessage( java.lang.String, java.lang.Object[] )</function-signature>
+		<example>
+			${ m:getMessageArray() }
+		</example>
+	</function>
+	
+</taglib>

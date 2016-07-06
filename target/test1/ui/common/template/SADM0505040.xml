@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList id="dataList1" baseNode="list" style="" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="col1" name="보고일자" dataType="text"></w2:column>
+						<w2:column id="col2" name="보고번호" dataType="text"></w2:column>
+						<w2:column id="col3" name="광고매체" dataType="text"></w2:column>
+						<w2:column id="col4" name="인지유형" dataType="text"></w2:column>
+						<w2:column id="col5" name="제품명" dataType="text"></w2:column>
+						<w2:column id="col6" name="품목대분류" dataType="text"></w2:column>
+						<w2:column id="col7" name="품목중분류" dataType="text"></w2:column>
+						<w2:column id="col8" name="업체명" dataType="text"></w2:column>
+						<w2:column id="col9" name="업종" dataType="text"></w2:column>
+						<w2:column id="col10" name="업체유형" dataType="text"></w2:column>
+						<w2:column id="col11" name="name11" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+		</xf:model>
+		<script type="javascript"><![CDATA[ ]]></script>
+	</head>
+	<body>
+		<xf:group class="contents" id="group1" style="">
+			<xf:group class="titleBar" id="grp_Title" style="">
+				<w2:textbox class="title02" id="txb_Title" label='지역별 발생현황' style=""></w2:textbox>
+				<w2:textbox class="my" id="txb_My" label="" style=""></w2:textbox>
+				<xf:group class="pgBox" id="group3" style="">
+					<xf:group class="title_pgid" id="grp_PageId" style="">
+						<xf:group class="title_pgid_right" id="grp_SubPageId" style="">
+							<w2:textbox class="" id="tsb_LabelId" label="Page ID : " style="" tagname="span"></w2:textbox>
+							<w2:textbox class="dt" id="txb_PageId" label="GLEUDL396732227JF" style="" tagname="span"></w2:textbox>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="dtb" id="grp_Search" style="">
+				<xf:group class="dtb_row" id="group118" style="">
+					<xf:group class="dtb_column" id="group121" style="">
+						<w2:textbox class="dtb_tt" id="textbox128" label="조회년도"></w2:textbox>
+						<xf:group class="iptBox" id="group131" style="">
+							<w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" cancelButtonShow=""
+								class="Cal" displaymessage="true" id="inputCalendar3" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true"
+								style="width:100px;" weekStartsOn="0">
+							</w2:inputCalendar>
+							<w2:textbox class="tilde" id="textbox132" label="~" style="margin-left:5px;"></w2:textbox>
+							<w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" class="Cal"
+								displaymessage="true" id="inputCalendar4" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true"
+								style="width:100px;margin-left:5px;" weekStartsOn="0">
+							</w2:inputCalendar>
+						</xf:group>
+						<w2:anchor class="anc_trans" id="anchor17" style="float:left;clear:none;">
+							<xf:label>조회하기</xf:label>
+						</w2:anchor>
+					</xf:group>
+
+				</xf:group>
+			</xf:group>
+			<xf:group class="defaultbox" id="group124" style="">
+				<xf:group class="totalbox" id="group125" style="">
+					<xf:group class="total" id="group126" style="">
+						<xf:group class="strong" id="group127" style="">
+							<w2:textbox class="strong_right" id="txb_Count" label="1000" style="" tagname="strong"></w2:textbox>
+						</xf:group>
+					</xf:group>
+					<w2:textbox class="sear" id="textbox130" label="건이 조회되었습니다." style=""></w2:textbox>
+					<xf:group class="fr" id="group128">
+						<w2:anchor class="btn_excel" id="anc_ExportExcel">
+							<xf:label><![CDATA[엑셀다운로드]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<w2:gridView autoFit="allColumn" class="cm_grid" dataList="dataList1" fixedColumnWithHidden="true" id="gridView4"
+				scrollByColumn="false" style="position: relative ;height:380px;margin-top:5px;" useShiftKey="false" visibleRowNum="15">
+				<w2:header id="header1" style="">
+					<w2:row id="row3" style="">
+						<w2:column blockSelect="false" id="column14" style="height:60px;" width="70" inputType="text" colSpan=""
+							rowSpan="2" value="지역">
+						</w2:column>
+						<w2:column blockSelect="false" id="column13" style="height:30px;" width="140" inputType="text" colSpan="2"
+							rowSpan="" value="2004">
+						</w2:column>
+						<w2:column blockSelect="false" id="column12" style="height:30px;" width="140" inputType="text" colSpan="2"
+							rowSpan="" value="2005">
+						</w2:column>
+						<w2:column blockSelect="false" id="column11" style="height:30px;" width="140" inputType="text" colSpan="2"
+							rowSpan="" value="2006">
+						</w2:column>
+						<w2:column blockSelect="false" id="column10" style="height:30px;" width="140" inputType="text" colSpan="2"
+							rowSpan="" value="2007">
+						</w2:column>
+						<w2:column blockSelect="false" id="column42" style="height:30px;" inputType="text" width="140" colSpan="2"
+							rowSpan="" value="2008">
+						</w2:column>
+						<w2:column blockSelect="false" id="column36" style="height:30px;" inputType="text" width="140" colSpan="2"
+							rowSpan="" value="2009">
+						</w2:column>
+						<w2:column blockSelect="false" id="column30" style="height:30px;" inputType="text" width="140" colSpan="2"
+							rowSpan="" value="합계">
+						</w2:column>
+					</w2:row>
+					<w2:row id="row1" style="">
+						<w2:column blockSelect="false" id="column7" inputType="text" style="height:30px;" value="건수" width="70"></w2:column>
+						<w2:column blockSelect="false" id="column16" style="height:30px" inputType="text" width="70" value="환자"></w2:column>
+						<w2:column blockSelect="false" id="column5" inputType="text" style="height:30px;" value="건수" width="70"></w2:column>
+						<w2:column blockSelect="false" id="column19" style="height:30px" inputType="text" width="70" value="환자"></w2:column>
+						<w2:column blockSelect="false" id="column3" inputType="text" style="height:30px;" value="건수" width="70"></w2:column>
+						<w2:column blockSelect="false" id="column22" style="height:30px" inputType="text" width="70" value="환자"></w2:column>
+						<w2:column blockSelect="false" id="column1" inputType="text" style="height:30px;" value="건수" width="70"></w2:column>
+						<w2:column blockSelect="false" id="column25" style="height:30px" inputType="text" width="70" value="환자"></w2:column>
+						<w2:column blockSelect="false" id="column43" style="height:30px" inputType="text" width="70" value="건수"></w2:column>
+						<w2:column blockSelect="false" id="column40" style="height:30px" inputType="text" width="70" value="환자"></w2:column>
+						<w2:column blockSelect="false" id="column37" style="height:30px" inputType="text" width="70" value="건수"></w2:column>
+						<w2:column blockSelect="false" id="column34" style="height:30px" inputType="text" width="70" value="환자"></w2:column>
+						<w2:column blockSelect="false" id="column31" style="height:30px" inputType="text" width="70" value="건수"></w2:column>
+						<w2:column blockSelect="false" id="column28" style="height:30px" inputType="text" width="70" value="환자"></w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody1" style="">
+					<w2:row id="row2" style="">
+						<w2:column blockSelect="false" id="col1" inputType="text" style="height:25px;" width="70" value="서울특별시"></w2:column>
+						<w2:column blockSelect="false" id="col2" inputType="text" style="height:25px;" width="70" value="18"></w2:column>
+						<w2:column blockSelect="false" id="column17" style="height:25px" inputType="text" width="70" value="859"></w2:column>
+						<w2:column blockSelect="false" id="col3" inputType="text" style="height:25px;" width="70" value="23"></w2:column>
+						<w2:column blockSelect="false" id="column20" style="height:25px" inputType="text" width="70" value="733"></w2:column>
+						<w2:column blockSelect="false" id="col4" inputType="text" style="height:25px;" width="70" value="61"></w2:column>
+						<w2:column blockSelect="false" id="column23" style="height:25px" inputType="text" width="70" value="2543"></w2:column>
+						<w2:column blockSelect="false" id="col5" inputType="text" style="height:25px;" width="70" value="48"></w2:column>
+						<w2:column blockSelect="false" id="column26" style="height:25px" inputType="text" width="70" value="505"></w2:column>
+						<w2:column blockSelect="false" id="column44" style="height:25px" inputType="text" width="70" value="38"></w2:column>
+						<w2:column blockSelect="false" id="column41" style="height:25px" inputType="text" width="70" value="352"></w2:column>
+						<w2:column blockSelect="false" id="column38" style="height:25px" inputType="text" width="70" value="43"></w2:column>
+						<w2:column blockSelect="false" id="column35" style="height:25px" inputType="text" width="70" value="1189"></w2:column>
+						<w2:column blockSelect="false" id="column32" style="height:25px" inputType="text" width="70" value="275"></w2:column>
+						<w2:column blockSelect="false" id="column29" style="height:25px" inputType="text" width="70" value="8908"></w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:gridView>
+		</xf:group>
+	</body>
+</html>

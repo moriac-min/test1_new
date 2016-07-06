@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection>
+            </w2:dataCollection>
+        </xf:model>
+        <script type="javascript"><![CDATA[ 
+
+        	function open_step2(n){
+        		for(i=0; i<11; i++){
+        			if(i == n){
+        				if(!WebSquare.util.getComponentById("lnb_li" + i).hasClass("lnb_focus")){
+        					WebSquare.util.getComponentById("lnb_li" + i).addClass("lnb_focus");
+        					WebSquare.util.getComponentById("grp_step2_" + i).addClass("show");
+        				}
+        			}else{
+        				if(WebSquare.util.getComponentById("lnb_li" + i).hasClass("lnb_focus")){
+        					WebSquare.util.getComponentById("lnb_li" + i).removeClass("lnb_focus");
+        					WebSquare.util.getComponentById("grp_step2_" + i).removeClass("show");
+        				}
+        			}
+        		}
+        	}
+        ]]></script>
+    </head>
+    <body>
+    	<xf:group id="lnb" style="" class="">
+    		<xf:group id="layerbox" style="" class="layerbox">
+    			<w2:anchor id="tg_anchor1" style="" class="tog_menu m0" outerDiv="false">
+    				<xf:label><![CDATA[인허가관리]]></xf:label>
+    			</w2:anchor>
+    			<w2:anchor id="tg_anchor2" style="" class="tog_menu m1" outerDiv="false">
+    				<xf:label><![CDATA[통합사후관리]]></xf:label>
+    			</w2:anchor>
+    			<w2:anchor id="tg_anchor3" style="" class="tog_menu m2" outerDiv="false">
+    				<xf:label><![CDATA[관리행정]]></xf:label>
+    			</w2:anchor>
+    			<w2:anchor id="tg_anchor4" style="" class="tog_menu m3" outerDiv="false">
+    				<xf:label><![CDATA[보고관리]]></xf:label>
+    			</w2:anchor>
+    			<w2:anchor id="tg_anchor5" style="" class="tog_menu m4" outerDiv="false">
+    				<xf:label><![CDATA[위해정보관리]]></xf:label>
+    			</w2:anchor>
+    			<w2:anchor id="tg_anchor6" style="" class="tog_menu m5" outerDiv="false">
+    				<xf:label><![CDATA[통합신고]]></xf:label>
+    			</w2:anchor>
+    			<w2:anchor id="tg_anchor7" style="" class="tog_menu m6" outerDiv="false">
+    				<xf:label><![CDATA[통합조회]]></xf:label>
+    			</w2:anchor>
+    			<w2:anchor id="tg_anchor8" style="" class="tog_menu m7" outerDiv="false">
+    				<xf:label><![CDATA[현장행정상황]]></xf:label>
+    			</w2:anchor>
+    			<w2:anchor id="tg_anchor9" style="" class="tog_menu m8" outerDiv="false">
+    				<xf:label><![CDATA[통합협업]]></xf:label>
+    			</w2:anchor>
+    			<w2:anchor id="tg_anchor10" style="" class="tog_menu m9" outerDiv="false">
+    				<xf:label><![CDATA[기준정보]]></xf:label>
+    			</w2:anchor>
+    		</xf:group>
+    		<xf:group id="grp_h2" class="clearfix" tagname="h2">
+				<w2:textbox id="lnb_txt1" class="txt" label="홍길동"></w2:textbox>
+				<xf:group id="lnb_grp0" class="txt" tagname="a">
+					<w2:attributes>
+						<w2:href>#</w2:href>
+					</w2:attributes>
+					<xf:image id="lnb_img" src="/common/images/ico_info.png"></xf:image>
+				</xf:group>
+				<xf:group id="group1" style="margin-left:35px;" class="txt" tagname="a">
+					<w2:attributes>
+						<w2:href>#</w2:href>
+					</w2:attributes>
+					<xf:image id="image1" src="/common/images/ico_mymenu.png"></xf:image>
+				</xf:group>
+				<xf:group id="group2" style="margin-left:10px;" class="txt" tagname="a">
+					<w2:attributes>
+						<w2:href>#</w2:href>
+					</w2:attributes>
+					<xf:image id="image2" src="/common/images/ico_logout2.png"></xf:image>
+				</xf:group>
+			</xf:group>
+			<w2:generator id="gen_lnb1depth" tagname="ul">
+				<xf:group id="lnb_li1depth" class="" tagname="li">
+					<w2:textbox id="grp_step1_" class="step1" label="1뎁스메뉴">
+						<script ev:event="onclick" type="javascript"><![CDATA[
+							mFnc.setMenu('1', this.getGeneratedIndex());
+						]]></script>
+					</w2:textbox>
+					<w2:generator id="gen_lnb2depth" class="grp_step2">
+						<w2:textbox id="grp_step2_" label="하위메뉴">
+							<script ev:event="onclick" type="javascript"><![CDATA[
+								mFnc.addTab(this.getGeneratedComponent("grp_step2_").getUserData("_menu_cd"));
+							]]></script>
+						</w2:textbox>
+					</w2:generator>
+				</xf:group>
+			</w2:generator>
+			<xf:image id="image3" style="position:absolute;bottom:0;height:39px;" src="/common/images/btn_helpdesk.png"></xf:image>
+    	</xf:group>
+    </body>
+</html>

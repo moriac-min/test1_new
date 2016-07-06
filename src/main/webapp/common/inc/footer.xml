@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection>
+            </w2:dataCollection>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body>
+    	<xf:group id="footer" style="" class="">
+    		<xf:group id="grp_footer" style="" class=" grp_footer">
+    			<xf:group id="grp_leftarea" style="" class="" tagname="a">
+    				<w2:attributes>
+    					<w2:href>#</w2:href>
+    				</w2:attributes>
+    				<w2:textbox id="txt_footer_0" style="color:white;padding:3px 0 0 5px;" class="fl fwb" label="알림"></w2:textbox>
+    				<w2:textbox id="txt_footer_num"
+    					style="background:url(/common/images/bg_footer_num.png) no-repeat left top;width:17px;height:16px;" class="txt_footer_num"
+    					label="3">
+    				</w2:textbox>
+
+    				<script ev:event="onclick" type="javascript"><![CDATA[
+    					footer_alert.toggleClass("show");
+    					footer_alert.removeClass("dpn");
+    				 ]]></script>
+    			</xf:group>
+    		</xf:group>
+    		<xf:image id="img_footer_bar" style="" class="fl" src="/common/images/bg_bottom_bar.png"></xf:image>
+    		<xf:group id="grp_rightarea" style="" class="grp_rightarea" tagname="">
+    			<xf:image id="img_ico_footer2" style="" class="fl" src="/common/images/ico_micphone.png"></xf:image>
+    			<w2:textbox id="txt_CommonFooterMssgCn" style="color:#fff;padding:2px 0 0 5px;" class="fl" label=" "></w2:textbox>
+    		</xf:group>
+
+    		<xf:group id="footer_alert" style="" class="footer_alert ">
+    			<w2:anchor id="footer_anc_close" style="" outerDiv="false">
+    				<xf:label><![CDATA[]]></xf:label>
+    				<script ev:event="onclick" type="javascript"><![CDATA[
+    					footer_alert.addClass("dpn");
+    					footer_alert.removeClass("show");
+    				 ]]></script>
+    			</w2:anchor>
+    			<xf:group id="footer_group2" style="">
+    				<xf:group id="footer_grp3" style="" class="alert_list">
+    					<w2:textbox id="footer_textbox1" style="" label="첫번째 메세지가 나옵니다."></w2:textbox>
+    					<w2:textbox id="footer_textbox2" style="" label="오늘까지 마감해야 할 총 1건의 업무가 있습니다."></w2:textbox>
+    				</xf:group>
+    				<xf:group id="footer_group4" style="" class="alert_list">
+    					<w2:textbox id="footer_textbox3" style="" label="첫번째 메세지가 나옵니다."></w2:textbox>
+    					<w2:textbox id="footer_textbox4" style="" label="오늘까지 마감해야 할 총 1건의 업무가 있습니다."></w2:textbox>
+    				</xf:group>
+    				<xf:group id="footer_group5" style="" class="alert_list">
+    					<w2:textbox id="footer_textbox5" style="" label="첫번째 메세지가 나옵니다."></w2:textbox>
+    					<w2:textbox id="footer_textbox6" style="" label="오늘까지 마감해야 할 총 1건의 업무가 있습니다."></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:image id="footer_image1" style="position:absolute;bottom:-10px;left: 67px;bottom: -5px;" src="/common/images/icon/bg_alert.png"></xf:image>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

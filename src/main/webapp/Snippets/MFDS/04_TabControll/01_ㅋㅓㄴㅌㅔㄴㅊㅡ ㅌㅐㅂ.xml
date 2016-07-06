@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="tabControll" id="group315" style="">
+	<w2:tabControl alwaysDraw="true" class="tab cb" confirmFalseAction="&quot;new&quot;" confirmTrueAction="&quot;exist&quot;" id="tabControl1" style="" tabScroll="" useConfirmMessage="false" useTabKeyOnly="true">
+		<w2:tabs disabled="false" id="tabs1" label="TabHeader" style="">
+		</w2:tabs>
+		<w2:tabs disabled="false" id="tabs2" label="진행상태관리" style="">
+		</w2:tabs>
+		<w2:content alwaysDraw="true" id="content1" style="">
+		</w2:content>
+		<w2:content alwaysDraw="true" id="content2" style="">
+		</w2:content>
+</w2:tabControl>
+</xf:group>
+</body>
+</html>

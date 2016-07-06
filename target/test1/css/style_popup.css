@@ -1,0 +1,49 @@
+@import url(style_sub.css);
+/* Find ID &amp; Reset Password */
+#popup { width: 600px; margin: 30px auto; }
+#popup h1 { visibility: hidden; position: absolute; font-size: 1px; line-height: 0; text-indent: -99999px; }
+#popup .tab-group { border-top: 1px solid #E8E8E8; border-left: 1px solid #E8E8E8; width: 100%; margin-bottom: 30px; }
+#popup .tab { float: left; width: 50%; display: inline-block; border-right: 1px solid #E8E8E8; border-bottom: 1px solid #E8E8E8; line-height: 50px; font-family: daum, Arial, Helvetica, sans-serif; fonr-size: 15px; text-align: center; background: #F9F9F9; }
+#popup .tab.active { border-bottom: 1px solid #FFF; background: #FFF; }
+#popup .tab:hover { background: #FFF; }
+#popup .tab-group:after { content: "\0020"; display: block; height: 0; overflow: hidden; clear: both; }
+#popup .phone-dscr { background: url(../img/membership/icon-01.png) no-repeat 30px 0; padding-left: 130px; height: 60px; }
+#popup .email-dscr { background: url(../img/membership/icon-02.png) no-repeat 30px 0; padding-left: 130px; height: 60px; }
+#popup .find-dscr { background: url(../img/membership/icon-03.png) no-repeat 30px 0; padding-left: 130px; height: 60px; }
+#popup .pw-dscr { background: url(../img/membership/icon-04.png) no-repeat 30px 0; padding-left: 130px; height: 60px; }
+#popup h2 { font-size: 15px; }
+#popup p { color: #737384; font-size: 12px; }
+#popup .phone, #popup .email, #popup .passwd { padding-left: 130px; padding-bottom: 30px; margin-bottom: 30px; border-bottom: 1px solid #E8E8E8; }
+#popup table { width: 100%; border-collapse: collapse; border: 1px solid #BBB; }
+#popup table caption { visibility: hidden; line-height: 0; text-indent: -99999px; }
+#popup th, #popup td { border-bottom: 1px solid #E8E8E8; height: 50px; line-height: 50px; text-align: left; padding: 0 5px; border-collapse: collapse; }
+#popup tr:last-child th, #popup tr:last-child td { border-bottom: none }
+#popup th { padding: 0 20px; color: #333; }
+#popup th label { display: block; visibility: visible; font-size: 13px; text-indent: 0; padding: 0; margin: 0; }
+#popup input[type=text] { padding: 0 7px; border: none; border-left: 1px solid #E8E8E8; height: 30px; line-height: 30px; width: 100%; background: none; }
+#popup tr:last-child input[type=text] { width: 235px; margin-left: 10px; }
+#popup .help { text-align: right; margin-top: 10px; color: #757584; font-size: 12px; line-height: 19px; }
+#popup .help a { color: #757584; }
+#popup .footer { text-align: center; }
+#popup .tool-tip { display: inline; position: relative; }
+#popup .tool-tip:hover:after { text-align: left; background: #333; background: rgba(0,0,0,.8); border-radius: 5px; bottom: 26px; color: #fff; content: attr(title); right: 0; padding: 5px 15px; position: absolute; z-index: 98; width: 220px; }
+#popup .tool-tip:hover:before { border: solid; border-color: #333 transparent; border-width: 6px 6px 0 6px; bottom: 20px; content: ""; right: 20%; position: absolute; z-index: 99; }
+#popup .result { padding: 100px 0; margin-bottom: 30px; border-bottom: 1px solid #E8E8E8; text-align: center; }
+#popup .user-id { font-size: 40px; font-weight: bold; font-family: Tahoma; text-align: center; background: url(../img/membership/result-before.png) no-repeat; padding-left: 50px; }
+#popup .user-id span { background: url(../img/membership/result-after.png) no-repeat right; padding-right: 50px; display: inline-block; }
+#popup .result .btn-info { padding: 15px 40px; background: #00A5BC; }
+#popup .passwd th { padding: 0 20px; color: #333; vertical-align: top; padding-top: 25px; }
+#popup .passwd td.required { background: url(../img/common/label-need.png) no-repeat top right; }
+#popup .pw-result { padding: 100px 0; margin-bottom: 30px; border-bottom: 1px solid #E8E8E8; text-align: center; background: url(../img/membership/icon-finished.png) no-repeat 50% 50%; text-indent: -9999px; }
+#popup .passwd input[type=password] { padding: 0 90px 0 7px; border: none; border-left: 1px solid #E8E8E8; height: 30px; line-height: 30px; width: 100%; background: url(../img/membership/icon_join.png) no-repeat right 0; }
+#popup .passwd .msg1 { line-height: 20px; margin-bottom: 10px; padding-left:10px;}
+#popup .passwd .msg1.error { color: #F00; }
+/* normal상태 int_pass / 1단계 사용불가 int_pass_step1 / 2단계 위험 int_pass_step2 / 3단계 보통 int_pass_step3 / 4단계 안전 int_pass_step4 */
+#popup .int_pass { background-position: right -420px !important; }
+#popup .int_pass_step1 { background-position: right -70px !important; }
+#popup .int_pass_step2 { background-position: right -140px !important; }
+#popup .int_pass_step3 { background-position: right -210px !important; }
+#popup .int_pass_step4 { background-position: right -280px !important; }
+/* [D] normal상태 int_pass_check / 비밀번호 확인완료 int_pass_check2  */
+#popup .int_pass_check { background-position: right -469px !important; }
+#popup .int_pass_check2 { background-position: right -350px !important; }

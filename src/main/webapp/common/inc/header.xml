@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection>
+            </w2:dataCollection>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body>
+    	<xf:group id="header" style="" class="">
+    		<xf:image id="logo" style="" class="ml10 fl" src="/common/images/img_logo.png"></xf:image>
+
+    		<xf:group id="grp_logo_btn" style="" class="tog_btn" tagname="a">
+    			<w2:attributes>
+    				<w2:href>#</w2:href>
+    			</w2:attributes>
+    			<script ev:event="onclick" type="javascript"><![CDATA[
+    				layerbox.toggleClass("show");
+    				grp_logo_btn.toggleClass( "up" );
+    			 ]]></script>
+    		</xf:group>
+    		<xf:image id="top_bar" style="" class="fl" src="/common/images/bg_top_bar.png"></xf:image>
+    		<xf:group id="grp_listmenu" style="" class="lnb_switch">
+    			<w2:anchor id="listmenu" style="" outerDiv="false">
+    				<xf:label></xf:label>
+    				<script ev:event="onclick" type="javascript"><![CDATA[
+    							wf_lnb.toggleClass( "dpn" );
+    							content.toggleClass( "left0" );
+    							tabControl1.toggleClass( "pos" );
+    						 ]]></script>
+    			</w2:anchor>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

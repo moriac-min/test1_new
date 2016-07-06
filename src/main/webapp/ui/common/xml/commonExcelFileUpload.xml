@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/css/style.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns="">
+                </data>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[
+			
+			var excelPopObj = {
+				callbackFunc : "",parentPopupId:""
+			};
+			 
+			 //초기호출
+            excelPopObj.initPage = function(){
+				var param = JSON.parse(WebSquare.uiplugin.popup.getPopupParam());
+        		excelPopObj.callbackFunc = param.closeCallbackFncName;
+        		excelPopObj.parentPopupId = WebSquare.net.getParameter("popupID");
+                document.title = "Save Excel";
+        	 	updExcelFile.setSubDir("subDir01"); //  websquare_home/websquare.xml 파일에 정의된 디렉토리 c:/tempUpload/upload
+            };
+			
+			//등록
+            excelPopObj.goFileSend = function(){
+                updExcelFile.submit();
+            };
+			
+			//취소
+            excelPopObj.goCancel = function(){
+                excelPopObj.closeWindow();
+            };
+            
+            //창닫기
+ 			excelPopObj.closeWindow = function(){
+       	    	window.close();
+       	    };
+       	    
+       	    //업로드 완료한후 후처리
+            excelPopObj.fileUploadComplete = function(retXml) {
+            
+            	/*
+            	<ret>
+	            	<key>C:/tempUpload/upload</key>
+	            	<storedFileList>DSC_0052.JPG</storedFileList>
+	            	<localfileList>DSC_0052.JPG</localfileList>
+	            	<fileSizeList>17360</fileSizeList>
+	            	<maxUploadSize>20480000</maxUploadSize>
+	            	<deniedList></deniedList>
+	            	<deniedCodeList></deniedCodeList>
+            	</ret>
+            	
+            	*/
+                var call = excelPopObj.callbackFunc + "('" + WebSquare.xml.serialize(retXml) + "')";
+                var doc = WebSquare.xml.parse(retXml);
+                
+                var sendFile;
+                if (doc == null) {
+                    return;
+                } else {
+                    sendFile = WebSquare.xml.getValue(doc, "ret/localfileList");
+                    if (sendFile.indexOf(".xls") > 0 || sendFile.indexOf(".xlsx") > 0) {
+                        ;
+                    } else {
+                        alert("엑셀 파일이 아닙니다.");
+                        return;
+                    }
+                }
+                if (excelPopObj.callbackFunc != null && excelPopObj.callbackFunc != "") {
+                    opener.eval(call);
+                    excelPopObj.closeWindow();
+                }
+            };
+
+        	excelPopObj.initPage();
+         ]]></script>
+    </head>
+    <body>
+    	<script type="javascript" ev:event="onpageunload"><![CDATA[ 
+            console.log("onpageunload");
+            gfn_clearObject(popObj); //객체소멸
+        ]]></script>
+    	<xf:group class="popWrap" id="group34" style="">
+    		<xf:group class="contents" id="group35" style="">
+    			<xf:group class="titleBar" id="group36" style="">
+    				<w2:textbox class="title02" id="textbox14" label="파일업로드" style=""></w2:textbox>
+    				<w2:textbox class="my" id="textbox15" label="" style=""></w2:textbox>
+    				<xf:group class="pgBox" id="group37" style="">
+    					<xf:group class="title_pgid" id="group38" style="">
+    						<xf:group class="title_pgid_right" id="group39" style="">
+    							<w2:textbox class="" id="textbox16" label="Page ID : " style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="dt" id="textbox17" label="GLEUDL396732227JF" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="line" id="group40" style=""></xf:group>
+    			</xf:group>
+    			<w2:textbox class="sear" id="textbox18" label="" style="text-align:center;padding-top:68px;height:-18px;margin-top:-15px;"></w2:textbox>
+    			<xf:group class="defaultbox" id="group41" style="">
+    				<xf:group class="fr" id="group42" style="">
+    					<w2:anchor class="anc_trans" id="anchor18" style="">
+	    					<xf:label><![CDATA[등록]]></xf:label>
+	    					<script ev:event="onclick" type="javascript"><![CDATA[
+	    							excelPopObj.goFileSend();
+	    						 ]]></script>
+	    				</w2:anchor>
+    					<w2:anchor class="anc_trans" id="anchor12" style="margin-left:5px;">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    						<script type="javascript" ev:event="onclick"><![CDATA[
+    							excelPopObj.goCancel();
+    						 ]]></script>
+    					</w2:anchor>
+    				</xf:group>
+    				
+    			</xf:group>
+    			<xf:group id="group48" style="position:absolute;top:68px;width:380px;height:56px;left:20px;">
+    				<w2:upload disabled="" id="updExcelFile" imageStyle="position:absolute;vertical-align:middle;word-wrap:break-word"
+    					inputStyle="position:absolute;vertical-align:middle;word-wrap:break-word"
+    					style="position: absolute ;left: 7px;top: 10px;width:367px;height:22px;" type="image">
+    					<script ev:event="ondone(retXml)" type="javascript"><![CDATA[
+    				    excelPopObj.fileUploadComplete(retXml);
+    				]]></script>
+    				</w2:upload>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

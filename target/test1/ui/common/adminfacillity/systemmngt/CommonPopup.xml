@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection>
+            	<w2:dataList id="dl_Popup" baseNode="list" style="" repeatNode="map">
+            		<w2:columnInfo>
+            			<w2:column id="sys_cd" name="시스템_코드" dataType="text"></w2:column>
+            			<w2:column id="popup_cd" name="팝업_코드" dataType="text"></w2:column>
+            			<w2:column id="popup_nm" name="팝업_명" dataType="text"></w2:column>
+            			<w2:column id="work_dvs_cd" name="업무_구분_코드" dataType="text"></w2:column>
+            			<w2:column id="auto_inqry_yn" name="자동_조회_여부" dataType="text"></w2:column>
+            			<w2:column id="popup_qury" name="팝업_질의" dataType="text"></w2:column>
+            			<w2:column id="cretr_id" name="생성자_아이디" dataType="text"></w2:column>
+            			<w2:column id="cret_dtm" name="생성_일시" dataType="text"></w2:column>
+            			<w2:column id="last_updtr_id" name="최종_수정자_아이디" dataType="text"></w2:column>
+            			<w2:column id="last_updt_dtm" name="최종_수정_일시" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            	<w2:dataList id="dl_PopupItem" baseNode="list" style="" repeatNode="map">
+            		<w2:columnInfo>
+            			<w2:column id="sys_cd" name="시스템_코드" dataType="text"></w2:column>
+            			<w2:column id="popup_cd" name="팝업_코드" dataType="text"></w2:column>
+            			<w2:column id="itm_ordno" name="항목_순번" dataType="text"></w2:column>
+            			<w2:column id="itm_dvs_cd" name="항목_구분_코드" dataType="text"></w2:column>
+            			<w2:column id="clmn_nm" name="컬럼_명" dataType="text"></w2:column>
+            			<w2:column id="kor_nm" name="한글_명" dataType="text"></w2:column>
+            			<w2:column id="scrn_width" name="화면_폭" dataType="text"></w2:column>
+            			<w2:column id="srch_clmn_yn" name="검색_컬럼_여부" dataType="text"></w2:column>
+            			<w2:column id="scrn_outpt_ord" name="화면_출력_순서" dataType="text"></w2:column>
+            			<w2:column id="sort_mthd_cd" name="정렬_방법_코드" dataType="text"></w2:column>
+            			<w2:column id="cretr_id" name="생성자_아이디" dataType="text"></w2:column>
+            			<w2:column id="cret_dtm" name="생성_일시" dataType="text"></w2:column>
+            			<w2:column id="last_updtr_id" name="최종_수정자_아이디" dataType="text"></w2:column>
+            			<w2:column id="last_updt_dtm" name="최종_수정_일시" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            	<w2:dataList id="dl_systemCode" baseNode="list" style="" repeatNode="map">
+            		<w2:columnInfo>
+            			<w2:column id="sys_cd" name="시스템코드" dataType="text"></w2:column>
+            			<w2:column id="cmmn_cd" name="공통코드" dataType="text"></w2:column>
+            			<w2:column id="fnprt_cd" name="세부코드" dataType="text"></w2:column>
+            			<w2:column id="fnprt_cd_nm" name="세부코드명" dataType="text"></w2:column>
+            			<w2:column id="fnprt_eng_nm" name="세부영문명" dataType="text"></w2:column>
+            			<w2:column id="fnprt_all_nm" name="세부전체명" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_1" name="사용자정의컬럼1" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_2" name="사용자정의컬럼2" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_3" name="사용자정의컬럼3" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_4" name="사용자정의컬럼4" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_5" name="사용자정의컬럼5" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_6" name="사용자정의컬럼6" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_7" name="사용자정의컬럼7" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_8" name="사용자정의컬럼8" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_9" name="사용자정의컬럼9" dataType="text"></w2:column>
+            			<w2:column id="user_dfn_clmn_10" name="사용자정의컬럼10" dataType="text"></w2:column>
+            			<w2:column id="use_yn" name="사용여부" dataType="text"></w2:column>
+            			<w2:column id="sort_ord" name="정렬순서" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            	<w2:dataMap baseNode="map" id="dm_searchKeyword" style="">
+            		<w2:keyInfo>
+            			<w2:key id="sys_cd" name="시스템구분" dataType="text"></w2:key>
+            			<w2:key id="popup_nm" name="공통팝업명" dataType="text"></w2:key>
+            			<w2:key id="work_dvs_cd" name="업무구분" dataType="text"></w2:key>
+            		</w2:keyInfo>
+            	</w2:dataMap>
+            	<w2:dataMap baseNode="map" id="dm_subSearchKeyword" style="">
+            		<w2:keyInfo>
+            			<w2:key id="sys_cd" name="시스템_코드" dataType="text"></w2:key>
+            			<w2:key id="popup_cd" name="팝업_코드" dataType="text"></w2:key>
+            		</w2:keyInfo>
+            	</w2:dataMap>
+            </w2:dataCollection>
+            <xf:submission id="searchSubmission" ref='data:json,{"id":"dm_searchKeyword","key":"CommonPopupVO"}' target='data:json,{"id":"dl_Popup","key":"infoList"}'
+        		action="/adminfacillity/systemmngt/selectCommonPopup.do" method="post" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="">
+        	</xf:submission>
+        	
+        	<xf:submission id="searchDetailSubmission" ref='data:json,{"id":"dm_subSearchKeyword","key":"CommonPopupItemVO"}' target='data:json,{"id":"dl_PopupItem","key":"infoList"}'
+        		action="/adminfacillity/systemmngt/selectCommonPopupItem.do" method="post" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="">
+        	</xf:submission>
+        	
+        	<xf:submission id="modifiedSubmission" ref='data:json,[{"id":"dl_Popup","key":"infoList","action":"modified"},{"id":"dl_PopupItem","key":"infoDataList","action":"modified"}]'
+        		target='' action="/adminfacillity/systemmngt/saveCommonPopup.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" mode="asynchronous" processMsg="저장중입니다..." instance="" replace=""
+        		errorHandler="" customHandler="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_search();
+        			gfn_datalistClear(dl_PopupItem);
+        		]]>
+        		</script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[ 
+        /***************************************************************************************
+			* 시스템명 		: 식품의약품안전처 통합식품안전망구축
+			* 업무명 		: CommonPopup
+			* 파일명 		: CommonPopup.xml
+			* 작성자 		: 유승엽
+			* 작성일 		: 2014.09.05
+			*
+			* 설  명		: 공통팝업 관리 
+			*---------------------------------------------------------------------------------------
+			* 변경일	변경자		변경내역 
+			*---------------------------------------------------------------------------------------
+			*  2014.09.05 유승엽	최초 프로그램 작성         
+			* 
+			*---------------------------------------------------------------------------------------
+			****************************************************************************************/
+			
+			/********************************************************************************************************************/
+			/* 01. 공통라이브러리 정의																					*/
+			/********************************************************************************************************************/
+			
+			
+			/********************************************************************************************************************/
+			/* 02. Form 변수정의																								*/
+			/********************************************************************************************************************/
+        	var selectBoxValue = '';
+        	
+        	/********************************************************************************************************************/
+			/* 03. Form 화면 초기화																							*/
+			/********************************************************************************************************************/
+			gfn_callCommonCode(
+				"COM",
+				["0001"],
+				["dl_systemCode"]
+			);
+			/********************************************************************************************************************/
+			/* 04. 서비스 TRANSACTION 함수(조회,저장,삭제,Callback)																		*/
+			/********************************************************************************************************************/
+			//조회
+			function fn_search(){
+				if(gfn_isEmpty(slb_Syscd.getValue())){
+					alert("시스템구분을 선택해주시기 바랍니다.");
+					return false;
+				}
+				$w.executeSubmission("searchSubmission");
+				selectBoxValue = slb_Syscd.getValue();
+			}
+			
+			//상세조회
+			function fn_searchDetail(row){
+				dm_subSearchKeyword.set('sys_cd', dl_Popup.getCellData( row , 'sys_cd' ));
+				dm_subSearchKeyword.set('popup_cd', dl_Popup.getCellData( row , 'popup_cd' ));
+				
+				if(dl_Popup.getRowStatus( row ) != 'C'){	
+					$w.executeSubmission("searchDetailSubmission");
+				}
+				else{
+					gfn_datalistClear(dl_PopupItem);
+				}
+			}
+			
+			//저장
+			function fn_save(){
+			var modifiedData = dl_Popup.getModifiedIndex();
+			var nullcheck = 0;
+                for(var i=0; i<modifiedData.length; i++){
+		 			var mssg_cd = dl_Popup.getCellData( modifiedData[i] , 'popup_cd' );
+		 		if(mssg_cd == '' || mssg_cd == null){
+		 			nullcheck = 1;
+		 		}
+		 	}
+		 	if(nullcheck == 0)
+				$w.executeSubmission("modifiedSubmission");	
+			if(nullcheck == 1)
+				alert("필수입력항목 오류");
+			}
+			
+			/**************************************************************************
+			 * 05.공통버튼 영역
+			***************************************************************************/
+        	
+        	/**************************************************************************
+			 * 06.그리드 행추가, 삭제, 엑셀출력 버튼영역
+			***************************************************************************/
+        	//행추가
+        	function fn_addRow(){
+	        	if(gfn_isEmpty(selectBoxValue)){
+        			alert("추가할 시스템 코드값으로 조회하여주시기 바랍니다.");
+        			return;
+        		}
+        		var rowIndex = grd_Popup.getFocusedRowIndex();
+                dl_Popup.insertRow( rowIndex + 1 );
+                dl_Popup.setCellData( rowIndex + 1 , 'sys_cd' , selectBoxValue );
+                grd_Popup.setCellDisabled(rowIndex + 1 , 'popup_cd' , false);
+                grd_Popup.setFocusedCell( rowIndex + 1 , 'popup_cd' , true );
+                
+        	}
+        	
+        	//행삭제
+        	function fn_delRow(){
+        		try{
+	    			if(grd_Popup.getFocusedRowIndex() != -1){
+		 				for(var i=0; i<dl_PopupItem.getRowCount(); i++){
+		 					dl_PopupItem.deleteRow( i );
+		 				}
+		 				dl_Popup.deleteRow(grd_Popup.getFocusedRowIndex());
+	 				}else{
+	 					gfn_Message("COM", "1081", "A");
+	 					alert("삭제할 데이터를 체크하십시오.");
+	 				}
+	 			}catch(e){
+	 			}
+        	}
+        	
+        	//상세행추가
+        	function fn_addRowDetail(){
+	        	var max_itm_ordno = 0;
+	        	var popupRowIndex = grd_Popup.getFocusedRowIndex();
+	        	var rowIndex = grd_PopupItem.getFocusedRowIndex();
+	        	
+	        	if(dl_Popup.getCellData( popupRowIndex , 'popup_cd' ) == ''){
+	        		alert("팝업코드를 입력해 주시기 바랍니다.");
+	        		return false;
+	        	}
+	        	grd_Popup.setCellDisabled( popupRowIndex , 'popup_cd' , true);
+	        	
+	        	if(gfn_isEmpty(selectBoxValue)){
+        			alert("추가할 시스템 코드값으로 조회하여주시기 바랍니다.");
+        			return;
+        		}
+        		
+                dl_PopupItem.insertRow( rowIndex + 1 );
+                dl_PopupItem.setCellData( rowIndex + 1 , 'sys_cd' , dl_Popup.getCellData( popupRowIndex , 'sys_cd' ) );
+                dl_PopupItem.setCellData( rowIndex + 1 , 'popup_cd' , dl_Popup.getCellData( popupRowIndex , 'popup_cd' ) );
+        	}
+        	
+        	//상세행삭제
+        	function fn_delRowDetail(){
+        		try{
+	    			if(grd_PopupItem.getFocusedRowIndex() != -1){
+		 				dl_PopupItem.deleteRow(grd_PopupItem.getFocusedRowIndex());
+	 				}else{
+	 					gfn_Message("COM", "1081", "A");
+	 					alert("삭제할 데이터를 체크하십시오.");
+	 				}
+	 			}catch(e){
+	 			}
+        	}
+        	
+        	// 엑셀다운로드 (API문서 참고)
+			function fn_exportExcel(grdViewObj, options, infoArr) {
+			    grdViewObj.advancedExcelDownload(options, infoArr);
+			};
+			
+        	/**************************************************************************
+			 * 07. 사용자 정의 함수 구현 영역
+			***************************************************************************/
+        ]]></script>
+    </head>
+    <body>
+    	<xf:group id="group1" style="" class="contents">
+    		<xf:group id="group2" style="" class="titleBar">
+    			<w2:textbox id="txb_Title" style="" class="title02" label='&lt;span style="color:#04a8b7"&gt;공통팝업&lt;/span&gt; 관리'></w2:textbox>
+    			<w2:textbox id="textbox2" style="" class="my" label=""></w2:textbox>
+    			<xf:group id="group3" style="" class="pgBox">
+    				<xf:group id="group4" style="" class="title_pgid">
+    					<xf:group id="group5" style="" class="title_pgid_right">
+    						<w2:textbox id="textbox3" style="" class="" label="Page ID : " tagname="span"></w2:textbox>
+    						<w2:textbox id="textbox4" style="" class="dt" label="GLEUDL396732227JF" tagname="span"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group6" style="" class="dtb">
+    			<xf:group id="group7" style="" class="dtb_row">
+    				<xf:group id="group8" style="" class="dtb_column">
+    					<w2:textbox id="txb_Syscd" class="dtb_tt" label="시스템구분"></w2:textbox>
+    					<xf:group id="group13" style="" class="iptBox">
+    						<xf:select1 disabledClass="w2selectbox_disabled" id="slb_Syscd" appearance="minimal"
+    							style="width:124px;height:21px;" direction="auto" chooseOption="true" allOption="" class="select" displayMode="label"
+    							disabled="false" submenuSize="auto" chooseOptionLabel="" ref="data:dm_searchKeyword.sys_cd">
+    							<xf:choices>
+    								<xf:itemset nodeset="data:dl_systemCode">
+    									<xf:label ref="fnprt_cd_nm"></xf:label>
+    									<xf:value ref="fnprt_cd"></xf:value>
+    								</xf:itemset>
+    							</xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    					<xf:group id="group9" style="" class="iptBox"></xf:group>
+    				</xf:group>
+    				<xf:group id="group10" style="" class="dtb_column">
+    					<w2:textbox id="txb_CommonPopupName" class="dtb_tt" label="공통팝업명"></w2:textbox>
+    					<xf:group id="group11" style="" class="iptBox">
+    						<xf:input id="ipb_CommonPopupName" style="" class="ipt" ref="data:dm_searchKeyword.popup_nm"></xf:input>
+    					</xf:group>
+    					<xf:group id="group12" style="" class="df_btn" tagname=""></xf:group>
+    				</xf:group>
+    				<xf:group id="group14" style="" class="dtb_column">
+    					<w2:textbox id="txb_WorkCd" class="dtb_tt" label="업무구분"></w2:textbox>
+    					<xf:group id="group15" style="" class="iptBox">
+    						<xf:select1 disabledClass="w2selectbox_disabled" id="slb_WorkCd" appearance="minimal"
+    							style="width:124px;height:21px;" direction="auto" chooseOption="" allOption="" class="select" displayMode="label"
+    							disabled="false" submenuSize="auto" ref="data:dm_searchKeyword.work_dvs_cd">
+    							<xf:choices></xf:choices>
+    						</xf:select1>
+    						<w2:anchor id="anc_Search" style="margin-left:10px;" class="anc_trans">
+    							<xf:label>조회</xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_search();
+    							]]></script>
+    						</w2:anchor>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group18" style="" class="contLayout06">
+    			<xf:group id="group19" style="" class="leftArea">
+    				<xf:group id="group21" style="" class="defaultbox">
+    					<xf:group id="group22" style="" class="totalbox">
+    						<xf:group id="group23" style="" class="total">
+    							<xf:group id="group24" style="" class="strong">
+    								<w2:textbox id="txb_Count1" style="" class="strong_right" label="0" tagname="strong"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<w2:textbox id="txb_Searched" style="" class="sear" label="건이 조회되었습니다."></w2:textbox>
+    						<xf:group id="group25" class="fr">
+    							<w2:anchor id="anchor4" class="btn_excel">
+    								<xf:label><![CDATA[엑셀다운로드]]></xf:label>
+    							</w2:anchor>
+    						</xf:group>
+    						<xf:group class="defaultbox" id="group58" style="">
+    							<xf:group class="fr" id="group59" style="">
+    								<w2:anchor class="anc_trans mr5" id="anc_Save" style="">
+    									<xf:label><![CDATA[저 장]]></xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[ 
+    									fn_save();
+    									]]></script>
+    								</w2:anchor>
+    								<w2:anchor class="anc_trans mr5" id="anc_AddRow" style="">
+    									<xf:label><![CDATA[행추가]]></xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[ 
+    									fn_addRow();
+    									]]></script>
+    								</w2:anchor>
+    								<w2:anchor class="anc_trans" id="anc_DelRow" style="">
+    									<xf:label><![CDATA[행삭제]]></xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[ 
+    									fn_delRow();
+    									]]></script>
+    								</w2:anchor>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<w2:gridView dataList="dl_Popup" id="grd_Popup" autoFit="allColumn"
+    					style="position: relative ;height:220px;left:0px;top:5px;" visibleRowNum="15" scrollByColumn="false" useShiftKey="false"
+    					class="cm_grid" fixedColumnWithHidden="true" rowStatusVisible="true" rowStatusHeaderValue="상태">
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column blockSelect="false" id="column28" style="height:20px" inputType="text" width="70"
+    								value="시스템_코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column26" style="height:20px" inputType="text" width="70"
+    								value="팝업_코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column24" style="height:20px" inputType="text" width="70" value="팝업_명"></w2:column>
+    							<w2:column blockSelect="false" id="column22" style="height:20px" inputType="text" width="70"
+    								value="업무_구분_코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column20" style="height:20px" inputType="text" width="70"
+    								value="자동_조회_여부">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column blockSelect="false" id="sys_cd" style="height:20px" inputType="text" width="70"
+    								disabled="true">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="popup_cd" style="height:20px" inputType="text" width="70"
+    								disabled="true">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="popup_nm" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="work_dvs_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="auto_inqry_yn" style="height:20px" inputType="text" width="70"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<script ev:event="onrowindexchange(row,oldRow)" type="javascript"><![CDATA[ 
+    					fn_searchDetail(row);
+    					]]></script>
+    				</w2:gridView>
+    				<xf:group id="group26" style="" class="defaultbox">
+    					<xf:group id="group27" style="" class="totalbox">
+    						<xf:group id="group28" style="" class="total">
+    							<xf:group id="group29" style="" class="strong">
+    								<w2:textbox id="txb_Count2" style="" class="strong_right" label="0" tagname="strong"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<w2:textbox id="txb_Searched2" style="" class="sear" label="건이 조회되었습니다."></w2:textbox>
+    						<xf:group id="group30" class="fr">
+    							<w2:anchor id="anchor5" class="btn_excel">
+    								<xf:label><![CDATA[엑셀다운로드]]></xf:label>
+    							</w2:anchor>
+    						</xf:group>
+    						<xf:group class="defaultbox" id="group60" style="">
+    							<xf:group class="fr" id="group61" style="">
+    								<w2:anchor class="anc_trans mr5" id="anc_AddRow2" style="">
+    									<xf:label><![CDATA[행추가]]></xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[ 
+    									fn_addRowDetail();
+    									]]></script>
+    								</w2:anchor>
+    								<w2:anchor class="anc_trans" id="anc_DelRow2" style="">
+    									<xf:label><![CDATA[행삭제]]></xf:label>
+    									<script ev:event="onclick" type="javascript"><![CDATA[ 
+    									fn_delRowDetail();
+    									]]></script>
+    								</w2:anchor>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<w2:gridView dataList="dl_PopupItem" id="grd_PopupItem" autoFit="allColumn"
+    					style="position: relative ;height:220px;left:0px;top:5px;" visibleRowNum="15" scrollByColumn="false" useShiftKey="false"
+    					class="cm_grid" fixedColumnWithHidden="true" rowStatusHeaderValue="상태" rowStatusVisible="true">
+    					<w2:header id="header4" style="">
+    						<w2:row id="row7" style="">
+    							<w2:column blockSelect="false" id="column83" style="height:20px" inputType="text" width="70"
+    								value="시스템_코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column81" style="height:20px" inputType="text" width="70"
+    								value="팝업_코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column75" style="height:20px" inputType="text" width="70" value="컬럼_명"></w2:column>
+    							<w2:column blockSelect="false" id="column73" style="height:20px" inputType="text" width="70" value="한글_명"></w2:column>
+    							<w2:column blockSelect="false" id="column71" style="height:20px" inputType="text" width="70" value="화면_폭"></w2:column>
+    							<w2:column blockSelect="false" id="column69" style="height:20px" inputType="text" width="70"
+    								value="검색_컬럼_여부">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column67" style="height:20px" inputType="text" width="70"
+    								value="화면_출력_순서">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column65" style="height:20px" inputType="text" width="70"
+    								value="정렬_방법_코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column85" style="height:20px" inputType="text" width="70"
+    								value="항목_구분_코드">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody4" style="">
+    						<w2:row id="row8" style="">
+    							<w2:column blockSelect="false" id="sys_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="popup_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="clmn_nm" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="kor_nm" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="scrn_width" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="srch_clmn_yn" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="scrn_outpt_ord" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="sort_mthd_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="itm_dvs_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    			</xf:group>
+    			<xf:group id="group20" style="" class="rightArea">
+    				<xf:group id="group31" style="" class="titleBar_mb">
+    					<w2:textbox id="textbox13" style="" class="title03" label="쿼리"></w2:textbox>
+    				</xf:group>
+    				<xf:group id="group40" style="" class="textareatBox">
+    					<xf:textarea id="textarea2" style="height:450px;" ref="data:dl_Popup.popup_qury"></xf:textarea>
+    				</xf:group>
+    				<xf:group id="group50" style="" class="dtb">
+    					<xf:group id="group51" style="" class="dtb_row">
+    						<xf:group id="group52" style="" class="dtb_column">
+    							<w2:textbox id="txb_Test" class="dtb_tt" label="테스트"></w2:textbox>
+    							<xf:group id="group57" class="iptBox">
+    								<xf:input id="ipb_Test" invalidMessageFunc="" readOnly="" style="width:100px;" mandatory="" class="ipt fl"
+    									disabled="" displaymessage="" ref="data:dm_subSearchKeyword.sys_cd">
+    								</xf:input>
+    								<w2:textbox id="textbox22" style="margin-left:5px;" class="btnSearch" label="" tagname="a"></w2:textbox>
+    								<xf:input id="ipb_TestSearch" readOnly="" style="margin-left:5px;width:100px;" class="ipt fl" disabled="true" ref="data:dm_subSearchKeyword.popup_cd"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<w2:wframe id="wfm_Common" style="position: relative;width: 0px;height: 0px;" src="/ui/common/frame/commonCodeFrame.xml"></w2:wframe>
+    	</xf:group>
+    </body>
+</html>
+		
+		

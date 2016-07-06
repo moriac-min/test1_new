@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection>
+            	<w2:dataMap baseNode="map" id="gdm_CommonCode" style="">
+					<w2:keyInfo>
+						<w2:key id="sys_cd" name="name1" dataType="text"></w2:key>
+						<w2:key id="cmmn_cd" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList id="gdl_CommonCodeData" baseNode="list" style="" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="sys_cd" name="시스템_코드" dataType="text"></w2:column>
+						<w2:column id="cmmn_cd" name="공통_코드" dataType="text"></w2:column>
+						<w2:column id="fnprt_cd" name="세부_코드" dataType="text"></w2:column>
+						<w2:column id="fnprt_cd_nm" name="세부_코드_명" dataType="text"></w2:column>
+						<w2:column id="fnprt_eng_nm" name="세부_영문_명" dataType="text"></w2:column>
+						<w2:column id="fnprt_all_nm" name="세부_전체_명" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_1" name="사용자_정의_컬럼_1" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_2" name="사용자_정의_컬럼_2" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_3" name="사용자_정의_컬럼_3" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_4" name="사용자_정의_컬럼_4" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_5" name="사용자_정의_컬럼_5" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_6" name="사용자_정의_컬럼_6" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_7" name="사용자_정의_컬럼_7" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_8" name="사용자_정의_컬럼_8" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_9" name="사용자_정의_컬럼_9" dataType="text"></w2:column>
+						<w2:column id="user_dfn_clmn_10" name="사용자_정의_컬럼_10" dataType="text"></w2:column>
+						<w2:column id="use_yn" name="사용_여부" dataType="text"></w2:column>
+						<w2:column id="sort_ord" name="정렬_순서" dataType="number"></w2:column>
+						<w2:column id="cretr_id" name="생성자" dataType="text"></w2:column>
+						<w2:column id="cret_dtm" name="생성_일시" dataType="text"></w2:column>
+						<w2:column id="last_updtr_id" name="수정자" dataType="text"></w2:column>
+						<w2:column id="last_updt_dtm" name="수정_일시" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+            </w2:dataCollection>
+            <xf:submission id="gsub_CommonCodeData" ref='data:json,{"id":"gdm_CommonCode","key":"commonCodeVO"}' target='data:json,[{"id":"gdl_CommonCodeData","key":"commonCodeDataList"}]' 
+        		action="/adminfacillity/systemmngt/selectCommonCodeFunction.do" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+        		customHandler="" mode="synchronous" processMsg="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			
+        		]]></script>
+        		<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			
+        		]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[
+        	function gfn_callCommonCodeSubmission(){
+				$w.executeSubmission( "gsub_CommonCodeData" );
+			}
+        
+        ]]></script>
+    </head>
+    <body></body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group id="group117" style="" class="dtb">
+	<xf:group id="group118" style="" class="dtb_row">
+		<xf:group id="group119" style="" class="dtb_column">
+			<w2:textbox id="textbox50" class="dtb_tt" label="Label">
+			</w2:textbox>
+			<xf:group class="iptBox" id="group301" style="">
+				<xf:input class="ipt" id="input65" style="">
+				</xf:input>
+</xf:group>
+</xf:group>
+		<xf:group class="dtb_column" id="group303" style="">
+			<w2:textbox class="dtb_tt" id="textbox127" label="표준명칭">
+			</w2:textbox>
+			<xf:group class="iptBox" id="group304" style="">
+				<xf:input class="ipt" id="input66" style="">
+				</xf:input>
+</xf:group>
+			<xf:group class="df_btn" id="group305" style="" tagname="">
+				<w2:anchor class="anc_trans" id="anchor32">
+					<xf:label>
+<![CDATA[조 회]]></xf:label>
+</w2:anchor>
+</xf:group>
+</xf:group>
+</xf:group>
+</xf:group>
+</body>
+</html>

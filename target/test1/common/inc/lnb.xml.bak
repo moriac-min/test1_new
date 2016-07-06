@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+			</w2:dataCollection>
+		</xf:model>
+		<script type="javascript"><![CDATA[ 
+
+        	function open_step2(n){
+        		for(i=0; i<11; i++){
+        			if(i == n){
+        				if(!WebSquare.util.getComponentById("lnb_li" + i).hasClass("lnb_focus")){
+        					WebSquare.util.getComponentById("lnb_li" + i).addClass("lnb_focus");
+        					WebSquare.util.getComponentById("grp_step2_" + i).addClass("show");
+        				}
+        			}else{
+        				if(WebSquare.util.getComponentById("lnb_li" + i).hasClass("lnb_focus")){
+        					WebSquare.util.getComponentById("lnb_li" + i).removeClass("lnb_focus");
+        					WebSquare.util.getComponentById("grp_step2_" + i).removeClass("show");
+        				}
+        			}
+        		}
+        	}
+        ]]></script>
+	</head>
+	<body>
+		<xf:group id="lnb" style="" class="">
+			<xf:group id="grp_h2" style="" class="clearfix" tagname="h2">
+				<w2:textbox id="lnb_txt1" style="" class="txt" label="홍길동"></w2:textbox>
+				<xf:group id="lnb_grp0" style="" class="txt" tagname="a">
+					<w2:attributes>
+						<w2:href>#</w2:href>
+					</w2:attributes>
+					<xf:image id="lnb_img" style="" src="/common/images/ico_info.png"></xf:image>
+				</xf:group>
+				<xf:group id="group1" style="margin-left:35px;" class="txt" tagname="a">
+					<w2:attributes>
+						<w2:href>#</w2:href>
+					</w2:attributes>
+					<xf:image id="image1" style="" src="/common/images/ico_mymenu.png"></xf:image>
+				</xf:group>
+				<xf:group id="group2" style="margin-left:10px;" class="txt" tagname="a">
+					<w2:attributes>
+						<w2:href>#</w2:href>
+					</w2:attributes>
+					<xf:image id="image2" style="" src="/common/images/ico_logout2.png"></xf:image>
+				</xf:group>
+			</xf:group>
+			<xf:group id="lnb_ul" style="" class="" tagname="ul">
+				<xf:group id="lnb_li0" style="" class="" tagname="li">
+					<w2:textbox id="grp_step1_0" style="" class="step1" label="디렉토리관리"></w2:textbox>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(0);
+    				 ]]></script>
+					<xf:group id="grp_step2_0" style="" class="grp_step2"></xf:group>
+				</xf:group>
+				<xf:group id="lnb_li1" style="" class="" tagname="li">
+					<w2:textbox id="grp_step1_1" style="" class="step1" label="게시판관리"></w2:textbox>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(1);
+    				 ]]></script>
+					<xf:group id="grp_step2_1" style="" class="grp_step2"></xf:group>
+				</xf:group>
+				<xf:group id="lnb_li2" style="" class="" tagname="li">
+
+					<w2:textbox id="grp_step1_2" style="" class="step1" label="메타데이터관리"></w2:textbox>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(2);
+    				 ]]></script>
+					<xf:group id="grp_step2_2" style="" class="grp_step2"></xf:group>
+				</xf:group>
+
+				<xf:group id="lnb_li3" style="" class="" tagname="li">
+
+					<w2:textbox id="grp_step1_3" style="" class="step1" label="시스템관리"></w2:textbox>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(3);
+    				 ]]></script>
+					<xf:group id="grp_step2_3" style="" class="grp_step2"></xf:group>
+				</xf:group>
+				<xf:group id="lnb_li4" style="" class="" tagname="li">
+					<w2:textbox id="grp_step1_4" style="" class="step1" label="코드매핑관리"></w2:textbox>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(4);
+    				 ]]></script>
+					<xf:group id="grp_step2_4" style="" class="grp_step2"></xf:group>
+				</xf:group>
+				<xf:group id="lnb_li5" style="" class="" tagname="li">
+					<w2:textbox id="grp_step1_5" style="" class="step1" label="권한관리"></w2:textbox>
+					<xf:group id="grp_step2_5" style="" class="grp_step2">
+						<w2:textbox id="textbox20" style="" class="step2" label="정부누적현황"></w2:textbox>
+						<w2:textbox id="textbox21" style="" class="step3" label="교육">
+							<script ev:event="onclick" type="javascript"><![CDATA[
+							mFnc.addTab('EDU001', '교육', '/ui/edu/edu001.xml');
+							]]></script>
+						</w2:textbox>
+						<w2:textbox id="textbox22" style="" class="step2" label="이용현황">
+							<script ev:event="onclick" type="javascript"><![CDATA[
+							mFnc.addTab('TEST001', '과대광고모니터링정보조회', '/xml/SADM0204010.xml');
+							]]></script>
+						</w2:textbox>
+						<w2:textbox id="textbox23" style="" class="step3" label="이용현황조회">
+							<script ev:event="onclick" type="javascript"><![CDATA[
+							mFnc.addTab('TEST002', '과대광고모니터링정보조회1', '/xml/SADM0505040.xml');
+							]]></script>
+						</w2:textbox>
+						<w2:textbox id="textbox24" style="" class="step2" label="연계오류현황">
+							<script ev:event="onclick" type="javascript"><![CDATA[
+							mFnc.addTab('TEST003', '과대광고모니터링정보조회2', '/xml/SADM0906090.xml');
+							]]></script>
+						</w2:textbox>
+						<w2:textbox id="textbox25" style="" class="step3" label="CRUDTEST">
+							<script ev:event="onclick" type="javascript"><![CDATA[
+							mFnc.addTab('TEST004', 'CRUD_TEST', '/ui/educationSample_001.xml');
+							]]></script>
+						</w2:textbox>
+					</xf:group>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(5);
+    				 ]]></script>
+				</xf:group>
+				<xf:group id="lnb_li6" style="" class="" tagname="li">
+					<w2:textbox id="grp_step1_6" style="" class="step1" label="API신청관리"></w2:textbox>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(6);
+    				 ]]></script>
+					<xf:group id="grp_step2_6" style="" class="grp_step2"></xf:group>
+				</xf:group>
+				<xf:group id="lnb_li7" style="" class="" tagname="li">
+					<w2:textbox id="grp_step1_7" style="" class="step1" label="유관기관관리"></w2:textbox>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(7);
+    				 ]]></script>
+					<xf:group id="grp_step2_7" style="" class="grp_step2"></xf:group>
+				</xf:group>
+				<xf:group id="lnb_li8" style="" class="" tagname="li">
+					<w2:textbox id="grp_step1_8" style="" class="step1" label="종합상황판"></w2:textbox>
+					<xf:group id="grp_step2_8" style="" class="grp_step2">
+						<w2:textbox id="lnb_step2_0" style="" class="step2" label="정부누적현황"></w2:textbox>
+						<w2:textbox id="lnb_step3_0" style="" class="step3" label="정보누적건수조회"></w2:textbox>
+						<w2:textbox id="lnb_step2_1" style="" class="step2" label="이용현황"></w2:textbox>
+						<w2:textbox id="lnb_step3_1" style="" class="step3" label="이용현황조회"></w2:textbox>
+						<w2:textbox id="lnb_step2_2" style="" class="step2" label="연계오류현황"></w2:textbox>
+						<w2:textbox id="lnb_step3_2" style="" class="step3" label="연계오류조회"></w2:textbox>
+					</xf:group>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(8);
+    				 ]]></script>
+				</xf:group>
+				<xf:group id="lnb_li9" style="" class="" tagname="li">
+					<w2:textbox id="grp_step1_9" style="" class="step1" label="모니터링"></w2:textbox>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(9);
+    				 ]]></script>
+					<xf:group id="grp_step2_9" style="" class="grp_step2"></xf:group>
+				</xf:group>
+				<xf:group id="lnb_li10" style="" class="" tagname="li">
+					<w2:textbox id="grp_step1_10" style="" class="step1" label="품질관리"></w2:textbox>
+					<script ev:event="onclick" type="javascript"><![CDATA[
+    					open_step2(10);
+    				 ]]></script>
+					<xf:group id="grp_step2_10" style="" class="grp_step2"></xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:image id="image3" style="position:absolute;bottom:0;height:39px;" src="/common/images/btn_helpdesk.png"></xf:image>
+		</xf:group>
+	</body>
+</html>

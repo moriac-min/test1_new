@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection>
+            	<w2:dataList id="dataList1" baseNode="list" style="" repeatNode="map">
+            		<w2:columnInfo>
+            			<w2:column id="col1" name="보고일자" dataType="text"></w2:column>
+            			<w2:column id="col2" name="보고번호" dataType="text"></w2:column>
+            			<w2:column id="col3" name="광고매체" dataType="text"></w2:column>
+            			<w2:column id="col4" name="인지유형" dataType="text"></w2:column>
+            			<w2:column id="col5" name="제품명" dataType="text"></w2:column>
+            			<w2:column id="col6" name="품목대분류" dataType="text"></w2:column>
+            			<w2:column id="col7" name="품목중분류" dataType="text"></w2:column>
+            			<w2:column id="col8" name="업체명" dataType="text"></w2:column>
+            			<w2:column id="col9" name="업종" dataType="text"></w2:column>
+            			<w2:column id="col10" name="업체유형" dataType="text"></w2:column>
+            			<w2:column id="col11" name="name11" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row></w2:row>
+            			<w2:row></w2:row>
+            			<w2:row></w2:row>
+            			<w2:row></w2:row>
+            			<w2:row></w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body>
+    	<xf:group class="contents" id="group1" style="">
+    		<xf:group class="titleBar" id="group2" style="">
+    			<w2:textbox class="title02" id="textbox1" label='&lt;span style="color:#04a8b7"&gt;과대광고 모니터링&lt;/span&gt; 정보 조회' style=""></w2:textbox>
+    			<w2:textbox class="my" id="textbox2" label="" style=""></w2:textbox>
+    			<xf:group class="pgBox" id="group3" style="">
+    				<xf:group class="title_pgid" id="group4" style="">
+    					<xf:group class="title_pgid_right" id="group5" style="">
+    						<w2:textbox class="" id="textbox3" label="Page ID : " style="" tagname="span"></w2:textbox>
+    						<w2:textbox class="dt" id="textbox4" label="GLEUDL396732227JF" style="" tagname="span"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="dtb" id="group6" style="">
+    			<xf:group class="dtb_row" id="group7" style="">
+    				<xf:group class="dtb_column" id="group8" style="">
+    					<w2:textbox class="dtb_tt txtRed" id="textbox5" label="보고일자"></w2:textbox>
+    					<xf:group class="iptBox" id="group69" style="">
+    						<w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" cancelButtonShow=""
+    							class="Cal" displaymessage="true" id="inputCalendar7" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true"
+    							style="width:100px;" weekStartsOn="0">
+    						</w2:inputCalendar>
+    						<w2:textbox class="tilde" id="textbox32" label="~" style="margin-left:5px;"></w2:textbox>
+    						<w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" class="Cal"
+    							displaymessage="true" id="inputCalendar8" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true"
+    							style="width:100px;margin-left:5px;" weekStartsOn="0">
+    						</w2:inputCalendar>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group26" style="">
+    					<w2:textbox class="dtb_tt" id="textbox14" label="광고일자"></w2:textbox>
+    					<xf:group class="iptBox" id="group70" style="">
+    						<w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" cancelButtonShow=""
+    							class="Cal" displaymessage="true" id="inputCalendar9" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true"
+    							style="width:100px;" weekStartsOn="0">
+    						</w2:inputCalendar>
+    						<w2:textbox class="tilde" id="textbox33" label="~" style="margin-left:5px;"></w2:textbox>
+    						<w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" class="Cal"
+    							displaymessage="true" id="inputCalendar10" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true"
+    							style="width:100px;margin-left:5px;" weekStartsOn="0">
+    						</w2:inputCalendar>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="dtb_row" id="group11" style="">
+    				<xf:group class="dtb_column" id="group12" style="">
+    					<w2:textbox class="dtb_tt" id="textbox6" label="보고번호"></w2:textbox>
+    					<xf:group class="iptBox" id="group29" style="">
+    						<xf:input class="ipt" id="input1" style="width:213px;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+
+    				<xf:group class="dtb_column" id="group30" style="">
+    					<w2:textbox class="dtb_tt" id="textbox16" label="조치일자"></w2:textbox>
+    					<xf:group class="iptBox" id="group71" style="">
+    						<w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" cancelButtonShow=""
+    							class="Cal" displaymessage="true" id="inputCalendar11" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true"
+    							style="width:100px;" weekStartsOn="0">
+    						</w2:inputCalendar>
+    						<w2:textbox class="tilde" id="textbox34" label="~" style="margin-left:5px;"></w2:textbox>
+    						<w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" class="Cal"
+    							displaymessage="true" id="inputCalendar12" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true"
+    							style="width:100px;margin-left:5px;" weekStartsOn="0">
+    						</w2:inputCalendar>
+    					</xf:group>
+    				</xf:group>
+
+
+
+    				<xf:group class="dtb_column" id="group34" style="">
+    					<w2:textbox class="dtb_tt" id="textbox18" label="조치완료여부"></w2:textbox>
+    					
+    					<xf:group class="iptBox" id="group35" style="">
+    						<xf:select1 disabledClass="w2selectbox_disabled" appearance="minimal" direction="auto" chooseOption="false" id="selectbox10" style="width:79px;;height:21px;" displayMode="label" allOption="false" submenuSize="auto" disabled="false">
+    					</xf:select1>
+    					</xf:group>
+    				</xf:group>
+
+    			</xf:group>
+    			<xf:group class="dtb_row" id="group15" style="">
+    				<xf:group class="dtb_column" id="group16" style="">
+    					<w2:textbox class="dtb_tt" id="textbox8" label="업체명 &amp;nbsp; &amp;nbsp; "></w2:textbox>
+    					<xf:group class="iptBox" id="group33" style="">
+    						<xf:input class="ipt" id="input2" style="width:212px;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group36" style="">
+    					<w2:textbox class="dtb_tt" id="textbox19" label="사업자번호"></w2:textbox>
+    					<xf:group class="iptBox" id="group38" style="">
+    						<xf:input class="ipt" id="input3" style="width:201px;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group37" style="">
+    					<w2:textbox class="dtb_tt" id="textbox20" label="업종"></w2:textbox>
+    					<xf:group class="iptBox" id="group39" style="">
+    						<xf:select1 allOption="" appearance="minimal" chooseOption="" class="select" direction="auto" disabled="false"
+    							disabledClass="w2selectbox_disabled" displayMode="label" id="selectbox2" style="" submenuSize="auto">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[new row]]></xf:label>
+    									<xf:value><![CDATA[]]></xf:value>
+    								</xf:item>
+    								<xf:item>
+    									<xf:label><![CDATA[new row]]></xf:label>
+    									<xf:value><![CDATA[]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+
+    			</xf:group>
+    			<xf:group class="dtb_row" id="group17" style="">
+    				<xf:group class="dtb_column" id="group18" style="">
+    					<w2:textbox class="dtb_tt" id="textbox9" label="식품대분류"></w2:textbox>
+    					<xf:group class="iptBox" id="group40" style="">
+    						<xf:select1 allOption="" appearance="minimal" chooseOption="" class="select" direction="auto" disabled="false"
+    							disabledClass="w2selectbox_disabled" displayMode="label" id="selectbox3" style="width:207px;height:21px;" submenuSize="auto">
+    							<xf:choices></xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+
+    				<xf:group class="dtb_column" id="group41" style="">
+    					<w2:textbox class="dtb_tt" id="textbox21" label="제품명"></w2:textbox>
+    					<xf:group class="iptBox" id="group42" style="">
+    						<xf:input class="ipt" id="input4" style="width:415px;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="dtb_row" id="group19" style="">
+    				<xf:group class="dtb_column" id="group20" style="">
+    					<w2:textbox class="dtb_tt" id="textbox10" label="광고매체"></w2:textbox>
+    					<xf:group class="iptBox" id="group43" style="">
+    						<xf:select1 allOption="" appearance="minimal" chooseOption="" class="select" direction="auto" disabled="false"
+    							disabledClass="w2selectbox_disabled" displayMode="label" id="selectbox4" style="width:218px;height:21px;" submenuSize="auto">
+    							<xf:choices></xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group44" style="">
+    					<w2:textbox class="dtb_tt" id="textbox22" label="광고매체상세"></w2:textbox>
+    					<xf:group class="iptBox" id="group45" style="">
+    						<xf:input class="ipt" id="input5" style=""></xf:input>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="dtb_row" id="group21" style="">
+    				<xf:group class="dtb_column" id="group22" style="">
+    					<w2:textbox class="dtb_tt" id="textbox11" label="국내처분"></w2:textbox>
+    					<xf:group class="iptBox" id="group47" style="">
+    						<xf:select1 allOption="" appearance="minimal" chooseOption="" class="select" direction="auto" disabled="false"
+    							disabledClass="w2selectbox_disabled" displayMode="label" id="selectbox5" style="width:218px;height:21px;" submenuSize="auto">
+    							<xf:choices></xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group46" style="">
+    					<w2:textbox class="dtb_tt" id="textbox23" label="국내처분기준"></w2:textbox>
+    					<xf:group class="iptBox" id="group48" style="">
+    						<xf:select1 allOption="" appearance="minimal" chooseOption="" class="select" direction="auto" disabled="false"
+    							disabledClass="w2selectbox_disabled" displayMode="label" id="selectbox6" style="width:125px;height:21px;" submenuSize="auto">
+    							<xf:choices></xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+
+    			</xf:group>
+    			<xf:group class="dtb_row" id="group13" style="">
+    				<xf:group class="dtb_column" id="group14" style="">
+    					<w2:textbox class="dtb_tt" id="textbox7" label="광고내용"></w2:textbox>
+    					<xf:group class="iptBox" id="group49" style="">
+    						<xf:input class="ipt" id="input6" style="width:214px;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group50" style="">
+    					<w2:textbox class="dtb_tt" id="textbox24" label="공개여부"></w2:textbox>
+    					<xf:group class="iptBox" id="group51" style="">
+    						<xf:select1 allOption="" appearance="minimal" chooseOption="" class="select" direction="auto" disabled="false"
+    							disabledClass="w2selectbox_disabled" displayMode="label" id="selectbox7" style="width:148px;height:21px;" submenuSize="auto">
+    							<xf:choices></xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="dtb_column" id="group52" style="">
+    					<w2:textbox class="dtb_tt" id="textbox25" label="미처분유형"></w2:textbox>
+    					<xf:group class="iptBox" id="group53" style="">
+    						<xf:select1 allOption="" appearance="minimal" chooseOption="" class="select" direction="auto" disabled="false"
+    							disabledClass="w2selectbox_disabled" displayMode="label" id="selectbox8" style="width:157px;height:21px;" submenuSize="auto">
+    							<xf:choices></xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn_box" id="group9" style="">
+    				<w2:anchor class="anc_trans mr5" id="anchor1" style="">
+    						<xf:label>조회</xf:label>
+    					</w2:anchor><w2:anchor class="anc_trans mr5" id="anchor2" style="">
+    						<xf:label>조회조건 초기화</xf:label>
+    					</w2:anchor><w2:anchor class="anc_trans" id="anchor3" style="">
+    						<xf:label>조회조건 저장</xf:label>
+    					</w2:anchor>
+    			</xf:group>
+
+    		</xf:group>
+    		<xf:group class="defaultbox" id="group54" style="">
+    			<xf:group class="totalbox" id="group55" style="">
+    				<xf:group class="total" id="group56" style="">
+    					<xf:group class="strong" id="group57" style="">
+    						<w2:textbox class="strong_right" id="textbox26" label="1000" style="" tagname="strong"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<w2:textbox class="sear" id="textbox27" label="건이 조회되었습니다." style=""></w2:textbox>
+    			</xf:group>
+    		</xf:group>
+    		<w2:gridView autoFit="allColumn" class="cm_grid" dataList="dataList1" fixedColumnWithHidden="true" id="gridView1"
+    			scrollByColumn="false" style="position: relative ;height:380px;" useShiftKey="false" visibleRowNum="15">
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column blockSelect="false" id="column21" style="height:20px" inputType="text" width="70" value="보고일자"></w2:column>
+    					<w2:column blockSelect="false" id="column19" style="height:20px" inputType="text" width="70" value="보고번호"></w2:column>
+    					<w2:column blockSelect="false" id="column17" style="height:20px" inputType="text" width="70" value="광고매체"></w2:column>
+    					<w2:column blockSelect="false" id="column15" style="height:20px" inputType="text" width="70" value="인지유형"></w2:column>
+    					<w2:column blockSelect="false" id="column13" style="height:20px" inputType="text" width="70" value="제품명"></w2:column>
+    					<w2:column blockSelect="false" id="column11" style="height:20px" inputType="text" width="70" value="품목대분류"></w2:column>
+    					<w2:column blockSelect="false" id="column9" style="height:20px" inputType="text" width="70" value="품목중분류"></w2:column>
+    					<w2:column blockSelect="false" id="column7" style="height:20px" inputType="text" width="70" value="업체명"></w2:column>
+    					<w2:column blockSelect="false" id="column5" style="height:20px" inputType="text" width="70" value="업종"></w2:column>
+    					<w2:column blockSelect="false" id="column3" style="height:20px" inputType="text" width="70" value="업체유형"></w2:column>
+    					<w2:column blockSelect="false" id="column1" style="height:20px" width="70" inputType="text" value="name11"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column blockSelect="false" id="col1" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col2" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col3" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col4" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col5" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col6" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col7" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col8" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col9" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col10" style="height:20px" inputType="text" width="70"></w2:column>
+    					<w2:column blockSelect="false" id="col11" style="height:20px" width="70" inputType="text"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

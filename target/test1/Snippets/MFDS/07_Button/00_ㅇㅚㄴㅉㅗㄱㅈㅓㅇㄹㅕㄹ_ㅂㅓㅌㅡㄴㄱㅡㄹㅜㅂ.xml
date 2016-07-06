@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group class="defaultbox" id="group291" style="">
+	<w2:anchor class="anc_trans mr5" id="anchor21" style="">
+		<xf:label>
+<![CDATA[저 장]]></xf:label>
+</w2:anchor>
+	<w2:anchor class="anc_trans mr5" id="anchor22" style="">
+		<xf:label>
+<![CDATA[저장후 계속등록]]></xf:label>
+</w2:anchor>
+	<w2:anchor class="anc_trans" id="anchor23" style="">
+		<xf:label>
+<![CDATA[취 소]]></xf:label>
+</w2:anchor>
+</xf:group>
+</body>
+</html>

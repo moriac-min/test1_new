@@ -1,0 +1,56 @@
+/* 
+ * Nanum (Korean) http://hangeul.naver.com
+ */
+ 
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nanum Barun Gothic Regular'), local('Nanum Barun Gothic-Regular'), local('NanumBarunGothic Regular');
+  src: url(../font/NanumBarunGothic.eot);
+  src: url(../font/NanumBarunGothic.eot?#iefix) format('embedded-opentype'),
+url(../font/NanumBarunGothic.woff) format('woff'),
+url(../font/NanumBarunGothic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nanum Barun Gothic Bold'), local('Nanum Barun Gothic-Bold'), local('NanumBarunGothic Bold');
+  src: url(../font/NanumBarunGothicBold.eot);
+  src: url(../font/NanumBarunGothicBold.eot?#iefix) format('embedded-opentype'),
+url(../font/NanumBarunGothicBold.woff) format('woff'),
+url(../font/NanumBarunGothicBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nanum Gothic'), local('NanumGothic');
+  src: url(../font/NanumGothic.eot);
+  src: url(../font/NanumGothic.eot?#iefix) format('embedded-opentype'),
+url(../font/NanumGothic.woff) format('woff'),
+url(../font/NanumGothic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'NanumGothic';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nanum Gothic Bold'), local('Nanum Gothic-Bold'), local('NanumGothic Bold');
+  src: url(../font/NanumGothicBold.eot);
+  src: url(../font/NanumGothicBold.eot?#iefix) format('embedded-opentype'),
+url(../font/NanumGothicBold.woff) format('woff'),
+url(../font/NanumGothicBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'daum';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Daum SemiBold'), local('Daum-SemiBold'), local('NDaumSemiBold');
+  src: url(../font/Daum_SemiBold.eot);
+  src: url(../font/Daum_SemiBold.eot?#iefix) format('embedded-opentype'),
+url(../font/Daum_SemiBold.woff) format('woff'),
+url(../font/Daum_SemiBold.ttf) format('truetype');
+}

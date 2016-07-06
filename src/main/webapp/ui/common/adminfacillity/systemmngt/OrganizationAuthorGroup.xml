@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataMap baseNode="map" id="dm_Organization" style="">
+        			<w2:keyInfo>
+        				<w2:key id="instt_cd" name="기관코드" dataType="text"></w2:key>
+        				<w2:key id="instt_nm" name="기관명" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList id="dl_Organization" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="instt_cd" name="기관코드" dataType="text"></w2:column>
+        				<w2:column id="instt_nm" name="기관명" dataType="text"></w2:column>
+        				<w2:column id="all_nm" name="전체명" dataType="text"></w2:column>
+        				<w2:column id="abbr_nm" name="축약명" dataType="text"></w2:column>
+        				<w2:column id="hrnk_instt_cd" name="상위기관코드" dataType="text"></w2:column>
+        				<w2:column id="htrk_instt_cd" name="최상위기관코드" dataType="text"></w2:column>
+        				<w2:column id="opno" name="차수" dataType="number"></w2:column>
+        				<w2:column id="rank" name="서열" dataType="number"></w2:column>
+        				<w2:column id="use_yn" name="사용여부" dataType="text"></w2:column>
+        				<w2:column id="instt_dvs_cd" name="기관구분코드" dataType="text"></w2:column>
+        				<w2:column id="blnt_lcar_offc_instt_cd" name="소속지방청기관코드" dataType="text"></w2:column>
+        				<w2:column id="list_yn" name="목록여부" dataType="text"></w2:column>
+        				<w2:column id="tel_no" name="전화번호" dataType="text"></w2:column>
+        				<w2:column id="fax_no" name="팩스번호" dataType="text"></w2:column>
+        				<w2:column id="email" name="이메일" dataType="text"></w2:column>
+        				<w2:column id="instt_rdcn_nm" name="기관줄임명" dataType="text"></w2:column>
+        				<w2:column id="onnr_instt_cd" name="온나라기관코드" dataType="text"></w2:column>
+        				<w2:column id="onnr_hrnk_instt_cd" name="온나라상위기관코드" dataType="text"></w2:column>
+        				<w2:column id="onnr_htrk_instt_cd" name="온나라최상위기관코드" dataType="text"></w2:column>
+        				<w2:column id="rm_3000" name="비고" dataType="text"></w2:column>
+        				<w2:column id="cretr_id" name="생성자아이디" dataType="text"></w2:column>
+        				<w2:column id="cret_dtm" name="생성일시" dataType="date"></w2:column>
+        				<w2:column id="last_updtr_id" name="최종수정자아이디" dataType="text"></w2:column>
+        				<w2:column id="last_updt_dtm" name="최종수정일시" dataType="date"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList id="dl_OrganizationAuthorGroup" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="chk" name="chk" dataType="text"></w2:column>
+        				<w2:column id="instt_cd" name="기관코드" dataType="text"></w2:column>
+        				<w2:column id="athr_grp_cd" name="권한그룹코드" dataType="text"></w2:column>
+        				<w2:column id="athr_grp_nm" name="권한그룹명" dataType="text"></w2:column>
+        				<w2:column id="cretr_id" name="생성자아이디" dataType="text"></w2:column>
+        				<w2:column id="cret_dtm" name="생성일시" dataType="date"></w2:column>
+        				<w2:column id="last_updtr_id" name="최종수정자아이디" dataType="text"></w2:column>
+        				<w2:column id="last_updt_dtm" name="최종수정일시" dataType="date"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList id="dl_AuthorGroup" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="chk" name="chk" dataType="text"></w2:column>
+        				<w2:column id="athr_grp_cd" name="권한그룹코드" dataType="text"></w2:column>
+        				<w2:column id="athr_grp_nm" name="권한그룹명" dataType="text"></w2:column>
+        				<w2:column id="rm_100" name="비고100" dataType="text"></w2:column>
+        				<w2:column id="use_yn" name="사용여부" dataType="text"></w2:column>
+        				<w2:column id="sort_ord" name="정렬순서" dataType="number"></w2:column>
+        				<w2:column id="cretr_id" name="생성자아이디" dataType="text"></w2:column>
+        				<w2:column id="cret_dtm" name="생성일시" dataType="date"></w2:column>
+        				<w2:column id="last_updtr_id" name="최종수정자아이디" dataType="text"></w2:column>
+        				<w2:column id="last_updt_dtm" name="최종수정일시" dataType="date"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataMap baseNode="map" id="dm_AuthorGroup" style="">
+        			<w2:keyInfo>
+        				<w2:key id="athr_grp_cd" name="권한그룹코드" dataType="text"></w2:key>
+        				<w2:key id="athr_grp_nm" name="권한그룹명" dataType="text"></w2:key>
+        				<w2:key id="rm_100" name="비고100" dataType="text"></w2:key>
+        				<w2:key id="use_yn" name="사용여부" dataType="text"></w2:key>
+        				<w2:key id="sort_ord" name="정렬순서" dataType="text"></w2:key>
+        				<w2:key id="cretr_id" name="name6" dataType="text"></w2:key>
+        				<w2:key id="cret_dtm" name="name7" dataType="text"></w2:key>
+        				<w2:key id="last_updtr_id" name="name8" dataType="text"></w2:key>
+        				<w2:key id="last_updt_dtm" name="name9" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataMap baseNode="map" id="dm_OrganizationAuthorGroup" style="">
+        			<w2:keyInfo>
+        				<w2:key id="instt_cd" name="기관코드" dataType="text"></w2:key>
+        				<w2:key id="athr_grp_cd" name="권한그룹코드" dataType="text"></w2:key>
+        				<w2:key id="cretr_id" name="name3" dataType="text"></w2:key>
+        				<w2:key id="cret_dtm" name="name4" dataType="text"></w2:key>
+        				<w2:key id="last_updtr_id" name="name5" dataType="text"></w2:key>
+        				<w2:key id="last_updt_dtm" name="name6" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList id="dl_COM0001" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="sys_cd" name="시스템코드" dataType="text"></w2:column>
+        				<w2:column id="cmmn_cd" name="공통코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd" name="세부코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd_nm" name="세부코드명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_eng_nm" name="세부영문명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_all_nm" name="세부전체명" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_1" name="사용자정의컬럼1" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_2" name="사용자정의컬럼2" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_3" name="사용자정의컬럼3" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_4" name="사용자정의컬럼4" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_5" name="사용자정의컬럼5" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_6" name="사용자정의컬럼6" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_7" name="사용자정의컬럼7" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_8" name="사용자정의컬럼8" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_9" name="사용자정의컬럼9" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_10" name="사용자정의컬럼10" dataType="text"></w2:column>
+        				<w2:column id="use_yn" name="사용여부" dataType="text"></w2:column>
+        				<w2:column id="sort_ord" name="정렬순서" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<xf:submission id="sub_SearchOrganization" ref='data:json,{"id":"dm_Organization","key":"organizationVO"}'
+        		target='data:json,{"id":"dl_Organization","key":"infoList"}' action="/adminfacillity/systemmngt/selectOrganization.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg=" ">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_callBack(this.id, e);
+        		]]></script>
+        		<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			fn_errorCallBack(this.id, e);
+        		]]></script>
+        	</xf:submission>
+        	<xf:submission id="sub_SearchOrganizationAuthorGroup"
+        		ref='data:json,{"id":"dm_OrganizationAuthorGroup","key":"organizationAuthorGroupVO"}'
+        		target='data:json,{"id":"dl_OrganizationAuthorGroup","key":"infoList"}'
+        		action="/adminfacillity/systemmngt/selectOrganizationAuthorGroup.do" method="post" mediatype="application/json" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=" ">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_callBack(this.id, e);
+        		]]></script>
+        		<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			fn_errorCallBack(this.id, e);
+        		]]></script>
+        	</xf:submission>
+        	<xf:submission id="sub_SearchNonRegAuthorGroup" ref='data:json,{"id":"dm_AuthorGroup","key":"authorGroupVO"}'
+        		target='data:json,{"id":"dl_AuthorGroup","key":"infoList"}' action="/adminfacillity/systemmngt/selectNoneRegAuthorGroup.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg=" ">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_callBack(this.id, e);
+        		]]></script>
+        		<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			fn_errorCallBack(this.id, e);
+        		]]></script>
+        	</xf:submission>
+        	<xf:submission id="sub_SaveOrganizationAuthorGroup"
+        		ref='data:json,[{"id":"dl_OrganizationAuthorGroup","action":"modified","key":"infoList"},{"id":"dm_OrganizationAuthorGroup","key":"organizationAuthorGroupVO"},{"id":"dm_AuthorGroup","key":"authorGroup"}]'
+        		target='data:json,[{"id":"dl_OrganizationAuthorGroup","key":"infoList"},{"id":"dl_AuthorGroup","key":"infoDataList"}]' action="/adminfacillity/systemmngt/saveOrganizationAuthorGroup.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg=" ">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_callBack(this.id, e);
+        		]]></script>
+        		<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			fn_errorCallBack(this.id, e);
+        		]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[
+        /***************************************************************************************
+			* 시스템명 		: 식품의약품안전처 통합식품안전망구축
+			* 업무명 		: 기관별 권한그룹 관리
+			* 파일명 		: OrganizationAuthorGroup.xml
+			* 작성자 		: 김민규
+			* 작성일 		: 2014.08.28
+			*
+			* 설  명		:  기관별 권한그룹을 관리하는 화면
+			*---------------------------------------------------------------------------------------
+			* 변경일	변경자		변경내역 
+			*---------------------------------------------------------------------------------------
+			*  2014.08.28 김민규		최초 프로그램 작성         
+			* 
+			*---------------------------------------------------------------------------------------
+			****************************************************************************************/
+			
+			/********************************************************************************************************************/
+			/* 01. 공통라이브러리 정의																					*/
+			/********************************************************************************************************************/
+			
+			
+			/********************************************************************************************************************/
+			/* 02. Form 변수정의																								*/
+			/********************************************************************************************************************/
+        	var fv_deleteIdx;
+        	var fv_searchInsttCd = "";
+        	var fv_searchInsttNm = "";
+        	var fv_selectInsttcd = "";
+        	var fv_selectInsttnm = "";
+//        	var fv_searchSysCd = "";
+        	var fv_searchAuthorGroupCd = "";
+        	var fv_searchAuthorGroupNm = "";
+        	
+        	/********************************************************************************************************************/
+			/* 03. Form 화면 초기화																							*/
+			/********************************************************************************************************************/
+			
+			gfn_callCommonCode(
+				"COM",
+				["0001"],
+				["dl_COM0001"]
+			);
+			
+        	function fn_reset()
+        	{
+        		gfn_initGroup(grp_Search);
+        	}
+        	/********************************************************************************************************************/
+			/* 04. 서비스 TRANSACTION 함수(조회,저장,삭제,Callback)																		*/
+			/********************************************************************************************************************/
+			//조회조건 체크
+			function fn_searchCheck()
+			{
+//				if(gfn_isEmpty(slb_Syscd.getValue())){
+//					alert("시스템구분을 선택해주시기 바랍니다.");
+//					return false;
+//				}
+				return true;
+			}
+			
+			//조회
+			function fn_search()
+			{
+				if(fn_searchCheck()){
+					gfn_datalistClear(dl_Organization);
+					gfn_datalistClear(dl_OrganizationAuthorGroup);
+					gfn_datalistClear(dl_AuthorGroup);
+					
+					$w.executeSubmission( "sub_SearchOrganization" );
+				}
+			}
+			
+			//기업별 권한그룹
+			function fn_searchOrganizationAuthorGroup(sRow, oRow)
+			{
+				if(dl_OrganizationAuthorGroup.getModifiedData().length > 0)
+				{
+					if(!confirm("저장하지 않은 데이터가 있습니다. 계속 진행하시겠습니까?\n(저장하지 않은 데이터는 사라집니다.)"))
+					{
+						grd_Instt.setFocusedCell( oRow , 0 , false );
+						return;
+					}
+				}
+				
+				fv_selectInsttcd = dl_Organization.getCellData( sRow , "instt_cd" );
+				fv_selectInsttnm = dl_Organization.getCellData( sRow , "instt_nm" );
+				alert("기업별 권한그룹 조회 선택한 업체코드[" + fv_selectInsttcd + ":::" + fv_selectInsttnm + "]");
+				if(!gfn_isEmpty(fv_selectInsttcd))
+				{
+					dm_OrganizationAuthorGroup.set("instt_cd", fv_selectInsttcd);
+					$w.executeSubmission( "sub_SearchOrganizationAuthorGroup" );
+				}
+			}
+			
+			//해당기업으로 권한설정되어있지 않는 그룹
+			function fn_searchNonOrganizationAuthorGroup()
+			{
+				dm_AuthorGroup.set("instt_cd", fv_selectInsttcd);
+//				dm_AuthorGroup.set("athr_grp_cd", fv_searchAuthorGroupCd);
+//				dm_AuthorGroup.set("athr_grp_nm", fv_searchAuthorGroupNm);
+				$w.executeSubmission( "sub_SearchNonRegAuthorGroup" );
+			}
+			
+			// 저장
+			function fn_save()
+			{
+				alert("save1:::" + dl_OrganizationAuthorGroup.getModifiedIndex());
+				alert("save2:::" + dl_OrganizationAuthorGroup.getModifiedData());
+				if(dl_OrganizationAuthorGroup.getModifiedData().length > 0){
+					if(confirm("저장하시겠습니까?"))
+					{
+						var sInstt_cd = dl_Organization.getCellData( grd_Instt.getFocusedRowIndex() , 'instt_cd' );
+						dm_OrganizationAuthorGroup.set("instt_cd", sInstt_cd);
+						
+						dm_AuthorGroup.set("instt_cd", sInstt_cd);
+						dm_AuthorGroup.set("athr_grp_cd", fv_searchAuthorGroupCd);
+						dm_AuthorGroup.set("athr_grp_nm", fv_searchAuthorGroupNm);
+						
+						$w.executeSubmission("sub_SaveOrganizationAuthorGroup");
+						
+					} else 
+					{
+						return;
+					}
+				} else
+				{
+					alert("수정된 데이터가 없습니다.");
+				}	
+			}
+			
+			//저장후계속
+			function fn_saving()
+			{
+				return;
+			}
+			
+			//CallBack
+			function fn_callBack(sId, e)
+			{
+				//TODO 
+				//추후 메시지 함수가 들어갈 예정
+				if(sId == "sub_SearchOrganization")
+				{
+//					fv_searchSysCd = slb_Syscd.getValue();
+		        	fv_searchInsttCd = ipb_InsttCd.getValue();
+		        	fv_searchInsttNm = ipb_InsttNm.getValue();
+		        	
+					if(dl_Organization.getRowCount() < 1){
+						txb_Count.setValue( "0" );
+						gfn_datalistClear(dl_Organization);
+					} else {
+						txb_Count.setValue( dl_Organization.getRowCount() );
+//						grd_Instt.setFocusedCell( 0 , 0 , false );
+//						fn_searchOrganizationAuthorGroup();
+					}
+				} else if(sId == "sub_SearchOrganizationAuthorGroup")
+				{
+					txb_CountDtl.setValue( dl_OrganizationAuthorGroup.getRowCount() );
+					fn_searchNonOrganizationAuthorGroup();
+				} else if(sId == "sub_SearchNonRegAuthorGroup")
+				{
+					fv_searchAuthorGroupCd = ipb_AuthorGroupCd.getValue();
+		        	fv_searchAuthorGroupNm = ipb_AuthorGroupNm.getValue();
+		        	
+					if(dl_AuthorGroup.getRowCount() < 1){
+						txb_CountAuthorGroup.setValue( "0" );
+						gfn_datalistClear(dl_AuthorGroup);
+					} else {
+						txb_CountAuthorGroup.setValue( dl_AuthorGroup.getRowCount() );
+						grd_AuthorGroup.setFocusedCell( 0 , 0 , false );
+					}
+				} else if(sId == "sub_SaveOrganizationAuthorGroup")
+				{
+					txb_CountDtl.setValue( dl_OrganizationAuthorGroup.getRowCount() );
+					txb_CountAuthorGroup.setValue( dl_AuthorGroup.getRowCount() );
+				}
+			}
+			
+			//ErrorCallBack
+			function fn_errorCallBack(sId, e)
+			{
+				//TODO
+				//추후 메시지 함수가 들어갈 예정
+				if(sId == "sub_SearchOrganization")
+				{
+					alert("[sub_SearchOrganization] 실행에 에러가 발생하였습니다.");
+				} else if(sId == "sub_SearchOrganizationAuthorGroup")
+				{
+					alert("[sub_SearchOrganizationAuthorGroup] 실행에 에러가 발생하였습니다.");
+				} else if(sId == "sub_SearchNonRegAuthorGroup")
+				{
+					alert("[sub_SearchNonRegAuthorGroup] 실행에 에러가 발생하였습니다.");
+				} else if(sId == "sub_SaveOrganizationAuthorGroup")
+				{
+					
+					alert("[sub_SaveOrganizationAuthorGroup] 실행에 에러가 발생하였습니다.");
+				}
+			} 
+			
+			/**************************************************************************
+			 * 05.공통버튼 영역
+			***************************************************************************/
+			function fn_insert(idx)
+			{
+        		return;
+        	}
+        	
+        	function fn_modify(idx)
+        	{
+        		return;
+        	}
+        	/**************************************************************************
+			 * 06.그리드 행추가, 삭제, 엑셀출력 버튼영역
+			***************************************************************************/
+        	//행추가
+        	function fn_addRow()
+        	{
+        		var sRowArray = dl_AuthorGroup.getMatchedData( 'chk' , '1' , true, 0 , dl_AuthorGroup.getRowCount());
+        		var sRow = sRowArray.length;
+        		
+                if(sRow > 0)
+				{
+					var sFlag = true;
+					for(var idx = 0; idx < dl_AuthorGroup.getRowCount(); idx++)
+					{
+						if(dl_AuthorGroup.getCellData( idx , 'chk' ) == "1")
+						{
+							var sAthrGrpCd = dl_AuthorGroup.getCellData( idx , 'athr_grp_cd' );
+							var sAthrGrpNm = dl_AuthorGroup.getCellData( idx , 'athr_grp_nm' );
+							for(var i = 0; i < dl_OrganizationAuthorGroup.getRowCount(); i++)
+							{
+								if(dl_OrganizationAuthorGroup.getCellData( i , 'athr_grp_cd' ) == sAthrGrpCd)
+								{
+									sFlag = false;
+								}
+							}
+							
+							if(sFlag)
+							{
+								var sInsttCd = dl_Organization.getCellData( grd_Instt.getFocusedRowIndex() , 'instt_cd' );
+								var nRow = grd_OrganizationAuthorGroup.getFocusedRowIndex();
+				                dl_OrganizationAuthorGroup.insertRow( nRow + 1 );
+				                dl_OrganizationAuthorGroup.setCellData( nRow + 1 , 'chk' , '0' );
+				                dl_OrganizationAuthorGroup.setCellData( nRow + 1 , 'athr_grp_cd' , sAthrGrpCd );
+				                dl_OrganizationAuthorGroup.setCellData( nRow + 1 , 'athr_grp_nm' , sAthrGrpNm );
+				                dl_OrganizationAuthorGroup.setCellData( nRow + 1 , 'instt_cd' , sInsttCd );
+							} else
+							{
+								alert("그룹코드[" + sAthrGrpCd + "]는 이미 등록되어있습니다.");
+								sFlag = true;
+							}
+						}
+					}
+				} else
+				{
+					alert("추가할 그룹을 선택하여주시기 바랍니다.");
+					return;
+				}
+        	}
+        	
+        	//행삭제
+        	function fn_delRow()
+        	{
+        		try 
+        		{
+        			var sRowArray = dl_OrganizationAuthorGroup.getMatchedIndex( 'chk' , '1' , true, 0 , dl_AuthorGroup.getRowCount());
+	        		var sRow = sRowArray.length;
+	        		
+	                if(sRow > 0)
+					{
+						dl_OrganizationAuthorGroup.removeRows( sRowArray );
+					}
+					
+					alert("1:::" + dl_OrganizationAuthorGroup.getModifiedIndex());
+					alert("2:::" + dl_OrganizationAuthorGroup.getModifiedData());
+	 			} catch(e)
+	 			{
+	 			}
+        	}
+        	
+        	//행바로삭제
+        	function fn_delNowRow()
+        	{
+        		return;
+        	}
+        	
+        	//엑셀다운로드(API참조)
+			function fn_exportExcel(grdViewObj, options, infoArr)
+			{
+			    //grdViewObj.advancedExcelDownload(options, infoArr);
+			    return;
+			};
+        	/**************************************************************************
+			 * 07. 사용자 정의 함수 구현 영역
+			***************************************************************************/
+			
+         ]]></script>
+    </head>
+    <body>
+    	<xf:group id="group1" style="" class="contents">
+    		<xf:group id="grp_Title" style="" class="titleBar">
+    			<w2:textbox id="txb_Title" style="" class="title02" label='&lt;span style="color:#04a8b7"&gt;기관별 그룹&lt;/span&gt; 관리'></w2:textbox>
+    			<w2:textbox id="txb_My" style="" class="my" label=""></w2:textbox>
+    			<xf:group id="group3" style="" class="pgBox">
+    				<xf:group id="group4" style="" class="title_pgid">
+    					<xf:group id="group5" style="" class="title_pgid_right">
+    						<w2:textbox id="txb_LabelId" style="" class="" label="Page ID : " tagname="span"></w2:textbox>
+    						<w2:textbox id="txb_PageId" style="" class="dt" label="S-COM-01-01-060" tagname="span"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="grp_Search" style="" class="dtb">
+    			<xf:group id="grp_SearchValue" style="" class="dtb_row">
+    				<xf:group id="group8" style="" class="dtb_column">
+    					<w2:textbox id="textbox5" class="dtb_tt" label="기관"></w2:textbox>
+    					<xf:group id="group10" class="iptBox">
+    						<xf:input id="ipb_InsttCd" invalidMessageFunc="" readOnly="true" maxlength="" style="width:89px;"
+    							mandatory="true" class="ipt" maxByteLength="7" displaymessage="true" ref="data:dm_Organization.instt_cd">
+    						</xf:input>
+    						<w2:textbox id="txb_InsttSearchBtn" style="margin-left:5px;" class="btnSearch" label="" tagname="a"></w2:textbox>
+    						<xf:group id="group11" style="" class="iptBox">
+    							<xf:input id="ipb_InsttNm" style="width:120px;" class="ipt" maxByteLength="100" ref="data:dm_Organization.instt_nm"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="group14" style="" class="dtb_column">
+    					<w2:textbox id="txb_SysCd" class="dtb_tt" label="시스템구분"></w2:textbox>
+    					<xf:group id="group15" style="" class="iptBox">
+    						<xf:select1 disabledClass="w2selectbox_disabled" id="slb_Syscd" appearance="minimal"
+    							style="width:101px;height:21px;" chooseOptionLabel="선택" direction="auto" chooseOption="true" allOption="" class="select"
+    							displayMode="label" disabled="false" submenuSize="auto">
+    							<xf:choices>
+    								<xf:itemset nodeset="data:dl_COM0001">
+    									<xf:label ref="fnprt_cd_nm"></xf:label>
+    									<xf:value ref="fnprt_cd"></xf:value>
+    								</xf:itemset>
+    							</xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="group16" style="" class="dtb_column">
+    					<w2:textbox id="txb_AuthorGroup" class="dtb_tt" label="권한그룹"></w2:textbox>
+    					<xf:group id="group18" class="iptBox">
+    						<xf:input id="ipb_AuthorGroupCd" invalidMessageFunc="" readOnly="true" style="width:84px;" mandatory="true"
+    							class="ipt" maxByteLength="5" displaymessage="true" ref="data:dm_AuthorGroup.athr_grp_cd">
+    						</xf:input>
+    						<w2:textbox id="txb_AthorGroupSearch" style="margin-left:5px;" class="btnSearch" label="" tagname="a"></w2:textbox>
+    						<xf:group id="group20" style="" class="iptBox">
+    							<xf:input id="ipb_AuthorGroupNm" style="width:120px;" class="ipt" maxByteLength="50" ref="data:dm_AuthorGroup.athr_grp_nm"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="group17" style="" class="iptBox"></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="grp_SearchAnc" style="" adaptiveThreshold="" class="btn_box">
+    				<w2:anchor id="anc_Search" style="" class="anc_trans mr5">
+    					<xf:label>조회하기</xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    						fn_search();
+    					 ]]></script>
+    				</w2:anchor>
+    				<w2:anchor id="anc_Reset" style="" class="anc_trans mr5">
+    					<xf:label>조회조건 초기화</xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    						fn_reset();
+    					 ]]></script>
+    				</w2:anchor>
+    				<w2:anchor id="anc_Save" style="" class="anc_trans">
+    					<xf:label>저장</xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    						fn_save();
+    					 ]]></script>
+    				</w2:anchor>
+    				<w2:anchor class="btn plusRow" id="anchor9" style=";margin-left:10px;">
+    					<xf:label></xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    						fn_addRow();
+    					 ]]></script>
+    				</w2:anchor>
+    				<w2:anchor class="btn minusRow ml3" id="anchor8" style="">
+    					<xf:label></xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    						fn_delRow();
+    					 ]]></script>
+    				</w2:anchor>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group47" style=";width:224px;" class="defaultbox">
+    			<xf:group id="group48" style=";width:223px;" class="totalbox">
+    				<xf:group id="group49" style="" class="total">
+    					<xf:group id="group50" style="" class="strong">
+    						<w2:textbox id="txb_Count" style="" class="strong_right" label="0" tagname="strong"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<w2:textbox id="textbox12" style="" class="sear" label="건이 조회되었습니다."></w2:textbox>
+    				<xf:group id="group51" class="fr"></xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group52" style="width:250px;left:31%;top:-25px;" class="defaultbox">
+    			<xf:group id="group53" style=";width:250px;left:0px;top:0px;" class="totalbox">
+    				<xf:group id="group54" style="" class="total">
+    					<xf:group id="group55" style="" class="strong">
+    						<w2:textbox id="txb_CountDtl" style="" class="strong_right" label="0" tagname="strong"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<w2:textbox id="textbox14" style="" class="sear" label="건이 조회되었습니다."></w2:textbox>
+    				<xf:group id="group56" class="fr"></xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group57" style="width:217px;left:68%;top:-50px;" class="defaultbox">
+    			<xf:group id="group58" style=";width:212px;" class="totalbox">
+    				<xf:group id="group59" style="" class="total">
+    					<xf:group id="group60" style="" class="strong">
+    						<w2:textbox id="txb_CountAuthorGroup" style="" class="strong_right" label="0" tagname="strong"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<w2:textbox id="textbox16" style="" class="sear" label="건이 조회되었습니다."></w2:textbox>
+    				<xf:group id="group61" class="fr"></xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group113" style="left:0px;top:-39px;" class="contLayout04_1">
+    			<xf:group id="group114" style="width:30%;height:420px;" class="leftArea">
+    				<w2:gridView dataList="dl_Organization" id="grd_Instt" autoFit="allColumn" style="position: relative ;height:410px;"
+    					visibleRowNum="15" scrollByColumn="false" useShiftKey="false" class="cm_grid" fixedColumnWithHidden="true">
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column blockSelect="false" id="column95" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="기관코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column93" style="height:20px" inputType="text" width="182" value="기관명"></w2:column>
+    							<w2:column blockSelect="false" id="column91" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="전체명">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column89" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="축약명">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column87" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="상위기관코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column85" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="최상위기관코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column83" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="차수">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column81" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="서열">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column79" style="height:20px" inputType="text" width="70" value="사용여부">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column77" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="기관구분코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column75" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="소속지방청기관코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column73" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="목록여부">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column71" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="전화번호">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column69" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="팩스번호">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column67" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="이메일">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column65" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="기관줄임명">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column63" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="온나라기관코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column61" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="온나라상위기관코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column59" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="온나라최상위기관코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column57" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="비고">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column55" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="생성자아이디">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column53" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="생성일시">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column51" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="최종수정자아이디">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column49" style="height:20px" hidden="true" width="70" inputType="text"
+    								value="최종수정일시">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column blockSelect="false" id="instt_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="instt_nm" readOnly="true" style="height:20px" inputType="text"
+    								width="182">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="all_nm" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="abbr_nm" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="hrnk_instt_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="htrk_instt_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="opno" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="rank" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="use_yn" readOnly="true" style="height:20px" inputType="checkbox"
+    								width="70">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="instt_dvs_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="blnt_lcar_offc_instt_cd" style="height:20px" inputType="text"
+    								width="70">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="list_yn" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="tel_no" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="fax_no" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="email" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="instt_rdcn_nm" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="onnr_instt_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="onnr_hrnk_instt_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="onnr_htrk_instt_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="rm_3000" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="cretr_id" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="cret_dtm" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="last_updtr_id" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="last_updt_dtm" style="height:20px" width="70" inputType="text"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<script ev:event="onrowindexchange(row,oldRow)" type="javascript"><![CDATA[
+    						fn_searchOrganizationAuthorGroup(row, oldRow);
+    					 ]]></script>
+    					
+    				</w2:gridView>
+    			</xf:group>
+    			<xf:group id="group115" style="width:33.0%;left:13px;top:0px;height:420px;" class="leftArea">
+    				<w2:gridView dataList="dl_OrganizationAuthorGroup" id="grd_OrganizationAuthorGroup" autoFit="allColumn"
+    					style="height:410px;" visibleRowNum="15" scrollByColumn="false" useShiftKey="false" class="cm_grid" fixedColumnWithHidden="true">
+    					<w2:header id="header4" style="">
+    						<w2:row id="row7" style="">
+    							<w2:column blockSelect="false" id="column121" style="height:20px" inputType="checkbox" width="50">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column121" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="기관코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column119" style="height:20px" inputType="text" width="96"
+    								value="그룹코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column117" style="height:20px" inputType="text" width="195"
+    								value="그룹명">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column115" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="생성자아이디">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column113" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="생성일시">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column111" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="최종수정자아이디">
+    							</w2:column>
+    							<w2:column blockSelect="false" id="column109" style="height:20px" hidden="true" width="70" inputType="text"
+    								value="최종수정일시">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody4" style="">
+    						<w2:row id="row8" style="">
+    							<w2:column blockSelect="false" id="chk" style="height:20px" inputType="checkbox" width="50"></w2:column>
+    							<w2:column blockSelect="false" id="instt_cd" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="athr_grp_cd" style="height:20px" inputType="text" width="96"></w2:column>
+    							<w2:column blockSelect="false" id="athr_grp_nm" style="height:20px" inputType="text" width="195"></w2:column>
+    							<w2:column blockSelect="false" id="cretr_id" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="cret_dtm" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="last_updtr_id" style="height:20px" inputType="text" width="70"></w2:column>
+    							<w2:column blockSelect="false" id="last_updt_dtm" style="height:20px" width="70" inputType="text"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    			</xf:group>
+    			<xf:group id="group119" style="left:47px;top:0px;width:32%;height:420px;" class="rightArea">
+    				<w2:gridView dataList="dl_AuthorGroup" id="grd_AuthorGroup" autoFit="allColumn"
+    					style="position: relative ;height:410px;" visibleRowNum="15" scrollByColumn="false" useShiftKey="false" class="cm_grid"
+    					fixedColumnWithHidden="true">
+    					<w2:header id="header6" style="">
+    						<w2:row id="row11" style="">
+    							<w2:column id="column159" blockSelect="false" style="height:20px" width="50" inputType="checkbox"
+    								value="chk">
+    							</w2:column>
+    							<w2:column id="column157" blockSelect="false" style="height:20px" width="70" inputType="text"
+    								value="그룹코드">
+    							</w2:column>
+    							<w2:column id="column155" blockSelect="false" style="height:20px" width="70" inputType="text" value="그룹명">
+    							</w2:column>
+    							<w2:column id="column153" blockSelect="false" style="height:20px" hidden="true" width="70" inputType="text"
+    								value="비고100">
+    							</w2:column>
+    							<w2:column id="column151" blockSelect="false" style="height:20px" width="70" inputType="text"
+    								value="사용여부">
+    							</w2:column>
+    							<w2:column id="column149" blockSelect="false" style="height:20px" hidden="true" width="70" inputType="text"
+    								value="정렬순서">
+    							</w2:column>
+    							<w2:column id="column147" blockSelect="false" style="height:20px" hidden="true" width="70" inputType="text"
+    								value="생성자아이디">
+    							</w2:column>
+    							<w2:column id="column145" blockSelect="false" style="height:20px" hidden="true" width="70" inputType="text"
+    								value="생성일시">
+    							</w2:column>
+    							<w2:column id="column143" blockSelect="false" style="height:20px" hidden="true" width="70" inputType="text"
+    								value="최종수정자아이디">
+    							</w2:column>
+    							<w2:column id="column141" blockSelect="false" style="height:20px" hidden="true" inputType="text" width="70"
+    								value="최종수정일시">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody6" style="">
+    						<w2:row id="row12" style="">
+    							<w2:column id="chk" blockSelect="false" style="height:20px" width="50" inputType="checkbox"></w2:column>
+    							<w2:column id="athr_grp_cd" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    							<w2:column id="athr_grp_nm" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    							<w2:column id="rm_100" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    							<w2:column id="use_yn" blockSelect="false" style="height:20px" width="70" inputType="checkbox"></w2:column>
+    							<w2:column id="sort_ord" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    							<w2:column id="cretr_id" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    							<w2:column id="cret_dtm" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    							<w2:column id="last_updtr_id" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    							<w2:column id="last_updt_dtm" blockSelect="false" style="height:20px" inputType="text" width="70"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    			</xf:group>
+    		</xf:group>
+    		<w2:wframe id="wfm_Common" style="position: relative;width: 0px;height: 0px;" src="/ui/common/frame/commonCodeFrame.xml"></w2:wframe>
+    	</xf:group>
+    </body>
+</html>

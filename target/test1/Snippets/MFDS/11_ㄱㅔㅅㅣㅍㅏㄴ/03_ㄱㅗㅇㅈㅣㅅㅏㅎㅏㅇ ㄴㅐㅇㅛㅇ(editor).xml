@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group id="group33" style="">
+	<w2:textbox class="wt_title mt10 mb3" id="textbox20" label="공지사항 내용" style="">
+</w2:textbox>
+	<xf:group id="group37" style="">
+		<w2:editor id="editor1" style="height:300px;">
+</w2:editor>
+</xf:group>
+	<xf:group class="tb_line mt10 mb10" id="group27" style="">
+</xf:group>
+</xf:group>
+</body>
+</html>

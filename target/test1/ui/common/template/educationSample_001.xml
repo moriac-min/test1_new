@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataMap id="dm_educationInfo">
+					<w2:keyInfo>
+						<w2:key id="searchKeyword" dataType="text"></w2:key>
+						<w2:key id="searchCondition" dataType="text" defaultValue="0"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap id="dm_resUserInfo">
+					<w2:keyInfo>
+						<w2:key id="userID" name="아이디" dataType="text"></w2:key>
+						<w2:key id="userName" name="이름" dataType="text"></w2:key>
+						<w2:key id="address" name="주소" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList id="dl_infoList">
+					<w2:columnInfo>
+						<w2:column id="number" name="번호" dataType="text"></w2:column>
+						<w2:column id="title" name="타이틀" dataType="text"></w2:column>
+						<w2:column id="telno" name="전화번호" dataType="text"></w2:column>
+						<w2:column id="zip" name="우편번호" dataType="text"></w2:column>
+						<w2:column id="address" name="주소" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList id="dl_codeList">
+					<w2:columnInfo>
+						<w2:column id="code" name="코드" dataType="text"></w2:column>
+						<w2:column id="value" name="값" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap id="dm_result">
+					<w2:keyInfo>
+						<w2:key id="result" name="건수" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<xf:submission id="getSelect" ref='data:json,{"id":"dm_educationInfo","key":"educationSampleVO"}' target='data:json,[{"id":"dl_infoList","key":"educationSampleList"}]'
+				action="/education/sample/selectEduSawonList.do" method="post" mediatype="application/json" encoding="UTF-8" mode="asynchronous" singleMode="true" processMsg="조회중입니다..." instance="" replace=""
+				errorHandler="" customHandler="">
+			</xf:submission>
+			<xf:submission id="setModify" ref='data:json,{"id":"dl_infoList","action":"modified","key":"infoList"}' target=''
+				action="/sample/spring/bean/setModified.do" method="post" mediatype="application/json" encoding="UTF-8" mode="asynchronous" singleMode="true" processMsg="처리중입니다..." instance="" replace=""
+				errorHandler="" customHandler="">
+			</xf:submission>
+		</xf:model>
+		<script type="javascript"><![CDATA[
+		var pFn = {};
+		
+		pFn.execSubmission = function(submissionID) {
+			WebSquare.ModelUtil.executeSubmission(submissionID);
+		};
+		pFn.getSelect = function() {
+			pFn.execSubmission("getSelect");
+		};
+		pFn.setModify = function() {
+			pFn.execSubmission("setModify");
+		};
+		
+		]]></script>
+	</head>
+	<body>
+		<xf:group id="group3" style="position:relative;width:800px;padding:10px;">
+			<w2:textbox id="textbox3" style="left:10px;top:10px;" label="Sample - Spring Framework 연동 (Bean 객체 변환 - Annotation)" tagname="h1"></w2:textbox>
+			<w2:textbox id="textbox5" style="left:10px;top:60px;padding-bottom:15px;"
+				label="1. JSON 형태를 Bean(VO) 객체로 변환&lt;br/&gt;2. Spring Framework의 Controller, View 공통 모듈에 RequestAdapter, ResponseAdapter를 적용.&lt;br/&gt;3. Bean 객체의 Type 지정은 서버에서 Map, Annotation을 이용하여 지정한다. (Annotation은 서버 JDK1.5이상부터 지원)">
+			</w2:textbox>
+			<w2:textbox id="textbox1" style="left:10px;top:10px;" label="Request" tagname="h2"></w2:textbox>
+			<table id="table1" summary="" style="width:500px;top:20px;" class="w2tb">
+				<xf:group tagname="colgroup">
+					<xf:group style="width:80px;" tagname="col"></xf:group>
+					<xf:group style="" tagname="col"></xf:group>
+					<xf:group style="width:90px;" tagname="col"></xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group style="text-align:left;" class="w2tb_th" tagname="th">아이디</xf:group>
+					<xf:group style="" class="w2tb_td" tagname="td">
+						<xf:input id="inputUserID" ref="data:dm_educationInfo.searchKeyword" style="width: 317px;height: 21px;"></xf:input>
+					</xf:group>
+					<xf:group style="" class="w2tb_td" tagname="td">
+						<w2:attributes>
+							<w2:colspan>1</w2:colspan>
+							<w2:rowspan>2</w2:rowspan>
+						</w2:attributes>
+						<xf:trigger id="trigger1" style="width: 84px;height: 50px;" type="button">
+							<xf:label><![CDATA[조회]]></xf:label>
+							<script ev:event="onclick" type="javascript"><![CDATA[
+							pFn.getSelect();
+						]]></script>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group style="text-align:left;" class="w2tb_th" tagname="th">이름</xf:group>
+					<xf:group style="" class="w2tb_td" tagname="td">
+						<xf:input id="inputUserName" ref="data:dm_educationInfo.searchCondition" style="width: 317px;height: 21px;"></xf:input>
+					</xf:group>
+				</xf:group>
+			</table>
+			<w2:textbox id="textbox2" style="left:10px;top:10px;" label="Response" tagname="h2"></w2:textbox>
+			<table class="w2tb" id="table2" style="width:500px;top:20px;" summary="">
+				<xf:group tagname="colgroup">
+					<xf:group style="width:80.00px;" tagname="col"></xf:group>
+					<xf:group style="" tagname="col"></xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group class="w2tb_th" style="text-align:left;" tagname="th">아이디</xf:group>
+					<xf:group class="w2tb_td" style="" tagname="td">
+						<w2:textbox id="outputUserID" ref="data:dm_resUserInfo.userID" style="height:17px;width: 412px;text-align:left;padding-top:4px;padding-bottom:0px;" label="">
+						</w2:textbox>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group class="w2tb_th" style="text-align:left;" tagname="th">이름</xf:group>
+					<xf:group class="w2tb_td" style="" tagname="td">
+						<w2:textbox id="outputUserName" ref="data:dm_resUserInfo.userName" style="height:17px;width: 412px;text-align:left;padding-top:4px;padding-bottom:0px;" label="">
+						</w2:textbox>
+					</xf:group>
+				</xf:group>
+				<xf:group style="" tagname="tr">
+					<xf:group class="w2tb_th" tagname="th" style="text-align:left;">주소</xf:group>
+					<xf:group class="w2tb_td" tagname="td">
+						<w2:textbox id="outputAddress" label="" ref="data:dm_resUserInfo.address" style="height:17px;width: 412px;text-align:left;padding-top:4px;padding-bottom:0px;">
+						</w2:textbox>
+					</xf:group>
+				</xf:group>
+			</table>
+		<xf:group id="group4" style="clear:both;" class=""></xf:group>
+		<xf:group id="group2" style="width: 410px;height: 370px;margin-top:5px;float:left;" class="">
+			<w2:gridView id="gridView1" dataList="dl_infoList" autoFit="lastColumn" style="width: 100%;height: 180px;" useShiftKey="false" scrollByColumn="false" rowStatusVisible="true"
+				rowNumVisible="true" fixedColumnWithHidden="true">
+				<w2:header id="header1" style="">
+					<w2:row id="row1" style="">
+						<w2:column id="column9" blockSelect="false" style="height:20px" width="50" inputType="text" value="번호"></w2:column>
+						<w2:column id="column7" blockSelect="false" style="height:20px" width="70" inputType="text" value="타이틀"></w2:column>
+						<w2:column id="column5" blockSelect="false" style="height:20px" width="70" inputType="text" value="전화번호"></w2:column>
+						<w2:column id="column3" blockSelect="false" style="height:20px" width="70" inputType="text" value="우편번호"></w2:column>
+						<w2:column id="column1" blockSelect="false" style="height:20px" inputType="text" width="70" value="주소"></w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody1" style="">
+					<w2:row id="row2" style="">
+						<w2:column id="number" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+						<w2:column id="title" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+						<w2:column id="telno" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+						<w2:column id="zip" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+						<w2:column id="address" blockSelect="false" style="height:20px" inputType="text" width="70"></w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:gridView>
+			<w2:gridView autoFit="lastColumn" dataList="dl_codeList" fixedColumnWithHidden="true" id="gridView2" rowNumVisible="true" rowStatusVisible="" scrollByColumn="false"
+				style="width: 100%;height: 180px;left:0px;top:5px;" useShiftKey="false">
+				<w2:header id="header3" style="">
+					<w2:row id="row5" style="">
+						<w2:column blockSelect="false" id="column18" style="height:20px" inputType="text" width="120" value="코드"></w2:column>
+						<w2:column blockSelect="false" id="column16" style="height:20px" width="200" inputType="text" value="값"></w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody3" style="">
+					<w2:row id="row6" style="">
+						<w2:column blockSelect="false" id="code" style="height:20px" inputType="text" width="92"></w2:column>
+						<w2:column blockSelect="false" id="value" style="height:20px" width="70" inputType="text"></w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:gridView>
+		</xf:group>
+		<xf:trigger id="trigger3" style="width: 84px;height: 50px;margin-top:5px;margin-left:5px;float:left;" type="button">
+			<xf:label><![CDATA[변경값 전송]]></xf:label>
+			<script ev:event="onclick" type="javascript"><![CDATA[
+				pFn.setModify();
+			]]></script>
+		</xf:trigger>
+		<xf:group id="group5" style="clear:both;" class=""></xf:group>
+
+	</xf:group></body>
+</html>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataMap baseNode="map" id="dm_AuthorGroup" style="">
+        			<w2:keyInfo>
+        				<w2:key id="athr_grp_nm" name="name1" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList id="dl_AuthorGroup" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="athr_grp_cd" name="권한그룹코드" dataType="text"></w2:column>
+        				<w2:column id="athr_grp_nm" name="권한그룹명" dataType="text"></w2:column>
+        				<w2:column id="rm_100" name="비고100" dataType="text"></w2:column>
+        				<w2:column id="use_yn" name="사용여부" dataType="text"></w2:column>
+        				<w2:column id="sort_ord" name="정렬순서" dataType="number"></w2:column>
+        				<w2:column id="cretr_id" name="생성자아이디" dataType="text"></w2:column>
+        				<w2:column id="cret_dtm" name="생성일시" dataType="date"></w2:column>
+        				<w2:column id="last_updtr_id" name="최종수정자아이디" dataType="text"></w2:column>
+        				<w2:column id="last_updt_dtm" name="최종수정일시" dataType="date"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<xf:submission id="sub_SearchAuthorGroup" ref='data:json,{"id":"dm_AuthorGroup","action":"all","key":"authorGroupVO"}'
+        		target='data:json,{"id":"dl_AuthorGroup","action":"all","key":"infoList"}'
+        		action="/adminfacillity/systemmngt/selectAuthorGroup.do" method="post" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="조회중입니다.">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_callBack(this.id, e);
+        		]]></script>
+        		<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			fn_errorCallBack(this.id, e);
+        		]]></script>
+        	</xf:submission>
+        	<xf:submission id="sub_SaveAuthorGroup"
+        		ref='data:json,[{"id":"dm_AuthorGroup","action":"all","key":"authorGroupVO"},{"id":"dl_AuthorGroup","action":"modified","key":"infoList"}]'
+        		target='data:json,{"id":"dl_AuthorGroup","key":"infoList"}' action="/adminfacillity/systemmngt/saveAuthorGroup.do" method="post"
+        		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+        		processMsg="수정된 사항을 반영중입니다.">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_callBack(this.id, e);
+        		]]></script>
+        		<script type="javascript" ev:event="xforms-submit-error"><![CDATA[
+        			fn_errorCallBack(this.id, e);
+        		]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[ 
+        /***************************************************************************************
+			* 시스템명 		: 식품의약품안전처 통합식품안전망구축
+			* 업무명 		: 권한 그룹 관리
+			* 파일명 		: CommonCode.xml
+			* 작성자 		: 김민규
+			* 작성일 		: 2014.08.21
+			*
+			* 설  명		:  권한 그룹을 관리하는 화면
+			*---------------------------------------------------------------------------------------
+			* 변경일	변경자		변경내역 
+			*---------------------------------------------------------------------------------------
+			*  2014.08.21 김민규		최초 프로그램 작성         
+			* 
+			*---------------------------------------------------------------------------------------
+			****************************************************************************************/
+			
+			/********************************************************************************************************************/
+			/* 01. 공통라이브러리 정의																					*/
+			/********************************************************************************************************************/
+			
+			/********************************************************************************************************************/
+			/* 02. Form 변수정의																								*/
+			/********************************************************************************************************************/
+        	var fv_SearchGroupNm = "";
+        	/********************************************************************************************************************/
+			/* 03. Form 화면 초기화																							*/
+			/********************************************************************************************************************/
+			
+//			gfn_callCommonCode(
+//				"COM",
+//				["0001","0002","0003"],
+//				["dl_COM0001","dl_COM0002","dl_COM0003"]
+//			);
+			
+        	function fn_reset()
+        	{
+        		gfn_initGroup(grp_Search);
+        	}
+        	/********************************************************************************************************************/
+			/* 04. 서비스 TRANSACTION 함수(조회,저장,삭제,Callback)																		*/
+			/********************************************************************************************************************/
+			//조회조건 체크
+			function fn_searchCheck()
+			{
+				/*
+				if(gfn_isEmpty(ipb_GroupNm.getValue())){
+					alert("그룹명을 입력해주시기 바랍니다.");
+					return false;
+				}
+				*/
+				return true;
+			}
+			
+			//조회
+			function fn_search()
+			{
+				if(fn_searchCheck()){
+//					var tmpJson = "[]";
+//					dl_AuthorGroup.setJSON( JSON.parse(tempJson) , false );
+//					grd_AuthorGroup.initGrid();
+//					dl_AuthorGroup.removeAll();
+					gfn_datalistClear(dl_AuthorGroup);
+					$w.executeSubmission( "sub_SearchAuthorGroup" );
+				}
+			}
+			
+			// 저장
+			function fn_save()
+			{
+				if(dl_AuthorGroup.getModifiedIndex().length > 0){
+					if(confirm("저장하시겠습니까?"))
+					{
+						dm_AuthorGroup.set("athr_grp_nm", fv_SearchGroupNm);
+						$w.executeSubmission("sub_SaveAuthorGroup");
+					} else 
+					{
+						return;
+					}
+				} else
+				{
+					alert("수정된 데이터가 없습니다.");
+				}	
+			}
+			
+			//저장후계속
+			function fn_saving()
+			{
+				return;
+			}
+			
+			//CallBack
+			function fn_callBack(sId, e)
+			{
+				if(sId == "sub_SearchAuthorGroup")
+				{
+					fv_SearchGroupNm = ipb_GroupNm.getValue();
+					//TODO 
+					//추후 메시지 함수가 들어갈 예정
+				} else if(sId == "sub_SaveAuthorGroup")
+				{
+					//TODO 
+					//추후 메시지 함수가 들어갈 예정
+				}
+			}
+			
+			//ErrorCallBack
+			function fn_errorCallBack(sId, e)
+			{
+				if(sId == "sub_SearchAuthorGroup")
+				{
+					alert("[sub_SearchAuthorGroup] 실행에 에러가 발생하였습니다.");
+				} else if(sId == "sub_SaveAuthorGroup")
+				{
+					alert("[sub_SaveAuthorGroup] 실행에 에러가 발생하였습니다.");
+				}
+			} 
+			
+			/**************************************************************************
+			 * 05.공통버튼 영역
+			***************************************************************************/
+			function fn_insert(idx)
+			{
+        		return;
+        	}
+        	
+        	function fn_modify(idx)
+        	{
+        		return;
+        	}
+        	/**************************************************************************
+			 * 06.그리드 행추가, 삭제, 엑셀출력 버튼영역
+			***************************************************************************/
+        	//행추가
+        	function fn_addRow()
+        	{
+                var rowIndex = grd_AuthorGroup.getFocusedRowIndex();
+                dl_AuthorGroup.insertRow( rowIndex + 1 );
+        	}
+        	
+        	//행삭제
+        	function fn_delRow()
+        	{
+        		try 
+        		{	
+	 				dl_AuthorGroup.deleteRow( grd_AuthorGroup.getFocusedRowIndex() );
+	 			} catch(e)
+	 			{
+	 			}
+        	}
+        	
+        	//행바로삭제
+        	function fn_delNowRow()
+        	{
+        		return;
+        	}
+        	
+        	//엑셀다운로드(API참조)
+			function fn_exportExcel(grdViewObj, options, infoArr)
+			{
+			    //grdViewObj.advancedExcelDownload(options, infoArr);
+			    return;
+			};
+        	/**************************************************************************
+			 * 07. 사용자 정의 함수 구현 영역
+			***************************************************************************/
+        
+        ]]></script>
+    </head>
+    <body>
+    	<xf:group id="group1" style="" class="contents">
+    		<xf:group id="grp_Title" style="" class="titleBar">
+    			<w2:textbox id="txb_Title" style="" class="title02" label='&lt;span style="color:#04a8b7"&gt;권한 그룹&lt;/span&gt; 관리'></w2:textbox>
+    			<w2:textbox id="txb_MyMenu" style="" class="my" label=""></w2:textbox>
+    			<xf:group id="group3" style="" class="pgBox">
+    				<xf:group id="grp_PageId" style="" class="title_pgid">
+    					<xf:group id="grp_PageIdSub" style="" class="title_pgid_right">
+    						<w2:textbox id="Txb_LabelId" style="" class="" label="Page ID : " tagname="span"></w2:textbox>
+    						<w2:textbox id="Txb_Id" style="" class="dt" label="S-COM-01-01-050" tagname="span"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="grp_Search" style="" class="dtb">
+    			<xf:group id="group7" style="" class="dtb_row">
+    				<xf:group id="group8" style="" class="dtb_column">
+    					<w2:textbox id="txb_GrpNm" class="dtb_tt" label="그룹명"></w2:textbox>
+    					<xf:group id="group11" style="" class="iptBox">
+    						<xf:input id="ipb_GroupNm" style="width:220px;" class="ipt"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="grp_SearchAnc" style="" class="btn_box" adaptiveThreshold="">
+    				<w2:anchor id="anc_Search" style="" class="anc_trans mr5">
+    					<xf:label>조회하기</xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    						fn_search();
+    					 ]]></script>
+    				</w2:anchor>
+    				<w2:anchor id="anc_Reset" style="" class="anc_trans mr5">
+    					<xf:label>조회조건 초기화</xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    						fn_reset();
+    					 ]]></script>
+    				</w2:anchor>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group19" style="" class="defaultbox">
+    			<xf:group id="group20" style="" class="totalbox">
+    				<xf:group id="group21" style="" class="total">
+    					<xf:group id="group22" style="" class="strong">
+    						<w2:textbox id="txb_Count" style="" class="strong_right" label="1000" tagname="strong"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<w2:textbox id="textbox11" style="" class="sear" label="건이 조회되었습니다."></w2:textbox>
+    				<xf:group id="group23" class="fr">
+    					<w2:anchor id="anc_Save" style="margin-left:-5px;" class="anc_trans">
+    						<xf:label>저장</xf:label>
+    						<script ev:event="onclick" type="javascript"><![CDATA[
+    							fn_save();
+    						 ]]></script>
+    					</w2:anchor>
+    					<w2:anchor id="anc_AddRow" style="" class="btn plusRow">
+    						<xf:label>행추가</xf:label>
+    						<script ev:event="onclick" type="javascript"><![CDATA[
+    							fn_addRow();
+    						 ]]></script>
+    					</w2:anchor>
+    					<w2:anchor id="anc_DelRow" style="" class="btn minusRow ml3">
+    						<xf:label>행삭제</xf:label>
+    						<script ev:event="onclick" type="javascript"><![CDATA[
+    							fn_delRow();
+    						 ]]></script>
+    					</w2:anchor>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<w2:gridView id="grd_AuthorGroup" dataList="dl_AuthorGroup" autoFit="allColumn"
+    			style="position: relative ;height:380px;left:0px;top:5px;" visibleRowNum="15" useShiftKey="false" scrollByColumn="false"
+    			rowStatusVisible="true" class="cm_grid" rowStatusHeaderValue="상태" fixedColumnWithHidden="true">
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column id="column17" blockSelect="false" style="height:20px" width="100" inputType="text" value="그룹코드"></w2:column>
+    					<w2:column id="column15" blockSelect="false" style="height:20px" width="200" inputType="text" value="그룹명"></w2:column>
+    					<w2:column id="column13" blockSelect="false" style="height:20px" width="150" inputType="text" value="비고100"></w2:column>
+    					<w2:column id="column11" blockSelect="false" style="height:20px" width="70" inputType="text" value="사용여부"></w2:column>
+    					<w2:column id="column9" blockSelect="false" style="height:20px" width="70" inputType="text" value="정렬순서"></w2:column>
+    					<w2:column id="column7" blockSelect="false" style="height:20px" hidden="true" width="70" inputType="text"
+    						value="생성자아이디">
+    					</w2:column>
+    					<w2:column id="column5" blockSelect="false" style="height:20px" hidden="true" width="70" inputType="text"
+    						value="생성일시">
+    					</w2:column>
+    					<w2:column id="column3" blockSelect="false" style="height:20px" hidden="true" width="70" inputType="text"
+    						value="최종수정자아이디">
+    					</w2:column>
+    					<w2:column id="column1" blockSelect="false" style="height:20px" hidden="true" inputType="text" width="70"
+    						value="최종수정일시">
+    					</w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column id="athr_grp_cd" blockSelect="false" style="height:20px" width="70" inputType="text" maxLength="5"></w2:column>
+    					<w2:column id="athr_grp_nm" blockSelect="false" style="height:20px" width="70" inputType="text" maxLength="50"></w2:column>
+    					<w2:column id="rm_100" blockSelect="false" style="height:20px" width="70" inputType="text" maxLength="100"></w2:column>
+    					<w2:column id="use_yn" blockSelect="false" style="height:20px" width="70" inputType="checkbox" maxLength="1"></w2:column>
+    					<w2:column id="sort_ord" blockSelect="false" style="height:20px" width="70" inputType="text" maxLength="5"></w2:column>
+    					<w2:column id="cretr_id" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    					<w2:column id="cret_dtm" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    					<w2:column id="last_updtr_id" blockSelect="false" style="height:20px" width="70" inputType="text"></w2:column>
+    					<w2:column id="last_updt_dtm" blockSelect="false" style="height:20px" inputType="text" width="70"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:wframe id="wfm_Common" style="position: relative;width: 0px;height: 0px;" src="/ui/common/frame/commonCodeFrame.xml"></w2:wframe>
+    	</xf:group>
+    	<xf:group id="group14" style="" class="defaultbox"></xf:group>
+    </body>
+</html>

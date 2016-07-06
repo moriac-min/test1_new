@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/prjtm1/cm/css/common.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection>
+            </w2:dataCollection>
+        </xf:model>
+        <script type="javascript"><![CDATA[
+        
+            /**
+             * 메시지 박스 화면 초기화 작업을 수행한다.
+             */
+            scwin.initScreen = function() {
+                requires("uiplugin.popup");
+                scwin.parentObj = opener || parent;
+                scwin.popupID = WebSquare.net.getParameter("popupID");
+                
+                if (scwin.popupID === "alert") {
+                    btn_Confirm.setStyle("display","");
+                    btn_Confirm.focus();
+                } else if (scwin.popupID === "confirm") {
+                    btn_Yes.setStyle("display","");
+                    btn_No.setStyle("display","");
+                    btn_Yes.focus();
+                }
+                
+                var popupStr = WebSquare.util.getPopupParam();
+                var paramJson = gfn_json_parse(popupStr);
+                scwin.closeCallbackFncName = paramJson.closeCallbackFncName;
+                tbx_Message.setValue(paramJson.message);
+            };
+            
+            /**
+             * 확인 결과를 반환하면서 팝업 창을 닫는다.
+             */
+            scwin.closeConfirm = function(returnValue) {
+                scwin.parentObj.gfn_com_closePopup(scwin.popupID, scwin.closeCallbackFncName, returnValue);
+            };
+            
+            /**
+             * 팝업 창을 닫는다.
+             */
+            scwin.close = function() {
+                scwin.parentObj.gfn_com_closePopup(scwin.popupID);
+            };
+            
+            if (scwin.initStatus) {
+                if (typeof scwin.initScreen === "function") {
+                    scwin.initScreen();
+                }
+            }
+            
+        ]]></script>
+    </head>
+    <body>
+        <w2:pageInherit id="comPage" src="/common/xml/content_common.xml" style=""></w2:pageInherit>
+        <xf:group id="group5" style="position: relative;height:105px;" class="">
+            <xf:group id="group6" style="position: relative;height:60px;" class="">
+                <w2:textbox id="tbx_Message" style="position: relative;height:41px;padding:20px;padding-bottom:0px;" label=""></w2:textbox>
+            </xf:group>
+            <xf:group id="grp_Button" style="position: relative;height: 40px;padding-top:5px;" class="">
+                <xf:trigger id="btn_Yes" style="position: relative;height: 23px;width: 80px;margin-top:5px;left:85px;top:0px;float:left;display:none;" type="image">
+                    <xf:label><![CDATA[예]]></xf:label>
+                    <script ev:event="onclick" type="javascript"><![CDATA[ 
+                        scwin.closeConfirm(true);
+                    ]]></script>
+                </xf:trigger>
+                <xf:trigger id="btn_No" style="position: relative;height: 23px;width: 80px;margin-top:5px;left:90px;top:0px;float:left;display:none;" type="image">
+                    <xf:label><![CDATA[아니오]]></xf:label>
+                    <script ev:event="onclick" type="javascript"><![CDATA[ 
+                        scwin.closeConfirm(false);
+                    ]]></script>
+                </xf:trigger>
+                <xf:trigger id="btn_Confirm" style="position: relative;height: 23px;width: 80px;margin-top:5px;left:130px;top:0px;float:left;display:none;" type="image">
+                    <xf:label><![CDATA[확인]]></xf:label>
+                    <script ev:event="onclick" type="javascript"><![CDATA[ 
+                        scwin.close();
+                    ]]></script>
+                </xf:trigger>
+            </xf:group>
+        </xf:group>
+    </body>
+</html>

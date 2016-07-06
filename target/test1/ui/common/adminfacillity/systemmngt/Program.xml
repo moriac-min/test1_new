@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataList id="dl_selectProgram" baseNode="" style="" repeatNode="">
+        			<w2:columnInfo>
+        				<w2:column id="chk" name="chk" dataType="text"></w2:column>
+        				<w2:column id="sys_cd" name="시스템코드" dataType="text"></w2:column>
+        				<w2:column id="prgr_cd" name="프로그램ID" dataType="text"></w2:column>
+        				<w2:column id="prgr_nm" name="프로그램명" dataType="text"></w2:column>
+        				<w2:column id="file_nm" name="파일명" dataType="text"></w2:column>
+        				<w2:column id="file_path" name="프로그램경로" dataType="text"></w2:column>
+        				<w2:column id="use_yn" name="사용여부" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataMap baseNode="map" id="dataMap1" style="">
+        			<w2:keyInfo>
+        				<w2:key id="sys_cd" name="시스템구분" dataType="text"></w2:key>
+        				<w2:key id="prgr_nm" name="프로그램명" dataType="text"></w2:key>
+        				<w2:key id="file_path" name="프로그램경로" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        			<w2:data use="true"></w2:data>
+        		</w2:dataMap>
+        		<w2:dataList id="dl_systemCode" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="sys_cd" name="시스템코드" dataType="text"></w2:column>
+        				<w2:column id="cmmn_cd" name="공통코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd" name="세부코드" dataType="text"></w2:column>
+        				<w2:column id="fnprt_cd_nm" name="세부코드명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_eng_nm" name="세부영문명" dataType="text"></w2:column>
+        				<w2:column id="fnprt_all_nm" name="세부전체명" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_1" name="사용자정의컬럼1" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_2" name="사용자정의컬럼2" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_3" name="사용자정의컬럼3" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_4" name="사용자정의컬럼4" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_5" name="사용자정의컬럼5" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_6" name="사용자정의컬럼6" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_7" name="사용자정의컬럼7" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_8" name="사용자정의컬럼8" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_9" name="사용자정의컬럼9" dataType="text"></w2:column>
+        				<w2:column id="user_dfn_clmn_10" name="사용자정의컬럼10" dataType="text"></w2:column>
+        				<w2:column id="use_yn" name="사용여부" dataType="text"></w2:column>
+        				<w2:column id="sort_ord" name="정렬순서" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data use="false">
+        			</w2:data>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<xf:submission id="searchSubmission" ref="data:json,{id:'dataMap1',key:'programVO'}"
+        		target='data:json,[{"id":"dl_selectProgram","key":"infoList"}]' action="/adminfacillity/systemmngt/selectProgram.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" mode="asynchronous" processMsg="조회중입니다..." instance="" replace=""
+        		errorHandler="" customHandler="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			txb_Count.setValue( dl_selectProgram.getRowCount());
+        		]]></script>
+        	</xf:submission>
+
+        	<xf:submission id="modifiedSubmission" ref="data:json,{id:'dl_selectProgram',key:'infoList',action:'modified'}"
+        		target='data:json,[{"id":"dl_selectProgram","key":"infoList"}]' action="/adminfacillity/systemmngt/saveProgram.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" mode="asynchronous" processMsg="저장중입니다..." instance="" replace=""
+        		errorHandler="" customHandler="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        			fn_search();
+        		]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[ 
+        /***************************************************************************************
+			* 시스템명 		: 식품의약품안전처 통합식품안전망구축
+			* 업무명 		: Program
+			* 파일명 		: Program.xml
+			* 작성자 		: 유승엽
+			* 작성일 		: 2014.08.20
+			*
+			* 설  명		: 프로그램 관리 
+			*---------------------------------------------------------------------------------------
+			* 변경일	변경자		변경내역 
+			*---------------------------------------------------------------------------------------
+			*  2014.08.20 유승엽	최초 프로그램 작성         
+			* 
+			*---------------------------------------------------------------------------------------
+			****************************************************************************************/
+			
+			/********************************************************************************************************************/
+			/* 01. 공통라이브러리 정의																					*/
+			/********************************************************************************************************************/
+			
+			
+			/********************************************************************************************************************/
+			/* 02. Form 변수정의																								*/
+			/********************************************************************************************************************/
+        	var selectBoxValue = '';
+        	
+        	/********************************************************************************************************************/
+			/* 03. Form 화면 초기화																							*/
+			/********************************************************************************************************************/
+			gfn_callCommonCode(
+				"COM",
+				["0001"],
+				["dl_systemCode"]
+			);
+			/********************************************************************************************************************/
+			/* 04. 서비스 TRANSACTION 함수(조회,저장,삭제,Callback)																		*/
+			/********************************************************************************************************************/
+			//조회
+			function fn_search(){
+				if(gfn_isEmpty(slb_Syscd.getValue())){
+					alert("시스템구분을 선택해주시기 바랍니다.");
+					return false;
+				}
+				$w.executeSubmission("searchSubmission");
+				selectBoxValue = slb_Syscd.getValue();
+			}
+			
+			//저장
+			function fn_save(){
+			var modifiedData = dl_selectProgram.getModifiedIndex();
+			var nullcheck = 0;
+                for(var i=0; i<modifiedData.length; i++){
+		 			var prgr_cd = dl_selectProgram.getCellData( modifiedData[i] , 'prgr_cd' );
+		 		if(prgr_cd == '' || prgr_cd == null){
+		 			nullcheck = 1;
+		 		}
+		 	}
+		 	if(nullcheck == 0)
+				$w.executeSubmission("modifiedSubmission");	
+			if(nullcheck == 1)
+				alert("필수입력항목 오류");
+			}
+			
+			/**************************************************************************
+			 * 05.공통버튼 영역
+			***************************************************************************/
+        	
+        	/**************************************************************************
+			 * 06.그리드 행추가, 삭제, 엑셀출력 버튼영역
+			***************************************************************************/
+        	//행추가
+        	function fn_addRow(){
+	        	if(gfn_isEmpty(selectBoxValue)){
+	        			alert("추가할 시스템 코드값으로 조회하여주시기 바랍니다.");
+	        			return;
+        		}
+        		var rowIndex = grd_GridView.getFocusedRowIndex();
+                dl_selectProgram.insertRow( rowIndex + 1 );
+                dl_selectProgram.setCellData( rowIndex + 1 , 1 , selectBoxValue );
+                grd_GridView.setCellDisabled(rowIndex + 1 , 'prgr_cd' , false);
+                
+        	}
+        	
+        	//행삭제
+        	function fn_delRow(){
+        		try{
+	    			var dataListStr = grd_GridView.getDataList(); // return string type
+	    			var dataList = WebSquare.util.getComponentById( dataListStr );
+	    			
+	    			var chkIndex = dl_selectProgram.getMatchedIndex( "chk" ,1 ,true ,0 ,dl_selectProgram.getRowCount() );
+	    			if(chkIndex.length > 0){
+		 				for(var i=0; i<chkIndex.length; i++){
+		 					dataList.deleteRow( chkIndex[i] );
+		 				}
+	 				}else{
+	 					alert("삭제할 데이터를 체크하십시오.");
+	 				}
+	 			}catch(e){
+	 			}finally{
+	 				dataList = null; //메모리 초기화
+	 			}
+        	}
+        	
+        	// 엑셀다운로드 (API문서 참고)
+			function fn_exportExcel(grdViewObj, options, infoArr) {
+			    grdViewObj.advancedExcelDownload(options, infoArr);
+			};
+			
+        	/**************************************************************************
+			 * 07. 사용자 정의 함수 구현 영역
+			***************************************************************************/
+        				
+		]]></script>
+    </head>
+    <body>
+    	<xf:group id="group16" style="" class="contents">
+    		<xf:group id="group17" style="" class="titleBar">
+    			<w2:textbox id="txb_Title" style="" class="title02" label='&lt;span style="color:#04a8b7"&gt;프로그램&lt;/span&gt; 관리'></w2:textbox>
+    			<w2:textbox id="textbox9" style="" class="my" label=""></w2:textbox>
+    			<xf:group id="group18" style="" class="pgBox">
+    				<xf:group id="grp_PageId" style="" class="title_pgid">
+    					<xf:group id="grp_PageIdSub" style="" class="title_pgid_right">
+    						<w2:textbox id="Txb_LabelId" style="" class="" label="Page ID : " tagname="span"></w2:textbox>
+    						<w2:textbox id="Txb_Id" style="" class="dt" label="GLEUDL396732227JF" tagname="span"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="group25" style="" class="dtb">
+    			<xf:group id="group26" style="" class="dtb_row">
+    				<xf:group id="group27" style="" class="dtb_column">
+    					<w2:textbox id="txb_Syscd" class="dtb_tt" label="시스템구분"></w2:textbox>
+    					<xf:group id="group33" style="" class="iptBox">
+    						<xf:select1 id="slb_Syscd" disabledClass="w2selectbox_disabled" appearance="minimal"
+    							style="width:124px;height:21px;" direction="auto" chooseOption="true" displayMode="label" class="select" allOption=""
+    							submenuSize="auto" disabled="false" ref="data:dataMap1.sys_cd" chooseOptionLabel="">
+    							<xf:choices>
+    								<xf:itemset nodeset="data:dl_systemCode">
+    									<xf:label ref="fnprt_cd_nm"></xf:label>
+    									<xf:value ref="fnprt_cd"></xf:value>
+    								</xf:itemset>
+    							</xf:choices>
+    						</xf:select1>
+    						<xf:group id="group38" style="" class="dtb_column">
+    							<w2:textbox id="txb_PrgNm" class="dtb_tt" label="프로그램명" style="left:5px;top:0px;"></w2:textbox>
+    							<xf:group id="group39" style="" class="iptBox">
+    								<xf:input id="ipb_ProgramNM" style="width:120px;margin-left:5px;" class="ipt" ref="data:dataMap1.prgr_nm"></xf:input>
+    							</xf:group>
+    							<xf:group id="group40" style="" class="dtb_column">
+    								<w2:textbox id="txb_PrgPth" class="dtb_tt" label="프로그램경로" style="left:0px;top:0px;"></w2:textbox>
+    								<xf:group id="group41" style="" class="iptBox">
+    									<xf:input id="ipb_ProgramPath" style="width:120px;margin-left:0px;" class="ipt"
+    										ref="data:dataMap1.file_path">
+    									</xf:input>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="group30" style="" class="iptBox"></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="group28" style="" class="btn_box" adaptiveThreshold="">
+    				<w2:anchor id="anc_Search" style="" class="anc_trans mr5">
+    					<xf:label>조회하기</xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[ 
+    					fn_search();
+    					]]></script>
+    				</w2:anchor>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="defaultbox" id="group47" style="">
+    			<xf:group class="totalbox" id="group48" style="">
+    				<xf:group class="total" id="group49" style="">
+    					<xf:group class="strong" id="group50" style="">
+    						<w2:textbox class="strong_right" id="txb_Count" label="0" style="" tagname="strong"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<w2:textbox class="sear" id="txb_Searched" label="건이 조회되었습니다." style=""></w2:textbox>
+    				<xf:group class="fr" id="group51">
+    					<w2:anchor class="btn_excel" id="anchor12">
+    						<xf:label><![CDATA[엑셀다운로드]]></xf:label>
+    					</w2:anchor>
+    				</xf:group>
+    				<xf:group class="defaultbox" id="group57" style="">
+    					<xf:group class="fr" id="group58" style="">
+    						<w2:anchor class="anc_trans mr5" id="anc_Save" style="">
+    							<xf:label><![CDATA[저 장]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_save();
+    							]]></script>
+    						</w2:anchor>
+    						<w2:anchor class="anc_trans mr5" id="anc_AddRow" style="">
+    							<xf:label><![CDATA[행추가]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[
+    							fn_addRow();
+    							]]></script>
+    						</w2:anchor>
+    						<w2:anchor class="anc_trans" id="anc_DelRow" style="">
+    							<xf:label><![CDATA[행삭제]]></xf:label>
+    							<script ev:event="onclick" type="javascript"><![CDATA[ 
+    							fn_delRow();
+    							]]></script>
+    						</w2:anchor>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<w2:gridView id="grd_GridView" dataList="dl_selectProgram" autoFit="allColumn"
+    			style="position: relative ;height:380px;left:0px;top:5px;" visibleRowNum="15" useShiftKey="false" scrollByColumn="false"
+    			class="cm_grid" fixedColumnWithHidden="true" rowStatusHeaderValue="상태" rowStatusVisible="true">
+    			<w2:header id="header4" style="">
+    				<w2:row id="row7" style="">
+    					<w2:column blockSelect="false" id="column55" style="height:20px" inputType="checkbox" width="31" value=""></w2:column>
+    					<w2:column id="column53" blockSelect="false" style="height:20px" width="120" inputType="text" value="시스템코드(나중에지워3)"></w2:column>
+    					<w2:column id="column48" blockSelect="false" style="height:20px" width="120" inputType="text" value="프로그램ID"></w2:column>
+    					<w2:column id="column46" blockSelect="false" style="height:20px" width="120" inputType="text" value="프로그램명"></w2:column>
+    					<w2:column id="column44" blockSelect="false" style="height:20px" width="120" inputType="text" value="프로그램경로"></w2:column>
+    					<w2:column id="column42" blockSelect="false" style="height:20px" width="120" inputType="text" value="파일명"></w2:column>
+    					<w2:column id="column40" blockSelect="false" style="height:20px" width="120" inputType="text" value="사용여부"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody4" style="">
+    				<w2:row id="row8" style="">
+    					<w2:column blockSelect="false" id="chk" style="height:20px" inputType="checkbox" width="31" falseValue="0" trueValue="1"></w2:column>
+    					<w2:column id="sys_cd" blockSelect="false" style="height:20px" width="120" inputType="text" disabled="true" readOnly=""></w2:column>
+    					<w2:column id="prgr_cd" blockSelect="false" style="height:20px" width="120" inputType="text" disabled="true"></w2:column>
+    					<w2:column id="prgr_nm" blockSelect="false" style="height:20px" width="120" inputType="text"></w2:column>
+    					<w2:column id="file_path" blockSelect="false" style="height:20px" width="120" inputType="text"></w2:column>
+    					<w2:column id="file_nm" blockSelect="false" style="height:20px" width="120" inputType="text"></w2:column>
+    					<w2:column id="use_yn" blockSelect="false" style="height:20px" width="120" inputType="select" allOption=""
+    						chooseOption="">
+    						<w2:choices>
+    							<w2:item>
+    								<w2:label><![CDATA[Y]]></w2:label>
+    								<w2:value><![CDATA[Y]]></w2:value>
+    							</w2:item>
+    							<w2:item>
+    								<w2:label><![CDATA[N]]></w2:label>
+    								<w2:value><![CDATA[N]]></w2:value>
+    							</w2:item>
+    						</w2:choices>
+    					</w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<w2:wframe id="wfm_Common" style="position: relative;width: 0px;height: 0px;" src="/ui/common/frame/commonCodeFrame.xml"></w2:wframe>
+    	</xf:group>
+    </body>
+</html>

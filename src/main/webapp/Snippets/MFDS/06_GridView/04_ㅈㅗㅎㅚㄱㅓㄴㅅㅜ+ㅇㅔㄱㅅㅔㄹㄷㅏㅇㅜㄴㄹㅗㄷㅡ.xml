@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><xf:group id="group180" style="" class="defaultbox">
+	<xf:group id="group294" style="" class="totalbox">
+		<xf:group id="group182" style="" class="total">
+			<xf:group id="group293" style="" class="strong">
+				<w2:textbox id="textbox73" style="" class="strong_right" label="1000" tagname="strong">
+				</w2:textbox>
+			</xf:group>
+		</xf:group>
+		<w2:textbox id="textbox76" style="" class="sear" label="건이 조회되었습니다.">
+		</w2:textbox>
+		<xf:group id="group181" class="fr">
+			<w2:anchor id="anchor4" class="btn_excel">
+				<xf:label><![CDATA[엑셀다운로드]]></xf:label>
+</w2:anchor>
+</xf:group>
+	</xf:group>
+</xf:group>
+</body>
+</html>

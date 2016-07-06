@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <w2:userPalette defaultIcon="mix.png" desc=""/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+        </xf:model>
+        <script type="javascript"><![CDATA[ ]]></script>
+    </head>
+    <body><w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" class="Cal" displaymessage="true" id="inputCalendar8" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true" style="width:100px;" weekStartsOn="0">
+</w2:inputCalendar>
+<w2:textbox class="tilde" id="textbox138" label="~" style="">
+</w2:textbox>
+<w2:inputCalendar calendarImage="" calendarImageOver="" calendarValueType="yearMonthDate" class="Cal" displaymessage="true" id="inputCalendar9" invalidMessageFunc="fn_invalidMessage(textbox13)" mandatory="true" style="width:100px;" weekStartsOn="0">
+</w2:inputCalendar>
+</body>
+</html>

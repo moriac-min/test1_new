@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/common/css/base.css" type="text/css"?>
+<?xml-stylesheet href="/common/css/layout.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:buildDate/>
+        <xf:model>
+        	<xf:instance>
+        		<data xmlns="" />
+        	</xf:instance>
+        	<w2:dataCollection>
+        		<w2:dataMap baseNode="map" id="dataMap1" style="">
+        			<w2:keyInfo>
+        				<w2:key id="sabun" name="sabun" dataType="text"></w2:key>
+        				<w2:key id="name" name="name" dataType="text"></w2:key>
+        				<w2:key id="dept" name="dept" dataType="text"></w2:key>
+        				<w2:key id="ipsa_date" name="ipsa_date" dataType="text"></w2:key>
+        				<w2:key id="sex" name="sex" dataType="text"></w2:key>
+        				<w2:key id="marry" name="marry" dataType="text"></w2:key>
+        				<w2:key id="salary" name="salary" dataType="text"></w2:key>
+        				<w2:key id="smemo" name="smemo" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList id="dataList1" baseNode="list" style="" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="sabun" name="sabun" dataType="text"></w2:column>
+        				<w2:column id="name" name="name" dataType="text"></w2:column>
+        				<w2:column id="dept" name="dept" dataType="text"></w2:column>
+        				<w2:column id="ipsa_date" name="ipsa_date" dataType="text"></w2:column>
+        				<w2:column id="sex" name="sex" dataType="text"></w2:column>
+        				<w2:column id="marry" name="marry" dataType="text"></w2:column>
+        				<w2:column id="salary" name="salary" dataType="text"></w2:column>
+        				<w2:column id="smemo" name="smemo" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<xf:submission id="updateSubmission" ref="data:json,{id:'dataMap1',key:'educationSampleVO'}" 
+        		target='data:json,[{"id":"dataList1","key":"infoList"}]' action="/education/sample/updateEduSawonList.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        		
+        			// response alert
+        			alert("response data =============== " + JSON.stringify(e.responseJSON));
+
+        			// 부모 함수 호출
+        			fv_oParent.fn_setMainGrid(JSON.stringify(e.responseJSON));
+        			
+        		 ]]></script>
+        	</xf:submission>
+        	<xf:submission id="insertSubmission" ref="data:json,{id:'dataMap1',key:'educationSampleVO'}" 
+        		target='data:json,[{"id":"dataList1","key":"infoList"}]' action="/education/sample/insertEduSawonList.do"
+        		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="">
+        		<script type="javascript" ev:event="xforms-submit-done"><![CDATA[
+        		
+        			// response alert
+        			alert("response data =============== " + JSON.stringify(e.responseJSON));
+
+        			// 부모 함수 호출
+        			fv_oParent.fn_setMainGrid(JSON.stringify(e.responseJSON));
+        			
+        		 ]]></script>
+        	</xf:submission>
+        </xf:model>
+        <script type="javascript"><![CDATA[
+        
+        	requires("uiplugin.popup"); // 팝업 사용 시 반드시 정의
+
+			// 팝업의 부모 객체
+			var fv_oParent = opener || parent;
+			
+			var fv_strPopupId = WebSquare.net.getParameter("popupID");
+
+			// 부모에서 넘겨준 데이터 받기
+			var fv_strPopup = WebSquare.util.getPopupParam();
+			
+			// 받은 데이터 객체화
+			var fv_oParam = JSON.parse(fv_strPopup);
+			
+			// 콜백함수 지정 (message 팝업으로 넘길 콜백 지정 가능)
+			var fv_strCloseCallbackFncName = fv_oParam.closeCallbackFncName;
+			
+//			alert("USERP01 콜백함수: "+fv_strCloseCallbackFncName);
+			
+			var fv_oRowData = fv_oParam.rowData;
+			
+			// 부모로 부터 받은 데이터 dataMap에 set
+			dataMap1.setJSON(fv_oRowData, false);
+			
+			
+			// 저장 이미지 클릭 콜백함수
+			function fn_reSearch(){
+				$w.executeSubmission( "updateSubmission" );
+				fv_oParent.$w.closePopup(fv_strPopupId);
+			}
+			
+			
+			// 입력 버튼 함수
+			function fn_insertData(){
+        		$w.executeSubmission( "insertSubmission" );
+        		fv_oParent.$w.closePopup(fv_strPopupId);
+        	}
+        	
+			
+			// 팝업 오픈
+			function gfn_openPopup(id, url, options) {
+			    var width = options.width || "400";
+			    var height = options.height || "400";
+			
+			    var left = options.left || -1;
+			    var top = options.top || -1;
+			    
+			    if (left > 0) {
+			        left = left + (self.screenLeft || window.screenX);
+			    } else {
+			        left = Math.floor((document.body.clientWidth - width) / 2);
+			    }
+			    if (top > 0) {
+			        top = top + (self.screenTop || window.screenY);
+			    } else {
+			        top = Math.floor((document.body.clientHeight - height) / 2);
+			    }
+			    
+			    requires("uiplugin.popup");
+			    var options = {
+			        id : id,
+			        type : options.type || "litewindow", // window, litewindow
+			        width : width + "px",
+			        height : height + "px",
+			        top : top, // useIframe이 true인 경우 브라우져를 기준 false인 경우 모니터를 기준으로 한다.
+			        left : left,
+			        popupName : options.title || "", // useIframe : true시 popup 객체의 이름으로 popup 프레임의 표시줄에 나타납니다.
+			        modal : options.modal || false, // modal을 이용해서 뒤 쪽 배경을 동작하지 않도록 만들기 위한 인자 입니다. false이면 뒤쪽의 컴퍼넌트가 사용 가능합니다.
+			        useIFrame : options.useIFrame || false,// true : IFrame 을 사용하는 WebSquare popup / false: window.open 을 사용하는 popup
+			        style : "", // popup의 스타일을 지정합니다. 값이 있으면 left top width height는 적용되지 않습니다.
+			        resizable : options.resizable || false,
+			        status : false,
+			        menubar : false,
+			        scrollbars : options.scrollbar || false,
+			        title : options.title || false,
+			        xml : JSON.stringify(options.popupParam) || "", // popup에 넘길 xmlDocument의 string popup창에서 WebSquare.util.getPopupParam() api를 사용하여 가져올수 있습니다.
+			        srcData : "", // popup 객체의 type 이 window 일 때 Parent 에서 넘길 xpath
+			        destData : "" // popup 객체의 type 이 window 일 때 popup 에 설정할 xpath
+			    };
+			
+			    try {
+			        WebSquare.util.openPopup(url, options);
+			    } catch(e) { 
+			        $w.log("[gfn_openPopup] Exception :: " + e.message);
+			    } finally {
+			        options = null;
+			    }
+			};
+			
+         ]]></script>
+    </head>
+    <body>
+    	<xf:group id="group1" style="" class="contents">
+    		<xf:group id="group24" style="" class="titleBar_mb">
+    			<w2:textbox id="textbox22" style="" class="title04" label="교육 팝업1"></w2:textbox>
+    		</xf:group>
+    		<xf:group id="group28" style="" class="defaultbox">
+    			<xf:group id="group29" style="" class="fr">
+    				<w2:anchor id="anchor9" style="" class="anc_trans mr5">
+    					<xf:label><![CDATA[저 장]]></xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    					
+    						var modifiedDataLength = dataMap1.getModifiedIndex().length;
+    						
+    						if(modifiedDataLength > 0){
+	    						var message = "저장하시겠습니까?";
+				   				var messageType = "Confirm";
+				   				
+				   			    var options = {
+							        title : "저장 팝업1",
+							        popupParam : {"message" : message, "closeCallbackFncName" : fv_strCloseCallbackFncName},
+							        modal : true,
+							        useIframe: true,
+							        width : 300,
+							        height : 300
+						    	};
+						    	// 메시지팝업 오픈
+						    	gfn_openPopup(messageType, "/xml/message1.xml", options);
+    						}else{
+    							alert("수정된 데이터가 없습니다.");
+    						}
+    					
+    					 ]]></script>
+    				</w2:anchor>
+    				<w2:anchor id="anchor10" style="margin-left:0px;" class="anc_trans">
+    					<xf:label><![CDATA[저장 후 계속]]></xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    					
+    						// 저장 후 계속
+    					
+    					 ]]></script>
+    				</w2:anchor>
+    				<w2:anchor id="anchor16" style="margin-left:5px" class="anc_trans">
+    					<xf:label><![CDATA[취 소]]></xf:label>
+    					<script ev:event="onclick" type="javascript"><![CDATA[
+    					
+    						fv_oParent.$w.closePopup(fv_strPopupId);
+    					
+    					 ]]></script>
+    				</w2:anchor>
+    			</xf:group>
+    		</xf:group>
+    		<table summary="" id="table1" style="" class="w2tb tb">
+    			<xf:group tagname="colgroup">
+    				<xf:group style="width:25.00%" tagname="col"></xf:group>
+    				<xf:group style="width:25.00%" tagname="col"></xf:group>
+    				<xf:group style="width:25.00%" tagname="col"></xf:group>
+    				<xf:group style="width:25.00%" tagname="col"></xf:group>
+    			</xf:group>
+    			<xf:group style="height:30px;" tagname="tr"><xf:group class="w2tb_th th" tagname="th" style="text-align:center;">사번</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:input class="ipt" id="input7" style="" ref="data:dataMap1.sabun"></xf:input>
+    				</xf:group>
+    				<xf:group class="w2tb_th th" tagname="th" style="text-align:center;">성명</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:input class="ipt" id="input8" style="" ref="data:dataMap1.name"></xf:input>
+    				</xf:group></xf:group><xf:group style="height:30px;" tagname="tr">
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">부서코드</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:input id="input3" ref="data:dataMap1.dept" style="" class="ipt"></xf:input>
+    				</xf:group>
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">입사일자</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<w2:inputCalendar id="inputCalendar1" calendarImageOver="" ref="data:dataMap1.ipsa_date"
+    						calendarValueType="yearMonthDate" style="width:100px;" weekStartsOn="0" class="Cal" calendarImage="">
+    					</w2:inputCalendar>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="height:30px;" tagname="tr">
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">성별</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:group id="group31" style="" class="iptBox"></xf:group>
+    					<xf:select1 id="radio2" ref="data:dataMap1.sex" selectedIndex="-1" cols="2" appearance="full" style="" class="radio"
+    						rows="">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label>남</xf:label>
+    								<xf:value><![CDATA[0]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[여]]></xf:label>
+    								<xf:value><![CDATA[1]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">결혼유무</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:select1 id="radio1" ref="data:dataMap1.marry" selectedIndex="-1" cols="2" appearance="full"
+    						style="margin-left:0px;" class="radio" rows="">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label>미혼</xf:label>
+    								<xf:value><![CDATA[0]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[기혼]]></xf:label>
+    								<xf:value><![CDATA[1]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="height:30px;" tagname="tr">
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">월급</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<xf:input id="input4" ref="data:dataMap1.salary" style="" class="ipt"></xf:input>
+    				</xf:group>
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th"></xf:group>
+    				<xf:group class="w2tb_td td" tagname="td"></xf:group>
+    			</xf:group>
+    			<xf:group style="height:30px;" tagname="tr">
+    				<xf:group style="text-align:center;" class="w2tb_th th" tagname="th">비고</xf:group>
+    				<xf:group class="w2tb_td td" tagname="td">
+    					<w2:attributes>
+    						<w2:colspan>3</w2:colspan>
+    						<w2:rowspan>1</w2:rowspan>
+    					</w2:attributes>
+    					<xf:input id="input6" ref="data:dataMap1.smemo" style="" class="ipt"></xf:input>
+    				</xf:group>
+    			</xf:group>
+    		</table>
+    	</xf:group>
+    </body>
+</html>
